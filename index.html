@@ -1085,22 +1085,33 @@ function nvInit() {
   var winRet = base.nav ? (winPnl / base.nav) * 100 : 0;
   var wname = rng === 'today' ? '今日' : rng === 'week' ? '本周'
     : rng === '30' ? '近 30 天' : rng === '60' ? '近 60 天' : '累计';
-  // 折线图与卡片同口径: 把每个点改画成【相对窗口基准】的 P&L / 收益率,
-  // 使曲线起点 = 0、终点 = 窗口 P&L (如「今日 +9,000」), 与该区间卡片严格一致。
-  // 「全部」基准 = 成本基准, 故仍等于累计口径, 行为不变。
+  // 折线图与卡片同口径: 把每个点改画成 P&L / 收益率。
+  // 「全部」: 用数据源自带的每点 pnl (= NAV − 累计投入 invested), 早期资金分批到账
+  //   按实际投入衡量, 曲线从首日 +7,354 自然画起(而非强制对 75 万成本基准砸出一个 −32 万深坑)。
+  //   末点 invested=750k, 故与「累计 P&L (NAV−成本基准)」卡片一致。
+  // 今天/本周/近30/60: rebase 到窗口基准 (起点=0, 终点=窗口 P&L)。
   var bNav = base.nav || 0;
   var isAll = (rng === 'all');
   var cs = s.map(function (p) {
-    var rel = isNum(p.nav) ? (p.nav - bNav) : 0;
+    var rel, denom;
+    if (isAll) {
+      rel = isNum(p.pnl) ? p.pnl : (isNum(p.nav) && isNum(p.invested) ? p.nav - p.invested : 0);
+      denom = isNum(p.invested) ? p.invested : bNav;
+    } else {
+      rel = isNum(p.nav) ? (p.nav - bNav) : 0;
+      denom = bNav;
+    }
     return { date: p.date, intraday: p.intraday, d: p.d, nav: p.nav,
              invested: p.invested, cost_basis: p.cost_basis,
-             pnl: rel, ret: bNav ? rel / bNav * 100 : 0 };
+             pnl: rel, ret: denom ? rel / denom * 100 : 0 };
   });
-  // 今天 / 本周: 基准(昨收/上周末)是快照值, 不在盘中序列里 -> 在曲线前端插一个 pnl=0 的锚点,
-  // 让折线真正【从 0 位起点】画起。近 30/60/全部: 序列起点本身就是基准, 无需锚点。
+  // 今天/本周: 基准(昨收/上周末)是快照值, 不在盘中序列里 -> 在曲线前端插一个 pnl=0 的锚点,
+  // 让折线真正【从 0 位起点】画起。近 30/60: 序列起点本身就是基准, 无需锚点。
+  // 「全部」: 用 NAV−累计投入, 首点即真实起点, 也不插锚点。
   if ((rng === 'today' || rng === 'week') && bNav) {
-    cs = [{ date: base.label.replace(/基准\s*/,'').trim() || base.label, intraday: false, d: '',
-            nav: bNav, invested: bNav, cost_basis: bNav, pnl: 0, ret: 0 }].concat(cs);
+    var aLabel = base.label.replace(/基准\s*/,'').trim() || base.label;
+    cs = [{ date: aLabel, intraday: false, d: '', nav: bNav, invested: bNav,
+            cost_basis: bNav, pnl: 0, ret: 0 }].concat(cs);
   }
 
   nvDualChart('nav-chart-dual', cs, { short: (rng === 'today' || rng === 'week'),
@@ -1133,7 +1144,7 @@ function nvInit() {
   var m = NVS.meta || {};
   if (note) {
     var parts = [];
-    parts.push('口径：合并净值 = 证券市值+现金 + Blockchain 账户净值 + DX 净值。<b>四张卡片都只统计当前选中区间</b>，且前两张的基准随区间变化 —— <b>今天 = 昨收</b>、<b>本周 = 上周末收盘</b>、近 30/60 天 = <b>区间起点</b>、全部 = <b>成本基准 ' + hk(last.cost_basis) + '</b>；所以「今日 P&L」就是当天涨跌，不是全期累计。<b>折线画的是相对窗口基准的 P&L</b>（起点 = 0，终点 = 该区间卡片上的 P&L；「全部」= 累计口径，故等于成本基准起算）。长周期左右轴对称于 0 共用零轴，<b>今天 / 本周按区间自身范围定轴</b>（否则窄带数据会被压成平线）；右轴 % 按窗口基准净值线性换算，故其刻度只在期末精确（悬浮框给的是当时精确值）。');
+    parts.push('口径：合并净值 = 证券市值+现金 + Blockchain 账户净值 + DX 净值。<b>四张卡片都只统计当前选中区间</b>，且前两张的基准随区间变化 —— <b>今天 = 昨收</b>、<b>本周 = 上周末收盘</b>、近 30/60 天 = <b>区间起点</b>、全部 = <b>成本基准 ' + hk(last.cost_basis) + '</b>；所以「今日 P&L」就是当天涨跌，不是全期累计。<b>折线画的是 P&L</b>：今天 / 本周 / 近 30·60 天相对窗口基准（起点 = 0，终点 = 该区间卡片上的 P&L）；「全部」= <b>NAV − 累计投入</b>（每点按当时已到账资金衡量，早期资金分批到位，故是一路按实际增加的本金计盈亏，末点 = 累计 P&L，与卡片一致）。长周期左右轴对称于 0 共用零轴，<b>今天 / 本周按区间自身范围定轴</b>（否则窄带数据会被压成平线）；右轴 % 按窗口基准净值线性换算，故其刻度只在期末精确（悬浮框给的是当时精确值）。');
     parts.push('HL 入金：链上到账 USDC 折 HK$ 低于实际投入（差 ≈ HK$8,910 为 HKD→USDC 汇损 + 跨链桥费），已按入金节奏<b>等比平滑</b>计入成本，所以累计投入末点正好等于 ' + hk(last.cost_basis) + '。');
     parts.push('DX 自 <b>2026-06-05</b> 资金到位日起并入（成本 HK$25,000）；其历史段按当前净值平推（无逐日估值，权重约 3%，不影响末点）。');
     if (m.hl_err_pct != null) {
