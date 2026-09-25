@@ -221,6 +221,7 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
       <a data-v="closed"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">清仓战绩</span><span class="cnt" id="c-closed"></span></a>
       <div class="grp">决策</div>
       <a data-v="rebalance"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 8.5h13l-3.2-3.2M20 15.5H7l3.2 3.2"/></svg></span><span class="lbl">Rebalance 再平衡</span><span class="cnt" id="c-reb"></span></a>
+      <a data-v="fire"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">FIRE 财富自由</span><span class="cnt" id="c-fire"></span></a>
       <a data-v="risk"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.5l9 15.5H3z"/><path d="M12 9.5v4.5M12 17h.01"/></svg></span><span class="lbl">Risk 风险</span><span class="cnt" id="c-risk"></span></a>
       <a data-v="discipline"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 6.5L9.5 17.5 4 12"/></svg></span><span class="lbl">Discipline 纪律</span><span class="cnt" id="c-disc"></span></a>
       <a data-v="resis"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3.5h12M6 8h12M6 12.5h12M6 17h12M6 21.5h12"/><path d="M18.5 3.5h2M18.5 8h2M18.5 12.5h2M18.5 17h2M18.5 21.5h2"/></svg></span><span class="lbl">阻力位分析</span><span class="cnt" id="c-resis"></span></a>
@@ -543,6 +544,54 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
         <b>看哪里最危险：</b>当<a style="color:var(--blue6)">最近支撑</a>与持仓的<b>清算价</b>重合或落在其下时最危险；最近阻力在清算价上方则是安全参照。方法只是量价统计，不是买卖建议。</div></div>
     <div class="sec notes-sec">说明与口径</div>
     <div class="card notes" id="notes-v-resis"></div>
+    </section>
+
+    <!-- ⑨ FIRE 财富自由 (决策) -->
+    <section class="view" id="v-fire">
+      <div class="mhead"><h1>FIRE 财富自由预估</h1><span class="d" id="fireGen"></span>
+        <span style="flex:1"></span><span class="badge blue"><span class="dot"></span>4% 法则 · 定投复利 · 硅谷居士思路</span></div>
+
+      <div class="grid kpis" id="fire-kpis" style="margin-bottom:16px"></div>
+
+      <div class="grid rb-grid">
+        <div class="card">
+          <div class="ttl">参数（全部可调，改动即重算）</div>
+          <div class="rb-row"><span class="nm">可投资金融资产起点 <span class="dim">（HK$）</span></span>
+            <input type="number" id="fire-p" step="10000" min="0"></div>
+          <div class="rb-row"><span class="nm">每月定投 <span class="dim">（HK$）</span></span>
+            <input type="number" id="fire-m" step="1000" min="0"></div>
+          <div class="rb-row"><span class="nm">年化回报率（名义）</span>
+            <input type="range" id="fire-r" min="0" max="20" step="0.1" value="10" style="flex:1.2">
+            <b id="fire-r-v" style="width:52px;text-align:right;font-variant-numeric:tabular-nums">10.0%</b></div>
+          <div class="rb-row"><span class="nm">4% 法则取款率</span>
+            <input type="range" id="fire-w" min="1" max="8" step="0.1" value="4" style="flex:1.2">
+            <b id="fire-w-v" style="width:52px;text-align:right;font-variant-numeric:tabular-nums">4.0%</b></div>
+          <div class="rb-row"><span class="nm">目标年生活开支 <span class="dim">（HK$）</span></span>
+            <input type="number" id="fire-s" step="10000" min="0"></div>
+          <div class="rb-note">
+            口径：<b>目标资产 = 目标年开支 ÷ 取款率</b>（取款率 4% ⇒ 目标 = 年开支 × 25）。
+            预估到账年份按<b>定投逐月复利</b>推算：<code>A(t)=P·(1+r)⁾ᵗ + 12·M·[(1+r)⁾ᵗ−1]/r</code>（<code>r</code>=年化名义收益率）。
+            标注「已达成」即当前资产已 ≥ 目标。<b>括号里是同龄同业参考</b>。
+          </div>
+        </div>
+        <div class="card">
+          <div class="ttl">逐年里程碑 <span>· 从今年到达成 · 名义价值</span></div>
+          <div style="overflow-x:auto">
+            <table class="rb-t"><colgroup><col style="width:24%"><col style="width:30%"><col style="width:23%"><col style="width:23%"></colgroup>
+              <thead><tr><th>年份</th><th>年龄</th><th>预估资产</th><th>距目标</th></tr></thead>
+              <tbody id="fire-milestones"></tbody></table>
+          </div>
+          <div class="rb-sum" id="fire-sum"></div>
+          <div class="rb-hint" id="fire-hint"></div>
+        </div>
+      </div>
+
+      <div class="sec">72 法则（翻倍要几年） <small data-notes>翻倍年数 = 72 ÷ 年化收益率。常被高估的真相：这是<b>名义</b>翻倍，扣 3% 通胀后实际购买力翻倍要更久。</small></div>
+      <div class="card">
+        <div class="fire-rules" style="display:flex;gap:10px;flex-wrap:wrap" id="fire-rule72"></div>
+      </div>
+    <div class="sec notes-sec">说明与口径</div>
+    <div class="card notes" id="notes-v-fire"></div>
     </section>
 
     <!-- ⑥ 交易日志 已在 Risk 之后渲染 -->
@@ -1085,22 +1134,33 @@ function nvInit() {
   var winRet = base.nav ? (winPnl / base.nav) * 100 : 0;
   var wname = rng === 'today' ? '今日' : rng === 'week' ? '本周'
     : rng === '30' ? '近 30 天' : rng === '60' ? '近 60 天' : '累计';
-  // 折线图与卡片同口径: 把每个点改画成【相对窗口基准】的 P&L / 收益率,
-  // 使曲线起点 = 0、终点 = 窗口 P&L (如「今日 +9,000」), 与该区间卡片严格一致。
-  // 「全部」基准 = 成本基准, 故仍等于累计口径, 行为不变。
+  // 折线图与卡片同口径: 把每个点改画成 P&L / 收益率。
+  // 「全部」: 用数据源自带的每点 pnl (= NAV − 累计投入 invested), 早期资金分批到账
+  //   按实际投入衡量, 曲线从首日 +7,354 自然画起(而非强制对 75 万成本基准砸出一个 −32 万深坑)。
+  //   末点 invested=750k, 故与「累计 P&L (NAV−成本基准)」卡片一致。
+  // 今天/本周/近30/60: rebase 到窗口基准 (起点=0, 终点=窗口 P&L)。
   var bNav = base.nav || 0;
   var isAll = (rng === 'all');
   var cs = s.map(function (p) {
-    var rel = isNum(p.nav) ? (p.nav - bNav) : 0;
+    var rel, denom;
+    if (isAll) {
+      rel = isNum(p.pnl) ? p.pnl : (isNum(p.nav) && isNum(p.invested) ? p.nav - p.invested : 0);
+      denom = isNum(p.invested) ? p.invested : bNav;
+    } else {
+      rel = isNum(p.nav) ? (p.nav - bNav) : 0;
+      denom = bNav;
+    }
     return { date: p.date, intraday: p.intraday, d: p.d, nav: p.nav,
              invested: p.invested, cost_basis: p.cost_basis,
-             pnl: rel, ret: bNav ? rel / bNav * 100 : 0 };
+             pnl: rel, ret: denom ? rel / denom * 100 : 0 };
   });
-  // 今天 / 本周: 基准(昨收/上周末)是快照值, 不在盘中序列里 -> 在曲线前端插一个 pnl=0 的锚点,
-  // 让折线真正【从 0 位起点】画起。近 30/60/全部: 序列起点本身就是基准, 无需锚点。
+  // 今天/本周: 基准(昨收/上周末)是快照值, 不在盘中序列里 -> 在曲线前端插一个 pnl=0 的锚点,
+  // 让折线真正【从 0 位起点】画起。近 30/60: 序列起点本身就是基准, 无需锚点。
+  // 「全部」: 用 NAV−累计投入, 首点即真实起点, 也不插锚点。
   if ((rng === 'today' || rng === 'week') && bNav) {
-    cs = [{ date: base.label.replace(/基准\s*/,'').trim() || base.label, intraday: false, d: '',
-            nav: bNav, invested: bNav, cost_basis: bNav, pnl: 0, ret: 0 }].concat(cs);
+    var aLabel = base.label.replace(/基准\s*/,'').trim() || base.label;
+    cs = [{ date: aLabel, intraday: false, d: '', nav: bNav, invested: bNav,
+            cost_basis: bNav, pnl: 0, ret: 0 }].concat(cs);
   }
 
   nvDualChart('nav-chart-dual', cs, { short: (rng === 'today' || rng === 'week'),
@@ -1133,7 +1193,7 @@ function nvInit() {
   var m = NVS.meta || {};
   if (note) {
     var parts = [];
-    parts.push('口径：合并净值 = 证券市值+现金 + Blockchain 账户净值 + DX 净值。<b>四张卡片都只统计当前选中区间</b>，且前两张的基准随区间变化 —— <b>今天 = 昨收</b>、<b>本周 = 上周末收盘</b>、近 30/60 天 = <b>区间起点</b>、全部 = <b>成本基准 ' + hk(last.cost_basis) + '</b>；所以「今日 P&L」就是当天涨跌，不是全期累计。<b>折线画的是相对窗口基准的 P&L</b>（起点 = 0，终点 = 该区间卡片上的 P&L；「全部」= 累计口径，故等于成本基准起算）。长周期左右轴对称于 0 共用零轴，<b>今天 / 本周按区间自身范围定轴</b>（否则窄带数据会被压成平线）；右轴 % 按窗口基准净值线性换算，故其刻度只在期末精确（悬浮框给的是当时精确值）。');
+    parts.push('口径：合并净值 = 证券市值+现金 + Blockchain 账户净值 + DX 净值。<b>四张卡片都只统计当前选中区间</b>，且前两张的基准随区间变化 —— <b>今天 = 昨收</b>、<b>本周 = 上周末收盘</b>、近 30/60 天 = <b>区间起点</b>、全部 = <b>成本基准 ' + hk(last.cost_basis) + '</b>；所以「今日 P&L」就是当天涨跌，不是全期累计。<b>折线画的是 P&L</b>：今天 / 本周 / 近 30·60 天相对窗口基准（起点 = 0，终点 = 该区间卡片上的 P&L）；「全部」= <b>NAV − 累计投入</b>（每点按当时已到账资金衡量，早期资金分批到位，故是一路按实际增加的本金计盈亏，末点 = 累计 P&L，与卡片一致）。长周期左右轴对称于 0 共用零轴，<b>今天 / 本周按区间自身范围定轴</b>（否则窄带数据会被压成平线）；右轴 % 按窗口基准净值线性换算，故其刻度只在期末精确（悬浮框给的是当时精确值）。');
     parts.push('HL 入金：链上到账 USDC 折 HK$ 低于实际投入（差 ≈ HK$8,910 为 HKD→USDC 汇损 + 跨链桥费），已按入金节奏<b>等比平滑</b>计入成本，所以累计投入末点正好等于 ' + hk(last.cost_basis) + '。');
     parts.push('DX 自 <b>2026-06-05</b> 资金到位日起并入（成本 HK$25,000）；其历史段按当前净值平推（无逐日估值，权重约 3%，不影响末点）。');
     if (m.hl_err_pct != null) {
@@ -1474,7 +1534,7 @@ function trInit(s){
     fourRender();
   });
 })();
-var VIEWS=['cockpit','holdings','closed','rebalance','risk','discipline','resis','trades','notes'];
+var VIEWS=['cockpit','holdings','closed','rebalance','risk','discipline','resis','fire','trades','notes'];
 function showView(v){
   if(VIEWS.indexOf(v)<0) v='cockpit';
   VIEWS.forEach(function(x){
@@ -1847,12 +1907,140 @@ function render(s){
   rbInit(s);
   rkInit(s);
   trInit(s);
+  fireInit(s);
   var cr=document.getElementById('c-risk');
   if(cr){var mc=(s.margin_call||[]).length; cr.textContent=mc?mc+' 提醒':'—';}
   var ct=document.getElementById('c-tr');
   if(ct){var tr=(s.trades||[]).length; ct.textContent=tr?tr+' 笔':'—';}
 }
 function BUCKLBL(k){return LBL[k]||k;}
+
+/* ── FIRE 财富自由预估 (决策, 硅谷居士思路: 4%法则 + 定投复利 + 72法则) ──
+   数据全部前端计算, 不落盘。起点默认用快照 NAV(可投金融资产), 但用户可改成更宽/窄的口径。
+
+   核心公式(按月复利):
+     目标资产 T = 目标年开支 S ÷ 取款率 w   (w=4% ⇒ T=S×25)
+     A(y) = P·(1+rm)^(12y) + M·[((1+rm)^(12y)−1)/rm]
+       P=起点资产, M=每月定投, rm=月利率=r/12, y=年数
+   达成年份: 最小 y 使 A(y) ≥ T。 */
+var FIRE={p:0,m:0,r:10,w:4,s:0,age:27,ready:false};
+var FIRE_DEFAULTS={m:20000,s:360000};           // 月投 / 目标年开支 的默认参考(用户可改, 非写死)
+function fireTgt(){ return FIRE.w>0 ? FIRE.s/(FIRE.w/100) : 0; }
+function fireAmt(y){   // y 年后名义资产
+  var P=FIRE.p, M=FIRE.m, r=FIRE.r/100/12;      // r = 月利率
+  if(r===0) return P+M*12*y;
+  return P*Math.pow(1+r,12*y) + M*(((Math.pow(1+r,12*y))-1)/r);
+}
+function fireYear(){    // 达成所需年数(整数, 取第一年 >= 目标)
+  var T=fireTgt(); if(T<=0) return -1;
+  var y=0; while(fireAmt(y)<T && y<100) y++;
+  return y;             // 返回达成所需年数
+}
+function fireInit(s){
+  if(!s || FIRE.ready) return;
+  FIRE.age = (new Date().getFullYear()) - 1999;   // 1999 年出生
+  try{ var st=JSON.parse(localStorage.getItem('cockpit.fire')||'null'); if(st) FIRE.p=Number(st.p)||0; }catch(e){}
+  if(!FIRE.p) FIRE.p=Math.round(s.nav_hkd||0);
+  FIRE.m=FIRE_DEFAULTS.m; FIRE.s=FIRE_DEFAULTS.s;
+  fireRenderInputs(); fireRender(); FIRE.ready=true;
+}
+function fireRenderInputs(){
+  document.getElementById('fire-p').value=Math.round(FIRE.p);
+  document.getElementById('fire-m').value=Math.round(FIRE.m);
+  document.getElementById('fire-r').value=FIRE.r;
+  document.getElementById('fire-r-v').textContent=FIRE.r.toFixed(1)+'%';
+  document.getElementById('fire-w').value=FIRE.w;
+  document.getElementById('fire-w-v').textContent=FIRE.w.toFixed(1)+'%';
+  document.getElementById('fire-s').value=Math.round(FIRE.s);
+}
+function fireCards(){
+  var T=fireTgt(), y=fireYear(), now=new Date().getFullYear();
+  var hit=(T>0 && FIRE.p>=T);
+  var cards=[
+    {k:'目标资产', v:hk(T), d:'<span class="sub2">= 年开支 '+hk(FIRE.s)+' ÷ '+FIRE.w.toFixed(0)+'%'+(FIRE.w!==4?'':'（×25）')+'</span>', bad:''},
+    {k:'预计达成', v:(hit?'现在':'约 '+ (now+y)+' 年'), d:'<span class="sub2">'+(hit?'当前已 ≥ 目标 🎉':'还需 '+y+' 年 · '+(FIRE.age+y)+' 岁')+'</span>',
+      theClass:(hit?'up':'')},
+    {k:'名义年化', v:FIRE.r.toFixed(1)+'%', d:'<span class="sub2">定投 '+(FIRE.m>0?hk(FIRE.m)+'/月':'—')+' ｜ '+(FIRE.r/100>0?('翻倍 ≈ '+(72/FIRE.r).toFixed(1)+' 年'):'—')+'</span>'},
+    {k:'当前进度', v:(T>0?(FIRE.p/T*100).toFixed(0)+'%':'—'), d:'<span class="sub2">起点 '+(FIRE.p?hk(FIRE.p):'—')+' / '+hk(T)+'</span>', theClass:cls(FIRE.p-T)}
+  ];
+  return cards.map(function(c){return '<div class="card kpi"><div class="k">'+esc(c.k)+'</div>'+
+    '<div class="v '+(c.theClass||'')+'">'+esc(String(c.v))+'</div><div class="d">'+c.d+'</div></div>';}).join('');
+}
+function fireMilestones(){
+  var T=fireTgt(), now=new Date().getFullYear(), hitY=fireYear();
+  var rows=[], yrs=[];
+  // 展示今年起始每 5 年一档, 直到达成年份(最多到 40 年后)
+  var horizon=Math.max(35, hitY+1);
+  if(hitY<0) horizon=35;
+  for(var yy=0; yy<=horizon; yy+=5) yrs.push(yy);
+  rows=yrs.map(function(yy){
+    var A=fireAmt(yy), reached=(T>0 && A>=T);
+    return '<tr'+(reached?' style="background:var(--emf)"':'')+'><td>'+(now+yy)+'</td>'+
+      '<td>'+(FIRE.age+yy)+'</td>'+
+      '<td class="'+(reached?'up':'')+'">'+hk(Math.round(A))+(reached?' <span class="badge em" style="margin-left:4px"><span class="dot"></span>达成</span>':'')+'</td>'+
+      '<td class="dim">'+(T>0?(reached?'✓':'距目标 '+hk(Math.round(Math.max(0,T-A)))):'—')+'</td></tr>';
+  }).join('');
+  return rows;
+}
+function fire72(){
+  var r=FIRE.r; if(r<=0) return '<div class="card dim">年化回报率为 0，无法翻倍。</div>';
+  var show=r-3; // 扣 3% 通胀
+  return '<div class="card" style="flex:1;min-width:180px"><div class="k" style="color:var(--muted);font-size:12.5px;font-weight:500">'+esc('名义翻倍（'+r.toFixed(0)+'%）')+'</div>'+
+    '<div class="v" style="font-size:22px;font-weight:600">'+ (72/r).toFixed(1)+' 年</div>'+
+    '<div class="d dim" style="font-size:12px">本金每 '+(72/r).toFixed(0)+' 年 ×2</div></div>'+
+    '<div class="card" style="flex:1;min-width:180px"><div class="k" style="color:var(--muted);font-size:12.5px;font-weight:500">'+esc('实际翻倍（扣 3% 通胀 → '+(show>0?show.toFixed(0):'0')+'%）')+'</div>'+
+    '<div class="v" style="font-size:22px;font-weight:600">'+(show>0?(72/show).toFixed(1):'∞')+' 年</div>'+
+    '<div class="d dim" style="font-size:12px">购买力口径，真实达成更慢</div></div>';
+}
+function fireRender(){
+  var T=fireTgt(), y=fireYear(), now=new Date().getFullYear();
+  var kpi=document.getElementById('fire-kpis');
+  if(kpi) kpi.innerHTML=fireCards();
+  var tb=document.getElementById('fire-milestones');
+  if(tb && !fireNoDom()){
+    tb.innerHTML=fireMilestones()||'<tr><td colspan="4" class="dim" style="text-align:center;padding:22px">无数据</td></tr>';
+  }
+  var sum=document.getElementById('fire-sum');
+  if(sum){
+    sum.innerHTML='目标 <b>'+hk(T)+'</b>'+' ｜ '+((T>0&&FIRE.p>=T)?'✅ 已达成 (起点 ≥ 目标)':('预估 '+(y>=0?(''+(now+y)+' 年 ('+(FIRE.age+y)+' 岁)'):'—')+' 达成 ｜ 累计需投约 <b>'+hk(Math.round(FIRE.p+FIRE.m*12*Math.max(0,y)))+'</b>'))+
+      (FIRE.r>=10?' ｜ <span class="dim">10%+ 为标普长期名义均值偏乐观，建议按 8–9% 保守复核</span>':'');
+  }
+  var hint=document.getElementById('fire-hint');
+  if(hint){
+    var notes=[];
+    if(FIRE.p>0 && T>0 && FIRE.p/T*100<25) notes.push('<span class="dim">起点进度<25%，达成主要靠<b>月投复利</b>而非既有资产——多投/提高收益率最有效。</span>');
+    if(FIRE.w<4) notes.push('<span class="dim">取款率越低(如 3%)越保守(目标 = 年开支×33)，对抗长寿命与坏回报序列；>4% 则是主动提高风险。</span>');
+    if(FIRE.r>12) notes.push('<span class="warn">年化>12% 远超指数长期实际，请勿当作无风险假设——这是你 HL 杠杆仓才有的区间。</span>');
+    if(!notes.length) notes.push('<span class="dim">仅估名义口径，未计税费、通胀对购买力的侵蚀、以及 HL 杠杆仓的波动风险。</span>');
+    hint.innerHTML=notes.join('<br>');
+  }
+  var r72=document.getElementById('fire-rule72');
+  if(r72) r72.innerHTML=fire72();
+  var c=document.getElementById('c-fire'); if(c) c.textContent=(T>0&&FIRE.p>=T)?'已达成':(y>=0?(now+y):'—');
+}
+function fireNoDom(){ return !document.getElementById('fire-milestones'); }
+/* 事件绑定 */
+(function(){
+  var ids=['fire-p','fire-m','fire-s'];
+  ids.forEach(function(id){
+    var el=document.getElementById(id); if(!el) return;
+    el.addEventListener('input',function(){
+      FIRE[id==='fire-p'?'p':(id==='fire-m'?'m':'s')]=Number(this.value)||0;
+      fireRender();
+    });
+  });
+  var r=document.getElementById('fire-r'); if(r) r.addEventListener('input',function(){
+    FIRE.r=Number(this.value)||0;
+    var l=document.getElementById('fire-r-v'); if(l) l.textContent=FIRE.r.toFixed(1)+'%';
+    fireRender();
+  });
+  var w=document.getElementById('fire-w'); if(w) w.addEventListener('input',function(){
+    FIRE.w=Number(this.value)||0;
+    var l=document.getElementById('fire-w-v'); if(l) l.textContent=FIRE.w.toFixed(1)+'%';
+    fireRender();
+  });
+})();
+
 
 /* ── 阻力位分析 (决策, 读取 web/resistance.json) ── */
 var RESIS = [];            // resistance.json.items (每仓: price, poc, mas, res[], sup[], ...)
