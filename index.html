@@ -2148,10 +2148,7 @@ function loadAll(){
     showView(v||'cockpit');
   }).catch(function(e){document.getElementById('gen').textContent='数据加载失败: '+e;});
 
-  // 逐仓缓冲距离序列 (单独文件, 保持 snapshot 精简)
-  fetch('hl_dist.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
-    HDS.series=d.series||[]; HDS.th=d.dist_thresholds||HDS.th; rkChart();
-  }).catch(function(){ rkChart(); });
+  // 逐仓缓冲距离序列 (Risk 已下线, 不再加载)
 
   // 合并净值序列 (证券 + Blockchain 重建)
   fetch('nav_history.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
