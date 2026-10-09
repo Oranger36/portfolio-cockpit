@@ -28,7 +28,8 @@
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--fg);
   font-family:Inter,-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;font-size:14px}
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;text-size-adjust:100%;font-size:14px}
 .layout{display:flex;min-height:100vh;align-items:stretch}
 
 /* ── 侧边栏 ── */
@@ -207,6 +208,12 @@ table.fire-mt{table-layout:auto;width:100%}
   .rb-t colgroup col:nth-child(4){width:0!important}
   .rb-t colgroup col:nth-child(5){width:0!important}
   .rb-t td:nth-child(3){font-size:12px}
+  /* FIRE 移动端: 卡片 min-width:0 后外层 overflow-x:auto 才生效(否则表被 main 裁掉且滚不动);
+     里程碑表给 min-width 强制横向滚动, 不挤压 truncate */
+  #v-fire .grid>*{min-width:0}
+  #v-fire table.fire-mt{min-width:460px}
+  #v-fire .rb-row{flex-wrap:wrap}
+  #v-fire .fire-follow{flex:1 1 100%;justify-content:flex-start}
   .kpi .v{font-size:20px} h1{font-size:17px}
   .mhead{gap:8px}
   .hideS{display:none}
@@ -508,7 +515,7 @@ table.fire-mt{table-layout:auto;width:100%}
         <div class="card">
           <div class="ttl">参数（全部可调，改动即重算）</div>
           <div class="rb-row"><span class="nm">可投资金融资产起点 <span class="dim">（HK$）</span></span>
-            <label class="sw" title="开启后起点恒等于当前组合净资产(快照 NAV)，半自动更新/本地刷新时随之变化；关掉可手动填任意口径"><input type="checkbox" id="fire-linknav" checked> 随净资产</label>
+            <label class="sw fire-follow" title="开启后起点恒等于当前组合净资产(快照 NAV)，半自动更新/本地刷新时随之变化；关掉可手动填任意口径"><input type="checkbox" id="fire-linknav" checked> 随净资产</label>
             <input type="number" id="fire-p" step="10000" min="0"></div>
           <div class="rb-row"><span class="nm">每月定投 <span class="dim">（HK$）</span></span>
             <input type="number" id="fire-m" step="1000" min="0"></div>
