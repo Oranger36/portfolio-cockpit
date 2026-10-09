@@ -171,6 +171,10 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
 .rb-t td .symsub{margin-top:2px}
 .rb-t td:nth-child(3){white-space:nowrap;font-weight:600}
 .rb-t td:nth-child(2) div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* FIRE 里程碑表: 不用 rb-t 的省略/固定布局, 数字要完整可读 (长数字如 HK$100,135,691) */
+table.fire-mt{table-layout:auto;width:100%}
+.fire-mt th,.fire-mt td{padding:9px 12px;white-space:nowrap}
+.fire-mt td:nth-child(3){font-weight:600}
 .rb-grid{grid-template-columns:minmax(290px,.82fr) minmax(420px,1.18fr)}
 
 @media(max-width:880px){
@@ -222,11 +226,10 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
       <div class="grp">决策</div>
       <a data-v="rebalance"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 8.5h13l-3.2-3.2M20 15.5H7l3.2 3.2"/></svg></span><span class="lbl">Rebalance 再平衡</span><span class="cnt" id="c-reb"></span></a>
       <a data-v="fire"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">FIRE 财富自由</span><span class="cnt" id="c-fire"></span></a>
-      <a data-v="risk"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.5l9 15.5H3z"/><path d="M12 9.5v4.5M12 17h.01"/></svg></span><span class="lbl">Risk 风险</span><span class="cnt" id="c-risk"></span></a>
-      <a data-v="discipline"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 6.5L9.5 17.5 4 12"/></svg></span><span class="lbl">Discipline 纪律</span><span class="cnt" id="c-disc"></span></a>
       <a data-v="resis"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3.5h12M6 8h12M6 12.5h12M6 17h12M6 21.5h12"/><path d="M18.5 3.5h2M18.5 8h2M18.5 12.5h2M18.5 17h2M18.5 21.5h2"/></svg></span><span class="lbl">阻力位分析</span><span class="cnt" id="c-resis"></span></a>
       <div class="grp">记录</div>
       <a data-v="trades"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7.5h9M4 12h16M4 16.5h6"/><circle cx="17.2" cy="7.5" r="1.7"/></svg></span><span class="lbl">交易日志</span><span class="cnt" id="c-tr"></span></a>
+      <a data-v="discipline"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 6.5L9.5 17.5 4 12"/></svg></span><span class="lbl">Discipline 纪律</span><span class="cnt" id="c-disc"></span></a>
       <a data-v="notes"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5.5 3.5h10l4 4v13h-14z"/><path d="M8.5 12h7M8.5 15.5h4.5"/></svg></span><span class="lbl">交易笔记</span><span class="cnt" id="c-notes"></span></a>
     </nav>
     <div class="sb-foot" id="sbfoot">loading…</div>
@@ -417,61 +420,6 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
     <div class="card notes" id="notes-v-notes"></div>
     </section>
 
-    <!-- ④ Risk (P3) -->
-    <section class="view" id="v-risk">
-      <div class="mhead"><h1>Risk</h1><span class="d">Hyperliquid 清算风险 · 压力测试</span>
-        <span style="flex:1"></span><span class="badge gray" id="rkPause">提醒状态…</span></div>
-
-      <div class="grid kpis" id="rk-kpis"></div>
-
-      <div id="rk-margin"></div>
-
-      <div class="sec">压力测试 <small data-notes>拖动 = 假设 HL 全账户标的价格下跌 X%，实时重算每仓缓冲距离</small></div>
-      <div class="card">
-        <div class="rb-row"><span class="nm">市场下跌</span>
-          <input type="range" id="rk-stress" min="0" max="40" step="0.5" value="0">
-          <b id="rk-stress-v" style="width:56px;text-align:right;font-variant-numeric:tabular-nums">0.0%</b></div>
-        <div class="dim" id="rk-stress-note" data-notes style="font-size:12px;margin-top:6px"></div>
-      </div>
-
-      <div class="sec">逐仓清算距离</div>
-      <div class="card" style="padding:6px 8px;overflow-x:auto">
-        <table id="rk-table"><thead><tr>
-          <th>币种</th><th>方向</th><th>杠杆</th><th>当前价</th><th>清算价</th>
-          <th>缓冲距离</th><th class="hideS">上次快照</th><th class="hideS">名义 HK$</th><th>浮动盈亏</th><th>压力后</th>
-        </tr></thead><tbody></tbody></table>
-      </div>
-
-      <div class="sec">逐仓历史缓冲距离曲线 <small id="rk-chart-sub">每 15 分钟一个点</small></div>
-      <div class="card">
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px" id="rk-range">
-          <button class="btn primary" data-w="96">近 24h</button>
-          <button class="btn" data-w="288">近 3 天</button>
-          <button class="btn" data-w="0">全部</button>
-          <span style="flex:1"></span>
-          <span class="badge rose"><span class="dot"></span>&lt;5% 追加保证金线</span>
-          <span class="badge amber"><span class="dot"></span>&lt;10%</span>
-        </div>
-        <div id="rk-chart"></div>
-        <div id="rk-chart-sum" style="margin-top:12px;overflow-x:auto"></div>
-      </div>
-
-      <div class="sec">补保 / 减仓测算 <small data-notes>把每仓杠杆压到目标杠杆所需的动作</small></div>
-      <div class="card">
-        <div class="rb-row"><span class="nm">目标杠杆</span>
-          <input type="range" id="rk-targetlei" min="1" max="10" step="0.5" value="3">
-          <b id="rk-targetlei-v" style="width:56px;text-align:right;font-variant-numeric:tabular-nums">3.0x</b></div>
-        <div style="overflow-x:auto;margin-top:8px">
-          <table id="rk-fix"><thead><tr>
-            <th>币种</th><th>现杠杆</th><th>名义 HK$</th><th>占用保证金</th><th>需补保证金</th><th>或减仓名义</th>
-          </tr></thead><tbody></tbody></table>
-        </div>
-        <div class="rb-note" data-notes>口径：需补保证金 = 名义/目标杠杆 − 当前占用保证金；或减仓名义 = 名义 − 保证金×目标杠杆。两者二选一即可，取较小摩擦的那条（HL 往返 0.217%）。</div>
-      </div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-risk"></div>
-    </section>
-
     <!-- ⑥ 交易日志 (P3) -->
     <section class="view" id="v-trades">
       <div class="mhead"><h1>交易日志</h1><span class="d">Blockchain fills + CSCI 成交 + DX 合并</span>
@@ -577,7 +525,7 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
         <div class="card">
           <div class="ttl">逐年里程碑 <span>· 从今年到达成 · 名义价值</span></div>
           <div style="overflow-x:auto">
-            <table class="rb-t"><colgroup><col style="width:24%"><col style="width:30%"><col style="width:23%"><col style="width:23%"></colgroup>
+            <table class="fire-mt"><colgroup><col style="width:24%"><col style="width:30%"><col style="width:23%"><col style="width:23%"></colgroup>
               <thead><tr><th>年份</th><th>年龄</th><th>预估资产</th><th>距目标</th></tr></thead>
               <tbody id="fire-milestones"></tbody></table>
           </div>
@@ -1534,7 +1482,7 @@ function trInit(s){
     fourRender();
   });
 })();
-var VIEWS=['cockpit','holdings','closed','rebalance','risk','discipline','resis','fire','trades','notes'];
+var VIEWS=['cockpit','holdings','closed','rebalance','discipline','resis','fire','trades','notes'];
 function showView(v){
   if(VIEWS.indexOf(v)<0) v='cockpit';
   VIEWS.forEach(function(x){
@@ -1905,11 +1853,8 @@ function render(s){
     '<span class="dim">'+s.positions.length+' 个持仓 · '+(s.buckets.lever?s.buckets.lever.exposure_pct.toFixed(0):'0')+'% 杠杆层级</span>';
 
   rbInit(s);
-  rkInit(s);
   trInit(s);
   fireInit(s);
-  var cr=document.getElementById('c-risk');
-  if(cr){var mc=(s.margin_call||[]).length; cr.textContent=mc?mc+' 提醒':'—';}
   var ct=document.getElementById('c-tr');
   if(ct){var tr=(s.trades||[]).length; ct.textContent=tr?tr+' 笔':'—';}
 }
@@ -1939,8 +1884,7 @@ function fireYear(){    // 达成所需年数(整数, 取第一年 >= 目标)
 function fireInit(s){
   if(!s || FIRE.ready) return;
   FIRE.age = (new Date().getFullYear()) - 1999;   // 1999 年出生
-  try{ var st=JSON.parse(localStorage.getItem('cockpit.fire')||'null'); if(st) FIRE.p=Number(st.p)||0; }catch(e){}
-  if(!FIRE.p) FIRE.p=Math.round(s.nav_hkd||0);
+  FIRE.p=Math.round(s.nav_hkd||0);
   FIRE.m=FIRE_DEFAULTS.m; FIRE.s=FIRE_DEFAULTS.s;
   fireRenderInputs(); fireRender(); FIRE.ready=true;
 }
