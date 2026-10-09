@@ -175,6 +175,9 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
 table.fire-mt{table-layout:auto;width:100%}
 .fire-mt th,.fire-mt td{padding:9px 12px;white-space:nowrap}
 .fire-mt td:nth-child(3){font-weight:600}
+/* 数字列右对齐 (年份列保持左, 年龄/资产/距目标右对齐) */
+.fire-mt th:nth-child(n+2),.fire-mt td:nth-child(n+2){text-align:right}
+.fire-mt th:first-child,.fire-mt td:first-child{text-align:left}
 .rb-grid{grid-template-columns:minmax(290px,.82fr) minmax(420px,1.18fr)}
 
 @media(max-width:880px){
@@ -505,6 +508,7 @@ table.fire-mt{table-layout:auto;width:100%}
         <div class="card">
           <div class="ttl">参数（全部可调，改动即重算）</div>
           <div class="rb-row"><span class="nm">可投资金融资产起点 <span class="dim">（HK$）</span></span>
+            <label class="sw" title="开启后起点恒等于当前组合净资产(快照 NAV)，半自动更新/本地刷新时随之变化；关掉可手动填任意口径"><input type="checkbox" id="fire-linknav" checked> 随净资产</label>
             <input type="number" id="fire-p" step="10000" min="0"></div>
           <div class="rb-row"><span class="nm">每月定投 <span class="dim">（HK$）</span></span>
             <input type="number" id="fire-m" step="1000" min="0"></div>
@@ -1868,7 +1872,7 @@ function BUCKLBL(k){return LBL[k]||k;}
      A(y) = P·(1+rm)^(12y) + M·[((1+rm)^(12y)−1)/rm]
        P=起点资产, M=每月定投, rm=月利率=r/12, y=年数
    达成年份: 最小 y 使 A(y) ≥ T。 */
-var FIRE={p:0,m:0,r:10,w:4,s:0,age:27,ready:false};
+var FIRE={p:0,m:0,r:10,w:4,s:0,age:27,ready:false,linknav:true};
 var FIRE_DEFAULTS={m:20000,s:360000};           // 月投 / 目标年开支 的默认参考(用户可改, 非写死)
 function fireTgt(){ return FIRE.w>0 ? FIRE.s/(FIRE.w/100) : 0; }
 function fireAmt(y){   // y 年后名义资产
@@ -1886,16 +1890,19 @@ function fireInit(s){
   FIRE.age = (new Date().getFullYear()) - 1999;   // 1999 年出生
   FIRE.p=Math.round(s.nav_hkd||0);
   FIRE.m=FIRE_DEFAULTS.m; FIRE.s=FIRE_DEFAULTS.s;
+  var ln=document.getElementById('fire-linknav');
+  if(ln) ln.checked = !!FIRE.linknav;
   fireRenderInputs(); fireRender(); FIRE.ready=true;
 }
 function fireRenderInputs(){
-  document.getElementById('fire-p').value=Math.round(FIRE.p);
-  document.getElementById('fire-m').value=Math.round(FIRE.m);
-  document.getElementById('fire-r').value=FIRE.r;
-  document.getElementById('fire-r-v').textContent=FIRE.r.toFixed(1)+'%';
-  document.getElementById('fire-w').value=FIRE.w;
-  document.getElementById('fire-w-v').textContent=FIRE.w.toFixed(1)+'%';
-  document.getElementById('fire-s').value=Math.round(FIRE.s);
+  var p=document.getElementById('fire-p');
+  if(p) p.value=Math.round(FIRE.p);
+  var m=document.getElementById('fire-m'); if(m) m.value=Math.round(FIRE.m);
+  var r=document.getElementById('fire-r'); if(r) r.value=FIRE.r;
+  var rv=document.getElementById('fire-r-v'); if(rv) rv.textContent=FIRE.r.toFixed(1)+'%';
+  var w=document.getElementById('fire-w'); if(w) w.value=FIRE.w;
+  var wv=document.getElementById('fire-w-v'); if(wv) wv.textContent=FIRE.w.toFixed(1)+'%';
+  var s=document.getElementById('fire-s'); if(s) s.value=Math.round(FIRE.s);
 }
 function fireCards(){
   var T=fireTgt(), y=fireYear(), now=new Date().getFullYear();
@@ -1921,7 +1928,7 @@ function fireMilestones(){
     var A=fireAmt(yy), reached=(T>0 && A>=T);
     return '<tr'+(reached?' style="background:var(--emf)"':'')+'><td>'+(now+yy)+'</td>'+
       '<td>'+(FIRE.age+yy)+'</td>'+
-      '<td class="'+(reached?'up':'')+'">'+hk(Math.round(A))+(reached?' <span class="badge em" style="margin-left:4px"><span class="dot"></span>达成</span>':'')+'</td>'+
+      '<td class="'+(reached?'up':'')+'">'+(reached?'<span class="badge em" style="margin-right:6px;display:inline-flex"><span class="dot"></span>达成</span>':'')+hk(Math.round(A))+'</td>'+
       '<td class="dim">'+(T>0?(reached?'✓':'距目标 '+hk(Math.round(Math.max(0,T-A)))):'—')+'</td></tr>';
   }).join('');
   return rows;
@@ -1937,6 +1944,11 @@ function fire72(){
     '<div class="d dim" style="font-size:12px">购买力口径，真实达成更慢</div></div>';
 }
 function fireRender(){
+  // 联动模式下: 起点恒等于当前快照净资产(合并 NAV), 每次 render(含本地刷新)自动取最新
+  if(FIRE.linknav && SNAP && SNAP.nav_hkd){
+    FIRE.p=Math.round(SNAP.nav_hkd||0);
+    var pEl=document.getElementById('fire-p'); if(pEl && document.activeElement!==pEl) pEl.value=Math.round(FIRE.p);
+  }
   var T=fireTgt(), y=fireYear(), now=new Date().getFullYear();
   var kpi=document.getElementById('fire-kpis');
   if(kpi) kpi.innerHTML=fireCards();
@@ -1970,8 +1982,15 @@ function fireNoDom(){ return !document.getElementById('fire-milestones'); }
     var el=document.getElementById(id); if(!el) return;
     el.addEventListener('input',function(){
       FIRE[id==='fire-p'?'p':(id==='fire-m'?'m':'s')]=Number(this.value)||0;
+      if(id==='fire-p'){ FIRE.linknav=false; var ln=document.getElementById('fire-linknav'); if(ln) ln.checked=false; }
       fireRender();
     });
+  });
+  var ln=document.getElementById('fire-linknav');
+  if(ln) ln.addEventListener('change',function(){
+    FIRE.linknav=ln.checked;
+    if(FIRE.linknav && SNAP && SNAP.nav_hkd) FIRE.p=Math.round(SNAP.nav_hkd||0);
+    fireRenderInputs(); fireRender();
   });
   var r=document.getElementById('fire-r'); if(r) r.addEventListener('input',function(){
     FIRE.r=Number(this.value)||0;
