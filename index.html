@@ -159,6 +159,11 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
 .btn.primary{background:var(--blue6);border-color:var(--blue6);color:#fff}
 .btn.primary:hover{background:var(--blue7)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
+/* 币种切换 (FIRE): 三段式 pill 组 */
+#fire-ccy{display:inline-flex;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
+#fire-ccy button{border:0;background:transparent;padding:6px 12px;font-size:12.5px;font-weight:600;color:#64748b;cursor:pointer;font-variant-numeric:tabular-nums}
+#fire-ccy button+button{border-left:1px solid #e5e7eb}
+#fire-ccy button.cur{background:var(--blue6);color:#fff}
 .rb-sum{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:12px;
   border-top:1px solid var(--ring);padding-top:12px}
 .rb-sum b{color:var(--fg);font-variant-numeric:tabular-nums}
@@ -507,7 +512,13 @@ table.fire-mt{table-layout:auto;width:100%}
     <!-- ⑨ FIRE 财富自由 (决策) -->
     <section class="view" id="v-fire">
       <div class="mhead"><h1>FIRE 财富自由预估</h1><span class="d" id="fireGen"></span>
-        <span style="flex:1"></span><span class="badge blue"><span class="dot"></span>4% 法则 · 定投复利 · 硅谷居士思路</span></div>
+        <span style="flex:1"></span>
+        <span class="btn-group" id="fire-ccy" style="display:inline-flex">
+          <button type="button" data-ccy="HKD" class="cur">HK$</button>
+          <button type="button" data-ccy="USD">US$</button>
+          <button type="button" data-ccy="CNY">¥</button>
+        </span>
+        <span class="badge blue"><span class="dot"></span>4% 法则 · 定投复利 · 硅谷居士思路</span></div>
 
       <div class="grid kpis" id="fire-kpis" style="margin-bottom:16px"></div>
 
@@ -1879,8 +1890,19 @@ function BUCKLBL(k){return LBL[k]||k;}
      A(y) = P·(1+rm)^(12y) + M·[((1+rm)^(12y)−1)/rm]
        P=起点资产, M=每月定投, rm=月利率=r/12, y=年数
    达成年份: 最小 y 使 A(y) ≥ T。 */
-var FIRE={p:0,m:0,r:10,w:4,s:0,age:27,ready:false,linknav:true};
+var FIRE={p:0,m:0,r:10,w:4,s:0,age:27,ready:false,linknav:true,ccy:'HKD'};
 var FIRE_DEFAULTS={m:20000,s:360000};           // 月投 / 目标年开支 的默认参考(用户可改, 非写死)
+/* 币种换算 (工作口径): HKD 存内部, 显示时换。USD=HKD/7.82, CNY=HKD×(1/1.08) */
+var FIRE_FX={USD:7.82, CNY:1.08};               // 每 1 USD=7.82HKD, 1 CNY=1.08HKD
+function fireSym(){ return FIRE.ccy==='USD'?'US$':(FIRE.ccy==='CNY'?'¥':'HK$'); }
+function fireConv(hkd){                         // HKD(内部) -> 当前币种
+  if(FIRE.ccy==='HKD') return hkd;
+  if(FIRE.ccy==='USD') return hkd/FIRE_FX.USD;
+  return hkd/FIRE_FX.CNY;
+}
+function fireFmt(n,d){ d=(d===undefined?0:d); n=fireConv(n);
+  return (n<0?'-':'')+fireSym()+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+}
 function fireTgt(){ return FIRE.w>0 ? FIRE.s/(FIRE.w/100) : 0; }
 function fireAmt(y){   // y 年后名义资产
   var P=FIRE.p, M=FIRE.m, r=FIRE.r/100/12;      // r = 月利率
