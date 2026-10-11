@@ -52,16 +52,23 @@ async function loadData() {
   }
 }
 
-function hkShort(v) {                       // 小字用: HK$1.25M / HK$1,253k
+// ── 显示货币 = 美金 (用户 2026-10-27「优先用美金显示」; 组件无法切换, 固定 US$) ──
+let FXHKD = 7.82;                            // USD/HKD, 由 snapshot.fx_usdhkd 更新
+const SYM = "US$";
+function ccy(v) { return (Number(v) || 0) / FXHKD; }   // 内部一律 HKD 存储, 显示层换算
+
+function hkShort(v) {                       // 小字用: US$1.25M / US$1,253k
+  v = ccy(v);
   const a = Math.abs(v);
-  if (a >= 1e6) return "HK$" + (v / 1e6).toFixed(2) + "M";
-  if (a >= 1e3) return "HK$" + Math.round(v / 1e3) + "k";
-  return "HK$" + Math.round(v);
+  if (a >= 1e6) return SYM + (v / 1e6).toFixed(2) + "M";
+  if (a >= 1e3) return SYM + Math.round(v / 1e3) + "k";
+  return SYM + Math.round(v);
 }
 
 function hk(v, signed) {
+  v = ccy(v);
   const sign = signed ? (v >= 0 ? "+" : "-") : (v < 0 ? "-" : "");
-  return sign + "HK$" + Math.abs(Math.round(v)).toLocaleString("en-US");
+  return sign + SYM + Math.abs(Math.round(v)).toLocaleString("en-US");
 }
 
 // ── 当日收益 / 收益率: 净值序列最后一点 vs 前一日 ────────────────
@@ -217,6 +224,7 @@ async function build() {
   w.refreshAfterDate = new Date(Date.now() + 10 * 60 * 1000);  // 给 iOS 的"最早可刷新"提示(实际由 iOS 决定, 通常 15-30 分钟)
 
   const s = await loadData();
+  if (s && Number(s.fx_usdhkd)) FXHKD = Number(s.fx_usdhkd);   // 工作汇率, 与看板同源
   if (!s) {
     const t = w.addText("读不到数据\n(网络?)");
     t.font = Font.systemFont(12);
@@ -230,8 +238,8 @@ async function build() {
   const ns = (s.nav_series || []).slice(-DAYS);
   const rets = ns.map((x) => Number(x.ret) || 0);
   const nav = Number(s.nav_hkd) || 0;
-  const pnl = nav - (Number(s.cost_basis_hkd) || 750000);
-  const ret = (pnl / (Number(s.cost_basis_hkd) || 750000)) * 100;
+  const pnl = nav - (Number(s.cost_basis_hkd) || 693156);
+  const ret = (pnl / (Number(s.cost_basis_hkd) || 693156)) * 100;
 
   // 标题行
   const head = w.addStack();
@@ -307,9 +315,9 @@ async function build() {
       t.textColor = p.fg;
       extra.addSpacer();
     };
-    ex("总敞口", "HK$" + Math.round((Number(s.exposure_hkd) || 0) / 1000) + "k");
+    ex("总敞口", hkShort(s.exposure_hkd));
     ex("杠杆", (Number(s.leverage) || 0).toFixed(2) + "x");
-    ex("现金", "HK$" + Math.round((Number(s.cash_hkd) || 0) / 1000) + "k");
+    ex("现金", hkShort(s.cash_hkd));
   }
   return w;
 }
