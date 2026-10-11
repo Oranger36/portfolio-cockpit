@@ -12,8 +12,25 @@
 const DATA_URL = "https://oranger36.github.io/portfolio-cockpit/snapshot.json";
 const SITE_URL = "https://oranger36.github.io/portfolio-cockpit/#cockpit";
 const CACHE = "oranger_widget_cache.json";
+const NETWORTH_URL = "https://oranger36.github.io/portfolio-cockpit/networth.json";
+const NW_CACHE = "oranger_widget_nw_cache.json";
 const DAYS = 30;                      // 折线取最近 N 个交易日
 
+// ── 取「全部净资产」(networth.json, 第二个数据源; 失败就用缓存, 再失败就不显示那一项) ──
+async function loadNetWorth() {
+  const fm = FileManager.local();
+  const path = fm.joinPath(fm.documentsDirectory(), NW_CACHE);
+  try {
+    const req = new Request(NETWORTH_URL + "?t=" + Date.now());
+    req.timeoutInterval = 20;
+    const d = await req.loadJSON();
+    fm.writeString(path, JSON.stringify(d));
+    return d;
+  } catch (e) {
+    if (fm.fileExists(path)) return JSON.parse(fm.readString(path));
+    return null;
+  }
+}
 // ── 配色: 跟随手机的浅色/深色 ────────────────────────────────
 function palette() {
   const dark = Device.isUsingDarkAppearance();
@@ -217,6 +234,8 @@ async function build() {
   w.refreshAfterDate = new Date(Date.now() + 10 * 60 * 1000);  // 给 iOS 的"最早可刷新"提示(实际由 iOS 决定, 通常 15-30 分钟)
 
   const s = await loadData();
+  const nw = await loadNetWorth();
+  const nw0 = Number((nw || {}).net_worth_hkd) || 0;
   if (!s) {
     const t = w.addText("读不到数据\n(网络?)");
     t.font = Font.systemFont(12);
@@ -230,8 +249,8 @@ async function build() {
   const ns = (s.nav_series || []).slice(-DAYS);
   const rets = ns.map((x) => Number(x.ret) || 0);
   const nav = Number(s.nav_hkd) || 0;
-  const pnl = nav - (Number(s.cost_basis_hkd) || 750000);
-  const ret = (pnl / (Number(s.cost_basis_hkd) || 750000)) * 100;
+  const pnl = nav - (Number(s.cost_basis_hkd) || 693156);
+  const ret = (pnl / (Number(s.cost_basis_hkd) || 693156)) * 100;
 
   // 标题行
   const head = w.addStack();
@@ -246,6 +265,7 @@ async function build() {
   }
   head.addSpacer();
   if (ex0 && !large) tinyLabel(head, exTxt, p.dim, small ? 8 : 9);   // 用户: 总敞口用小字即可(大尺寸下方块里已有)
+  if (nw0) { head.addSpacer(8); tinyLabel(head, "净资产 " + hkShort(nw0), p.dim, small ? 8 : 9); }   // 用户: 总敞口后面补总净资产
   head.addSpacer(8);
   tinyLabel(head, (s.generated_at || "").slice(11, 16), p.dim, small ? 8 : 9);   // 用户: 要放更新时间
   w.addSpacer(small ? 4 : 6);

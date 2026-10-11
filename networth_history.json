@@ -1,0 +1,19 @@
+{
+ "generated_at": "2026-10-25T07:14:50",
+ "rule": "每月 30 号记录一个点",
+ "points": [
+  {
+   "month": "2026-10",
+   "date": "2026-10-13",
+   "recorded": "2026-10-13",
+   "net_worth_hkd": 890256.9,
+   "alloc_base_hkd": 704080.89,
+   "mpf_hkd": 186176.01,
+   "rmb_hkd": 47631.09,
+   "hkd_hkd": 216764.47,
+   "usd_hkd": 439685.33,
+   "cash_hkd": 212703.65,
+   "liabilities_hkd": 136171.27
+  }
+ ]
+}

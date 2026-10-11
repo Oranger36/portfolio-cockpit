@@ -1,0 +1,32 @@
+{
+ "name": "IBKR · Interactive Brokers LLC",
+ "generated_at": "2026-10-24T21:20:35",
+ "date": "2026-10-24",
+ "currency": "HKD",
+ "base_currency": "USD",
+ "account_id": "U21808016",
+ "fx_usdhkd": 7.819,
+ "period": "20260101 → 20261023",
+ "cost_basis_hkd": 1563.8,
+ "cost_basis_source": "Flex 净入金 (Deposits & Withdrawals 带符号合计)",
+ "cash_hkd": 1563.8,
+ "market_value_hkd": 0.0,
+ "nav_hkd": 1563.8,
+ "pnl_hkd": 0.0,
+ "ret_pct": 0.0,
+ "nav_base": 200.0,
+ "cash_base": 200.0,
+ "stock_value_base": 0.0,
+ "cash_by_ccy_base": {
+  "BASE_SUMMARY": 200.0
+ },
+ "positions": [],
+ "position_cost_base": 0.0,
+ "n_positions": 0,
+ "net_deposits_base": 200.0,
+ "date_funded": "20261005",
+ "warnings": [
+  "OpenPositions 为空或未被包含在该 Flex Query 里"
+ ],
+ "source": "flex"
+}
