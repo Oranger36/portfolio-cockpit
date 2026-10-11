@@ -1,0 +1,1308 @@
+{
+ "generated_at": "2026-11-01T02:00:06",
+ "as_of": "2026-10-25",
+ "fx": {
+  "usdhkd": 7.8217,
+  "usdcny": 6.7003,
+  "cnyhkd": 1.16737
+ },
+ "net_worth_hkd": 847223.53,
+ "alloc_base_hkd": 660802.37,
+ "alloc_extra_hkd": 186421.16,
+ "gross_assets_hkd": 877719.96,
+ "liabilities_hkd": 30496.43,
+ "invest_nav_hkd": 540985.41,
+ "cost_basis_hkd": 673474.96,
+ "sec_cash_adjust_hkd": 0.0,
+ "buckets": [
+  {
+   "key": "rmb",
+   "label": "人民币资产",
+   "value_hkd": 44394.43,
+   "pct": 6.72,
+   "target_pct": 5.0,
+   "target_hkd": 33040.12,
+   "delta_hkd": 11354.31
+  },
+  {
+   "key": "hkd",
+   "label": "港币资产",
+   "value_hkd": 260514.07,
+   "pct": 39.42,
+   "target_pct": 15.0,
+   "target_hkd": 99120.36,
+   "delta_hkd": 161393.72
+  },
+  {
+   "key": "usd",
+   "label": "美元资产",
+   "value_hkd": 355893.87,
+   "pct": 53.86,
+   "target_pct": 80.0,
+   "target_hkd": 528641.89,
+   "delta_hkd": -172748.02
+  }
+ ],
+ "rmb_cash": {
+  "cash_cny": 12063.57,
+  "cap_cny": 10000.0,
+  "over": true,
+  "over_hkd": 2408.94
+ },
+ "accounts": [
+  {
+   "key": "us_sec",
+   "label": "美股证券（CSCI）",
+   "value_hkd": 252505.05,
+   "group": "usd"
+  },
+  {
+   "key": "hk_sec",
+   "label": "港股证券（CSCI）",
+   "value_hkd": 135622.5,
+   "group": "hkd"
+  },
+  {
+   "key": "dx",
+   "label": "DX（打新）",
+   "value_hkd": 8273.5,
+   "group": "hkd"
+  },
+  {
+   "key": "ibkr",
+   "label": "IBKR（含现金）",
+   "value_hkd": 1564.34,
+   "group": "usd"
+  },
+  {
+   "key": "hl",
+   "label": "Hyperliquid / 加密",
+   "value_hkd": 37752.48,
+   "group": "usd"
+  },
+  {
+   "key": "sec_cash",
+   "label": "券商现金（CSCI）",
+   "value_hkd": 105267.54,
+   "group": "hkd",
+   "cash": true
+  },
+  {
+   "key": "alipay_rmb",
+   "label": "支付宝（余额宝+基金+黄金）",
+   "value_hkd": 44394.43,
+   "group": "rmb",
+   "liability": false,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "hsbc_one",
+   "label": "HSBC One 港币活期",
+   "value_hkd": 41846.96,
+   "group": "hkd",
+   "liability": false,
+   "in_alloc": true,
+   "cash": true,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "scb_hkd",
+   "label": "SCB 港币存款",
+   "value_hkd": 0.0,
+   "group": "hkd",
+   "liability": false,
+   "in_alloc": true,
+   "cash": true,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "bochk_sav_hkd",
+   "label": "中银香港 港元储蓄",
+   "value_hkd": 0.0,
+   "group": "hkd",
+   "liability": false,
+   "in_alloc": true,
+   "cash": true,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "bochk_fx_hkd",
+   "label": "中银香港 外匯寶賬戶",
+   "value_hkd": 39.11,
+   "group": "usd",
+   "liability": false,
+   "in_alloc": true,
+   "cash": true,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "hangseng_hkd",
+   "label": "恒生银行 综合户口（现仅美元）",
+   "value_hkd": 22707.41,
+   "group": "usd",
+   "liability": false,
+   "in_alloc": true,
+   "cash": true,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "hsbc_mpf",
+   "label": "HSBC 強積金 MPF",
+   "value_hkd": 19642.08,
+   "group": "hkd",
+   "liability": false,
+   "in_alloc": false,
+   "cash": false,
+   "mpf": true,
+   "recorded": true
+  },
+  {
+   "key": "sunlife_mpf",
+   "label": "Sun Life 強積金 MPF",
+   "value_hkd": 166779.08,
+   "group": "hkd",
+   "liability": false,
+   "in_alloc": false,
+   "cash": false,
+   "mpf": true,
+   "recorded": true
+  },
+  {
+   "key": "hsbc_cc_cny",
+   "label": "HSBC 信用卡欠款（人民币）",
+   "value_hkd": -16093.62,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "scb_cc",
+   "label": "SCB 渣打信用卡",
+   "value_hkd": -9702.95,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "bochk_cc_unionpay_hkd",
+   "label": "中银香港 銀聯雙幣卡（借记/附属）（港币）",
+   "value_hkd": 0.0,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "bochk_cc_unionpay_cny",
+   "label": "中银香港 銀聯雙幣卡（借记/附属）（人民币）",
+   "value_hkd": 0.0,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "bochk_cc_world",
+   "label": "中银香港 BOC Chill 卡（World Mastercard）",
+   "value_hkd": 0.0,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "mox_cc",
+   "label": "Mox 信用卡欠款",
+   "value_hkd": -3343.86,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "hsbc_gold",
+   "label": "HSBC 黄金账户（1 troy oz）",
+   "value_hkd": 30320.04,
+   "group": "usd",
+   "liability": false,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "hsbc_cc_gold",
+   "label": "HSBC 滙財金卡（Gold）",
+   "value_hkd": -150.0,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "hsbc_cc_pulse_hkd",
+   "label": "HSBC Pulse 銀聯雙幣卡（港币）",
+   "value_hkd": 0.0,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "hsbc_cc_visa",
+   "label": "HSBC Visa Signature",
+   "value_hkd": -1206.0,
+   "group": "hkd",
+   "liability": true,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  },
+  {
+   "key": "ewb_usd",
+   "label": "华美银行 East West Bank（美元）",
+   "value_hkd": 11005.44,
+   "group": "usd",
+   "liability": false,
+   "in_alloc": true,
+   "cash": false,
+   "mpf": false,
+   "recorded": true
+  }
+ ],
+ "account_groups": [
+  {
+   "key": "csci",
+   "label": "CSCI 账户",
+   "value_hkd": 493395.09,
+   "group": "hkd",
+   "cost_hkd": 529585.12,
+   "items": [
+    {
+     "label": "美股证券",
+     "value_hkd": 252505.05
+    },
+    {
+     "label": "港股证券",
+     "value_hkd": 135622.5
+    },
+    {
+     "label": "券商现金",
+     "value_hkd": 105267.54
+    }
+   ]
+  },
+  {
+   "key": "ibkr",
+   "label": "IBKR 账户",
+   "value_hkd": 1564.34,
+   "group": "usd",
+   "cost_hkd": 1564.34,
+   "items": [
+    {
+     "label": "证券市值",
+     "value_hkd": 0.0
+    },
+    {
+     "label": "现金（USD）",
+     "value_hkd": 1564.34
+    }
+   ]
+  },
+  {
+   "key": "hl",
+   "label": "Hyperliquid / 加密",
+   "value_hkd": 37752.48,
+   "group": "usd",
+   "cost_hkd": 117325.5,
+   "items": [
+    {
+     "label": "永续 + 现货 + MetaMask",
+     "value_hkd": 37752.48
+    }
+   ]
+  },
+  {
+   "key": "dx",
+   "label": "DX（打新）账户",
+   "value_hkd": 8273.5,
+   "group": "hkd",
+   "cost_hkd": 25000.0,
+   "items": [
+    {
+     "label": "7709.HK + 现金",
+     "value_hkd": 8273.5
+    }
+   ]
+  },
+  {
+   "key": "alipay",
+   "label": "支付宝账户",
+   "value_hkd": 44394.43,
+   "group": "rmb",
+   "items": [
+    {
+     "label": "支付宝（余额宝+基金+黄金）",
+     "value_hkd": 44394.43,
+     "recorded": true
+    }
+   ]
+  },
+  {
+   "key": "bank",
+   "label": "香港银行账户（HSBC / SCB / 中银 / 恒生）",
+   "value_hkd": 41846.96,
+   "group": "hkd",
+   "items": [
+    {
+     "label": "HSBC One 港币活期",
+     "value_hkd": 41846.96,
+     "recorded": true
+    },
+    {
+     "label": "SCB 港币存款",
+     "value_hkd": 0.0,
+     "recorded": true
+    },
+    {
+     "label": "中银香港 港元储蓄",
+     "value_hkd": 0.0,
+     "recorded": true
+    }
+   ]
+  },
+  {
+   "key": "us_bank",
+   "label": "美国银行账户（华美 East West Bank）",
+   "value_hkd": 33751.97,
+   "group": "usd",
+   "items": [
+    {
+     "label": "中银香港 外匯寶賬戶",
+     "value_hkd": 39.11,
+     "recorded": true
+    },
+    {
+     "label": "恒生银行 综合户口（现仅美元）",
+     "value_hkd": 22707.41,
+     "recorded": true
+    },
+    {
+     "label": "华美银行 East West Bank（美元）",
+     "value_hkd": 11005.44,
+     "recorded": true
+    }
+   ]
+  },
+  {
+   "key": "mpf",
+   "label": "強積金 MPF",
+   "value_hkd": 186421.16,
+   "group": "hkd",
+   "items": [
+    {
+     "label": "HSBC 強積金 MPF",
+     "value_hkd": 19642.08,
+     "recorded": true
+    },
+    {
+     "label": "Sun Life 強積金 MPF",
+     "value_hkd": 166779.08,
+     "recorded": true
+    }
+   ]
+  },
+  {
+   "key": "gold",
+   "label": "黄金（XAU 现货计价）",
+   "value_hkd": 30320.04,
+   "group": "usd",
+   "items": [
+    {
+     "label": "HSBC 黄金账户（1 troy oz） · 1.0000 toz × US$3,876.40",
+     "value_hkd": 30320.04,
+     "recorded": true
+    }
+   ]
+  },
+  {
+   "key": "liab",
+   "label": "信用卡负债",
+   "value_hkd": -30496.43,
+   "group": "hkd",
+   "items": [
+    {
+     "label": "HSBC 信用卡欠款（人民币）",
+     "value_hkd": -16093.62,
+     "recorded": true
+    },
+    {
+     "label": "SCB 渣打信用卡",
+     "value_hkd": -9702.95,
+     "recorded": true
+    },
+    {
+     "label": "中银香港 銀聯雙幣卡（借记/附属）（港币）",
+     "value_hkd": 0.0,
+     "recorded": true
+    },
+    {
+     "label": "中银香港 銀聯雙幣卡（借记/附属）（人民币）",
+     "value_hkd": 0.0,
+     "recorded": true
+    },
+    {
+     "label": "中银香港 BOC Chill 卡（World Mastercard）",
+     "value_hkd": 0.0,
+     "recorded": true
+    },
+    {
+     "label": "Mox 信用卡欠款",
+     "value_hkd": -3343.86,
+     "recorded": true
+    },
+    {
+     "label": "HSBC 滙財金卡（Gold）",
+     "value_hkd": -150.0,
+     "recorded": true
+    },
+    {
+     "label": "HSBC Pulse 銀聯雙幣卡（港币）",
+     "value_hkd": 0.0,
+     "recorded": true
+    },
+    {
+     "label": "HSBC Visa Signature",
+     "value_hkd": -1206.0,
+     "recorded": true
+    }
+   ]
+  }
+ ],
+ "checklist": {
+  "due": "2026-10-31",
+  "note": "月底前必须全部录入；每发一个银行/户口就勾掉一个",
+  "total": 19,
+  "done": 19,
+  "items": [
+   {
+    "key": "alipay_rmb",
+    "label": "支付宝（余额宝+基金+黄金）",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "rmb",
+    "liability": false,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "hsbc_one",
+    "label": "HSBC One 港币活期",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": false,
+    "mpf": false,
+    "cash": true
+   },
+   {
+    "key": "scb_hkd",
+    "label": "SCB 港币存款",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": false,
+    "mpf": false,
+    "cash": true
+   },
+   {
+    "key": "bochk_sav_hkd",
+    "label": "中银香港 港元储蓄",
+    "done": true,
+    "as_of": "2026-10-25",
+    "group": "hkd",
+    "liability": false,
+    "mpf": false,
+    "cash": true
+   },
+   {
+    "key": "bochk_fx_hkd",
+    "label": "中银香港 外匯寶賬戶",
+    "done": true,
+    "as_of": "2026-10-25",
+    "group": "usd",
+    "liability": false,
+    "mpf": false,
+    "cash": true
+   },
+   {
+    "key": "hangseng_hkd",
+    "label": "恒生银行 综合户口（现仅美元）",
+    "done": true,
+    "as_of": "2026-10-25",
+    "group": "usd",
+    "liability": false,
+    "mpf": false,
+    "cash": true
+   },
+   {
+    "key": "hsbc_mpf",
+    "label": "HSBC 強積金 MPF",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": false,
+    "mpf": true,
+    "cash": false
+   },
+   {
+    "key": "sunlife_mpf",
+    "label": "Sun Life 強積金 MPF",
+    "done": true,
+    "as_of": "2026-10-25",
+    "group": "hkd",
+    "liability": false,
+    "mpf": true,
+    "cash": false
+   },
+   {
+    "key": "hsbc_cc_cny",
+    "label": "HSBC 信用卡欠款（人民币）",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "scb_cc",
+    "label": "SCB 渣打信用卡",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "bochk_cc_unionpay_hkd",
+    "label": "中银香港 銀聯雙幣卡（借记/附属）（港币）",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "bochk_cc_unionpay_cny",
+    "label": "中银香港 銀聯雙幣卡（借记/附属）（人民币）",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "bochk_cc_world",
+    "label": "中银香港 BOC Chill 卡（World Mastercard）",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "mox_cc",
+    "label": "Mox 信用卡欠款",
+    "done": true,
+    "as_of": "2026-10-25",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "hsbc_gold",
+    "label": "HSBC 黄金账户（1 troy oz）",
+    "done": true,
+    "as_of": "2026-10-13",
+    "group": "usd",
+    "liability": false,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "hsbc_cc_gold",
+    "label": "HSBC 滙財金卡（Gold）",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "hsbc_cc_pulse_hkd",
+    "label": "HSBC Pulse 銀聯雙幣卡（港币）",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "hsbc_cc_visa",
+    "label": "HSBC Visa Signature",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "hkd",
+    "liability": true,
+    "mpf": false,
+    "cash": false
+   },
+   {
+    "key": "ewb_usd",
+    "label": "华美银行 East West Bank（美元）",
+    "done": true,
+    "as_of": "2026-10-21",
+    "group": "usd",
+    "liability": false,
+    "mpf": false,
+    "cash": false
+   }
+  ]
+ },
+ "cash": {
+  "value_hkd": 171425.36,
+  "pct": 25.94,
+  "target_pct": 5.0,
+  "cap_hkd": 100000.0,
+  "target_hkd": 33040.12,
+  "delta_hkd": 138385.24,
+  "over_cap": true,
+  "parts": [
+   {
+    "label": "券商现金",
+    "value_hkd": 105267.54
+   },
+   {
+    "label": "HSBC One 港币活期",
+    "value_hkd": 41846.96
+   },
+   {
+    "label": "SCB 港币存款",
+    "value_hkd": 0.0
+   },
+   {
+    "label": "中银香港 港元储蓄",
+    "value_hkd": 0.0
+   },
+   {
+    "label": "中银香港 外匯寶賬戶",
+    "value_hkd": 39.11
+   },
+   {
+    "label": "恒生银行 综合户口（现仅美元）",
+    "value_hkd": 22707.41
+   }
+  ]
+ },
+ "surplus": {
+  "salary_hkd": 46500.0,
+  "rent_hkd": 9000.0,
+  "living_hkd": 10000.0,
+  "monthly_hkd": 22500.0,
+  "plan": [
+   {
+    "key": "gold",
+    "label": "⚠️ 人民币现金超上限 → 买入黄金",
+    "amount_hkd": 2408.94,
+    "ccy": "CNY",
+    "amount_ccy": 2100,
+    "amount_ccy_str": "¥2,100",
+    "note": "人民币现金 ¥12,064 超上限 ¥10,000，超出部分转黄金",
+    "auto": false,
+    "done": false,
+    "done_at": null,
+    "baseline_hkd": 15253.38,
+    "watch_hkd": 15253.38
+   },
+   {
+    "key": "mpf",
+    "label": "MPF 供款（自动扣款）",
+    "amount_hkd": 5000.0,
+    "ccy": "HKD",
+    "amount_ccy": 5000,
+    "amount_ccy_str": "HK$5,000",
+    "note": "每月 HK$5,000 自动转 MPF，无需手动操作",
+    "auto": true,
+    "done": true,
+    "done_at": null,
+    "baseline_hkd": 0.0,
+    "watch_hkd": 171425.36
+   },
+   {
+    "key": "cash",
+    "label": "补足现金储备",
+    "amount_hkd": 0.0,
+    "ccy": "HKD",
+    "amount_ccy": 0,
+    "amount_ccy_str": "HK$0",
+    "note": "目标 5% 且 ≤ HK$100,000",
+    "auto": false,
+    "done": false,
+    "done_at": null,
+    "baseline_hkd": 171425.36,
+    "watch_hkd": 171425.36
+   },
+   {
+    "key": "rmb",
+    "label": "人民币资产(支付宝)",
+    "amount_hkd": 0.0,
+    "ccy": "CNY",
+    "amount_ccy": 0,
+    "amount_ccy_str": "¥0",
+    "note": "缺口 HK$0 · 常规 ¥6,500/月",
+    "auto": false,
+    "done": false,
+    "done_at": null,
+    "baseline_hkd": 44394.43,
+    "watch_hkd": 44394.43
+   },
+   {
+    "key": "hkd",
+    "label": "港币资产",
+    "amount_hkd": 0.0,
+    "ccy": "HKD",
+    "amount_ccy": 0,
+    "amount_ccy_str": "HK$0",
+    "note": "缺口 HK$0",
+    "auto": false,
+    "done": false,
+    "done_at": null,
+    "baseline_hkd": 260514.07,
+    "watch_hkd": 260514.07
+   },
+   {
+    "key": "usd",
+    "label": "美股(默认归属)",
+    "amount_hkd": 19554.25,
+    "ccy": "USD",
+    "amount_ccy": 2500,
+    "amount_ccy_str": "US$2,500",
+    "note": "目标 80% · 每月上限 US$2,500",
+    "auto": false,
+    "done": false,
+    "done_at": null,
+    "baseline_hkd": 1564.34,
+    "watch_hkd": 1564.34
+   },
+   {
+    "key": "buffer",
+    "label": "剩余（机动 · 留现金）",
+    "amount_hkd": 2945.75,
+    "ccy": "HKD",
+    "amount_ccy": 2900,
+    "amount_ccy_str": "HK$2,900",
+    "note": "超出每月 US$2,500 上限的部分，暂留现金备用",
+    "auto": true,
+    "done": true,
+    "done_at": null,
+    "baseline_hkd": 0.0,
+    "watch_hkd": 0.0
+   }
+  ],
+  "history": [
+   {
+    "month": "2026-10",
+    "suggested_at": "2026-10-13T12:04:49",
+    "baseline": {
+     "cash": 212703.65,
+     "rmb": 47631.09,
+     "hkd": 216092.47,
+     "usd": 782.41,
+     "gold": 15507.29
+    },
+    "surplus_hkd": 22500.0,
+    "items": [
+     {
+      "key": "gold",
+      "label": "⚠️ 人民币现金超上限 → 买入黄金",
+      "amount_hkd": 2408.94,
+      "ccy": "CNY",
+      "amount_ccy": 2100,
+      "amount_ccy_str": "¥2,100",
+      "note": "人民币现金 ¥12,064 超上限 ¥10,000，超出部分转黄金",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 15507.29,
+      "watch_hkd": 15253.38
+     },
+     {
+      "key": "mpf",
+      "label": "MPF 供款（自动扣款）",
+      "amount_hkd": 5000.0,
+      "ccy": "HKD",
+      "amount_ccy": 5000,
+      "amount_ccy_str": "HK$5,000",
+      "note": "每月 HK$5,000 自动转 MPF，无需手动操作",
+      "auto": true,
+      "done": true,
+      "done_at": null,
+      "baseline_hkd": 0.0,
+      "watch_hkd": 171425.36
+     },
+     {
+      "key": "cash",
+      "label": "补足现金储备",
+      "amount_hkd": 0.0,
+      "ccy": "HKD",
+      "amount_ccy": 0,
+      "amount_ccy_str": "HK$0",
+      "note": "目标 5% 且 ≤ HK$100,000",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 212703.65,
+      "watch_hkd": 171425.36
+     },
+     {
+      "key": "rmb",
+      "label": "人民币资产(支付宝)",
+      "amount_hkd": 0.0,
+      "ccy": "CNY",
+      "amount_ccy": 0,
+      "amount_ccy_str": "¥0",
+      "note": "缺口 HK$0 · 常规 ¥6,500/月",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 47631.09,
+      "watch_hkd": 44394.43
+     },
+     {
+      "key": "hkd",
+      "label": "港币资产",
+      "amount_hkd": 0.0,
+      "ccy": "HKD",
+      "amount_ccy": 0,
+      "amount_ccy_str": "HK$0",
+      "note": "缺口 HK$0",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 216092.47,
+      "watch_hkd": 260514.07
+     },
+     {
+      "key": "usd",
+      "label": "美股(默认归属)",
+      "amount_hkd": 19554.25,
+      "ccy": "USD",
+      "amount_ccy": 2500,
+      "amount_ccy_str": "US$2,500",
+      "note": "目标 80% · 每月上限 US$2,500",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 782.41,
+      "watch_hkd": 1564.34
+     },
+     {
+      "key": "buffer",
+      "label": "剩余（机动 · 留现金）",
+      "amount_hkd": 2945.75,
+      "ccy": "HKD",
+      "amount_ccy": 2900,
+      "amount_ccy_str": "HK$2,900",
+      "note": "超出每月 US$2,500 上限的部分，暂留现金备用",
+      "auto": true,
+      "done": true,
+      "done_at": null,
+      "baseline_hkd": 0.0,
+      "watch_hkd": 0.0
+     }
+    ],
+    "done_all": false
+   },
+   {
+    "month": "2026-11",
+    "suggested_at": "2026-11-01T00:04:18",
+    "baseline": {
+     "cash": 171425.36,
+     "rmb": 44394.43,
+     "hkd": 260514.07,
+     "usd": 1564.34,
+     "gold": 15253.38
+    },
+    "surplus_hkd": 22500.0,
+    "items": [
+     {
+      "key": "gold",
+      "label": "⚠️ 人民币现金超上限 → 买入黄金",
+      "amount_hkd": 2408.94,
+      "ccy": "CNY",
+      "amount_ccy": 2100,
+      "amount_ccy_str": "¥2,100",
+      "note": "人民币现金 ¥12,064 超上限 ¥10,000，超出部分转黄金",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 15253.38,
+      "watch_hkd": 15253.38
+     },
+     {
+      "key": "mpf",
+      "label": "MPF 供款（自动扣款）",
+      "amount_hkd": 5000.0,
+      "ccy": "HKD",
+      "amount_ccy": 5000,
+      "amount_ccy_str": "HK$5,000",
+      "note": "每月 HK$5,000 自动转 MPF，无需手动操作",
+      "auto": true,
+      "done": true,
+      "done_at": null,
+      "baseline_hkd": 0.0,
+      "watch_hkd": 171425.36
+     },
+     {
+      "key": "cash",
+      "label": "补足现金储备",
+      "amount_hkd": 0.0,
+      "ccy": "HKD",
+      "amount_ccy": 0,
+      "amount_ccy_str": "HK$0",
+      "note": "目标 5% 且 ≤ HK$100,000",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 171425.36,
+      "watch_hkd": 171425.36
+     },
+     {
+      "key": "rmb",
+      "label": "人民币资产(支付宝)",
+      "amount_hkd": 0.0,
+      "ccy": "CNY",
+      "amount_ccy": 0,
+      "amount_ccy_str": "¥0",
+      "note": "缺口 HK$0 · 常规 ¥6,500/月",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 44394.43,
+      "watch_hkd": 44394.43
+     },
+     {
+      "key": "hkd",
+      "label": "港币资产",
+      "amount_hkd": 0.0,
+      "ccy": "HKD",
+      "amount_ccy": 0,
+      "amount_ccy_str": "HK$0",
+      "note": "缺口 HK$0",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 260514.07,
+      "watch_hkd": 260514.07
+     },
+     {
+      "key": "usd",
+      "label": "美股(默认归属)",
+      "amount_hkd": 19554.25,
+      "ccy": "USD",
+      "amount_ccy": 2500,
+      "amount_ccy_str": "US$2,500",
+      "note": "目标 80% · 每月上限 US$2,500",
+      "auto": false,
+      "done": false,
+      "done_at": null,
+      "baseline_hkd": 1564.34,
+      "watch_hkd": 1564.34
+     },
+     {
+      "key": "buffer",
+      "label": "剩余（机动 · 留现金）",
+      "amount_hkd": 2945.75,
+      "ccy": "HKD",
+      "amount_ccy": 2900,
+      "amount_ccy_str": "HK$2,900",
+      "note": "超出每月 US$2,500 上限的部分，暂留现金备用",
+      "auto": true,
+      "done": true,
+      "done_at": null,
+      "baseline_hkd": 0.0,
+      "watch_hkd": 0.0
+     }
+    ],
+    "done_all": false
+   }
+  ],
+  "prev": {
+   "month": "2026-10",
+   "suggested_at": "2026-10-13T12:04:49",
+   "baseline": {
+    "cash": 212703.65,
+    "rmb": 47631.09,
+    "hkd": 216092.47,
+    "usd": 782.41,
+    "gold": 15507.29
+   },
+   "surplus_hkd": 22500.0,
+   "items": [
+    {
+     "key": "gold",
+     "label": "⚠️ 人民币现金超上限 → 买入黄金",
+     "amount_hkd": 2408.94,
+     "ccy": "CNY",
+     "amount_ccy": 2100,
+     "amount_ccy_str": "¥2,100",
+     "note": "人民币现金 ¥12,064 超上限 ¥10,000，超出部分转黄金",
+     "auto": false,
+     "done": false,
+     "done_at": null,
+     "baseline_hkd": 15507.29,
+     "watch_hkd": 15253.38
+    },
+    {
+     "key": "mpf",
+     "label": "MPF 供款（自动扣款）",
+     "amount_hkd": 5000.0,
+     "ccy": "HKD",
+     "amount_ccy": 5000,
+     "amount_ccy_str": "HK$5,000",
+     "note": "每月 HK$5,000 自动转 MPF，无需手动操作",
+     "auto": true,
+     "done": true,
+     "done_at": null,
+     "baseline_hkd": 0.0,
+     "watch_hkd": 171425.36
+    },
+    {
+     "key": "cash",
+     "label": "补足现金储备",
+     "amount_hkd": 0.0,
+     "ccy": "HKD",
+     "amount_ccy": 0,
+     "amount_ccy_str": "HK$0",
+     "note": "目标 5% 且 ≤ HK$100,000",
+     "auto": false,
+     "done": false,
+     "done_at": null,
+     "baseline_hkd": 212703.65,
+     "watch_hkd": 171425.36
+    },
+    {
+     "key": "rmb",
+     "label": "人民币资产(支付宝)",
+     "amount_hkd": 0.0,
+     "ccy": "CNY",
+     "amount_ccy": 0,
+     "amount_ccy_str": "¥0",
+     "note": "缺口 HK$0 · 常规 ¥6,500/月",
+     "auto": false,
+     "done": false,
+     "done_at": null,
+     "baseline_hkd": 47631.09,
+     "watch_hkd": 44394.43
+    },
+    {
+     "key": "hkd",
+     "label": "港币资产",
+     "amount_hkd": 0.0,
+     "ccy": "HKD",
+     "amount_ccy": 0,
+     "amount_ccy_str": "HK$0",
+     "note": "缺口 HK$0",
+     "auto": false,
+     "done": false,
+     "done_at": null,
+     "baseline_hkd": 216092.47,
+     "watch_hkd": 260514.07
+    },
+    {
+     "key": "usd",
+     "label": "美股(默认归属)",
+     "amount_hkd": 19554.25,
+     "ccy": "USD",
+     "amount_ccy": 2500,
+     "amount_ccy_str": "US$2,500",
+     "note": "目标 80% · 每月上限 US$2,500",
+     "auto": false,
+     "done": false,
+     "done_at": null,
+     "baseline_hkd": 782.41,
+     "watch_hkd": 1564.34
+    },
+    {
+     "key": "buffer",
+     "label": "剩余（机动 · 留现金）",
+     "amount_hkd": 2945.75,
+     "ccy": "HKD",
+     "amount_ccy": 2900,
+     "amount_ccy_str": "HK$2,900",
+     "note": "超出每月 US$2,500 上限的部分，暂留现金备用",
+     "auto": true,
+     "done": true,
+     "done_at": null,
+     "baseline_hkd": 0.0,
+     "watch_hkd": 0.0
+    }
+   ],
+   "done_all": false
+  },
+  "ccy_note": "金额按目的地货币给并取整到 100：美股/IBKR → USD、港股 → HKD、支付宝 → CNY"
+ },
+ "payoff": {
+  "card_total_hkd": 30496.43,
+  "cards": [
+   {
+    "label": "SCB 渣打信用卡",
+    "value_hkd": 9702.95,
+    "due": "2026-11-04",
+    "due_day": 4
+   },
+   {
+    "label": "中银香港 BOC Chill 卡（World Mastercard）",
+    "value_hkd": 0.0,
+    "due": "2026-11-04",
+    "due_day": 4
+   },
+   {
+    "label": "HSBC 滙財金卡（Gold）",
+    "value_hkd": 150.0,
+    "due": "2026-11-08",
+    "due_day": 8
+   },
+   {
+    "label": "HSBC Visa Signature",
+    "value_hkd": 1206.0,
+    "due": "2026-11-12",
+    "due_day": 12
+   },
+   {
+    "label": "HSBC 信用卡欠款（人民币）",
+    "value_hkd": 16093.62,
+    "due": "2026-11-14",
+    "due_day": 14
+   },
+   {
+    "label": "HSBC Pulse 銀聯雙幣卡（港币）",
+    "value_hkd": 0.0,
+    "due": "2026-11-14",
+    "due_day": 14
+   },
+   {
+    "label": "Mox 信用卡欠款",
+    "value_hkd": 3343.86,
+    "due": "2026-11-24",
+    "due_day": 24
+   },
+   {
+    "label": "中银香港 銀聯雙幣卡（借记/附属）（港币）",
+    "value_hkd": 0.0,
+    "due": "2026-11-26",
+    "due_day": 26
+   },
+   {
+    "label": "中银香港 銀聯雙幣卡（借记/附属）（人民币）",
+    "value_hkd": 0.0,
+    "due": "2026-11-26",
+    "due_day": 26
+   }
+  ],
+  "next_due": "2026-11-04",
+  "cash_pool_hkd": 171425.36,
+  "after_pay_hkd": 140928.93,
+  "reserve_min_hkd": 42361.18,
+  "reserve_cap_hkd": 100000.0,
+  "keep_cash_hkd": 42361.18,
+  "reserve_short_hkd": 0.0,
+  "reserve_ok": true,
+  "free_old_hkd": 98567.76,
+  "new_money_hkd": 22500.0,
+  "available_hkd": 121067.76,
+  "post_alloc_base_hkd": 562234.61,
+  "gaps": [
+   {
+    "key": "rmb",
+    "label": "人民币资产",
+    "value_hkd": 44394.43,
+    "target_hkd": 28111.73,
+    "gap_hkd": 0.0
+   },
+   {
+    "key": "hkd",
+    "label": "港币资产",
+    "value_hkd": 161946.32,
+    "target_hkd": 84335.19,
+    "gap_hkd": 0.0
+   },
+   {
+    "key": "usd",
+    "label": "美元资产",
+    "value_hkd": 355893.87,
+    "target_hkd": 449787.69,
+    "gap_hkd": 93893.82
+   }
+  ],
+  "stale": [],
+  "stale_labels": [],
+  "stale_note": "2026-10-21：10-20 提醒点名的 5 项（Visa Signature / SCB 卡 / BOC Chill / Pulse 港币 / Pulse 人民币）已用 10-21 截图校准完毕，列表清空。"
+ },
+ "targets": {
+  "rmb_pct": 5.0,
+  "hkd_pct": 15.0,
+  "usd_pct": 80.0,
+  "cash_pct": 5.0,
+  "cash_cap_hkd": 100000.0,
+  "rmb_cash_cap_cny": 10000.0,
+  "usd_monthly_cap_usd": 2500.0,
+  "note_usd_cap": "美股/IBKR 每月投入上限 US$2,500（用户 2026-10-13）"
+ },
+ "xau": {
+  "usd_per_toz": 3876.4,
+  "as_of": "2026-10-31T18:00:05Z",
+  "source": "gold-api.com XAU/USD 现货（1 troy oz）；用户 2026-10-12 口述持有 1 toz，账户在 HSBC",
+  "toz_total": 1.0
+ },
+ "missing": [],
+ "currencies": {
+  "usdhkd": 7.8217,
+  "usdcny": 6.7003
+ }
+}
