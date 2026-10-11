@@ -109,6 +109,55 @@ h1{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:0}
 .card.notes{padding:14px 16px;font-size:12px;line-height:1.95;color:var(--dim);background:#fcfcfd}
 .card.notes>:not(:last-child){margin-bottom:9px}
 .card.notes small{font-size:12px;color:var(--dim);font-weight:400}
+/* ── 净资产 Net Worth ── */
+.nwt{position:relative}
+.nwt .tmark{position:absolute;top:-4px;bottom:-4px;width:2px;background:#111827;opacity:.45;border-radius:2px}
+.nwsub{font-size:11.5px;color:var(--dim);margin-top:5px;line-height:1.6}
+.nwbig{font-size:26px;font-weight:650;letter-spacing:-.025em;margin-top:4px}
+.nwover{color:#b45309} .nwunder{color:#1d4ed8} .nwneg{color:var(--rose7)}
+#nw-kpis{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));margin-bottom:6px}
+.nwsec-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--dim);margin-top:10px}
+.nwsec-legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.clchips{display:flex;flex-wrap:wrap;gap:8px}
+.clchip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:6px 10px;border-radius:9999px;line-height:1.3}
+.clchip.ok{color:var(--em7);background:var(--emf);box-shadow:inset 0 0 0 1px rgba(4,120,87,.15)}
+.clchip.todo{color:var(--amber7);background:var(--amberf);box-shadow:inset 0 0 0 1px rgba(180,83,9,.15)}
+.clchip b{font-weight:500;opacity:.7;font-variant-numeric:tabular-nums}
+.clchip{transition:transform .15s ease, box-shadow .15s ease;cursor:default}
+.clchip:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px currentColor}
+#nw-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+#nw-kpis>.card{transition:transform .18s ease, box-shadow .18s ease}
+#nw-kpis>.card:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1px var(--ring),0 10px 22px -16px rgba(15,23,42,.55)}
+/* ── 持仓构成饼图 (logo 版) ── */
+.pie-wrap{display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:center}
+.pie-wrap>div:first-child{flex:0 0 auto}
+.pie-legend{flex:1 1 300px;min-width:260px;max-width:560px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:6px 20px}
+.pie-lg{display:flex;align-items:center;gap:8px;font-size:12.5px;line-height:1.35;padding:3px 0;border-bottom:1px dashed #eef2f7}
+.pie-lg .lg-img{flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#fff;box-shadow:inset 0 0 0 1px #e5e7eb,0 1px 2px rgba(15,23,42,.06);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pie-lg .lg-img img{width:100%;height:100%;object-fit:contain;padding:2px}
+.pie-lg .lg-mono{font-size:9.5px;font-weight:700;color:#475569;letter-spacing:.02em}
+.pie-lg .nm{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#334155}
+.pie-lg .pc{font-variant-numeric:tabular-nums;font-weight:600;color:#0f172a}
+.pie-lg .vl{font-variant-numeric:tabular-nums;color:#94a3b8;font-size:11.5px;min-width:64px;text-align:right}
+.pie-slice{cursor:pointer;transition:opacity .15s ease}
+.pie-slice:hover{opacity:.82}
+.pie-halo{fill:none;stroke:#fff;stroke-width:1.5}
+.nw-donutbox{display:flex;justify-content:center;padding:2px 0 10px}
+.dseg{transition:opacity .15s ease, stroke-width .15s ease}
+.donut.dim .dseg{opacity:.25}
+.donut.dim .dseg.hot{opacity:1}
+.donut .dseg.hot{stroke-width:26}
+.nw-gauge{display:flex;justify-content:center;margin:-4px 0 6px}
+.sec:not(.notes-sec)::before{content:'';display:inline-block;width:3px;height:13px;border-radius:2px;background:var(--blue6);margin-right:1px;vertical-align:-1px}
+.pfstep{display:flex;gap:12px;padding:11px 0}
+.pfstep+.pfstep{border-top:1px dashed #e5e7eb}
+.pfno{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:var(--blue6);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pfstep.done .pfno{background:#10b981}
+.pfstep.warn .pfno{background:#f43f5e}
+.pfb{flex:1;min-width:0}
+.pft{font-weight:600;font-size:13.5px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.pfrow{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:#6b7280;margin-top:5px}
+.pfrow b{color:#111827;font-weight:600}
 .ttl{font-size:13px;font-weight:600;margin-bottom:14px}
 .ttl span{font-weight:400;color:var(--dim)}
 .barlist{display:flex;flex-direction:column;gap:12px}
@@ -143,6 +192,15 @@ tr:hover td{background:#fafafa}
 footer{margin-top:34px;color:var(--dim);font-size:12px;line-height:1.9;
   border-top:1px solid var(--ring);padding-top:14px}
 .stale{color:var(--amber7)}
+.notesdet{margin:16px 0 4px}
+.notesdet>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--muted);padding:5px 10px;border:1px solid var(--ring);border-radius:999px;
+  background:#fff;user-select:none}
+.notesdet>summary::-webkit-details-marker{display:none}
+.notesdet>summary:before{content:'\25AB';font-size:11px;color:var(--muted)}
+.notesdet[open]>summary:before{content:'\2212'}
+.notesdet[open]>summary{border-color:var(--ring2);color:var(--fg2)}
+.notesdet>.card.notes{margin-top:10px}
 
 /* ── P2 Rebalance ── */
 .rb-grid{display:grid;grid-template-columns:minmax(300px,.9fr) minmax(340px,1.1fr);gap:16px;align-items:start}
@@ -164,6 +222,20 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
 #fire-ccy button{border:0;background:transparent;padding:6px 12px;font-size:12.5px;font-weight:600;color:#64748b;cursor:pointer;font-variant-numeric:tabular-nums}
 #fire-ccy button+button{border-left:1px solid #e5e7eb}
 #fire-ccy button.cur{background:var(--blue6);color:#fff}
+/* 全站显示货币 pill (侧栏) */
+.gccy-row{display:flex;align-items:center;gap:8px;padding:0 8px 14px;color:var(--dim);font-size:11px}
+#g-ccy{display:inline-flex;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
+#g-ccy button{border:0;background:transparent;padding:5px 10px;font-size:12px;font-weight:600;color:#64748b;cursor:pointer;font-variant-numeric:tabular-nums}
+#g-ccy button+button{border-left:1px solid #e5e7eb}
+#g-ccy button.cur{background:var(--blue6);color:#fff}
+/* 账户市值 vs 基准: 合计横向对比条 */
+.acct-total{margin:6px 0 10px}
+.acct-total .at-head{display:flex;gap:10px;align-items:baseline;font-size:12.5px;margin-bottom:6px;flex-wrap:wrap}
+.acct-total .at-head .dim{font-size:12px}
+.acct-total .at-track{position:relative;height:16px;border:1.5px solid #cbd5e1;border-radius:8px;background:#fff;overflow:hidden}
+.acct-total .at-fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
+.acct-total .at-mark{position:absolute;top:-2px;bottom:-2px;width:0;border-left:2px dashed #94a3b8}
+.acct-total .at-scale{font-size:10.5px;margin-top:2px}
 .rb-sum{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:12px;
   border-top:1px solid var(--ring);padding-top:12px}
 .rb-sum b{color:var(--fg);font-variant-numeric:tabular-nums}
@@ -199,6 +271,10 @@ table.fire-mt{table-layout:auto;width:100%}
   main{padding:16px 12px 48px;width:100%;max-width:100%;overflow-x:hidden}
   .kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
   #nav-kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  #nw-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #nw-kpis>.card:last-child:nth-child(odd){grid-column:1/-1}
+  #nw-kpis .kpi .v{font-size:19px}
+  .nw-donutbox svg{width:180px;height:180px}
   .cols{grid-template-columns:1fr}
   .rb-grid{grid-template-columns:1fr}
   .rb-t th,.rb-t td{padding:8px 4px;font-size:12.5px}
@@ -223,6 +299,46 @@ table.fire-mt{table-layout:auto;width:100%}
   .mhead{gap:8px}
   .hideS{display:none}
 }
+
+  /* ── K线图谱 (决策) ── */
+  .kc-grid{grid-template-columns:repeat(auto-fit,minmax(430px,1fr))}
+  .kc{background:var(--card);border-radius:var(--r);box-shadow:inset 0 0 0 1px var(--ring);padding:14px 15px 12px;
+      display:flex;flex-direction:column;gap:9px;min-width:0;overflow:hidden}
+  .kc-hd{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .kc-t{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+  .kc-ch{background:#fcfcfd;border-radius:6px;box-shadow:inset 0 0 0 1px var(--ring);padding:4px}
+  .kc-ch svg.kcv{display:block;width:100%;max-width:100%;height:auto}
+  .kcv-ax{font-size:9.5px;fill:#9ca3af;font-family:Inter,system-ui,sans-serif}
+  .kcv-lv{font-size:10px;font-weight:600;font-family:Inter,system-ui,sans-serif}
+  .kcv-lb{font-size:11px;fill:#fff;font-weight:600;font-family:Inter,system-ui,sans-serif}
+  .kcv-note{font-size:9.5px;fill:#b0b5bd;font-family:Inter,system-ui,sans-serif}
+  .kc-tb{width:100%;border-collapse:collapse;font-size:12.3px;line-height:1.65;table-layout:fixed}
+  .kc-tb td{overflow-wrap:anywhere;word-break:break-word}
+  .kc-tb th{text-align:left;vertical-align:top;color:var(--muted);font-weight:500;white-space:nowrap;
+      padding:4px 10px 4px 0;width:70px}
+  .kc-tb td{vertical-align:top;color:var(--fg2);padding:4px 0;white-space:normal;text-align:left}
+  .kc-tb tr+tr th,.kc-tb tr+tr td{border-top:1px solid #f1f5f9}
+  .kc-tb b{color:var(--fg);font-weight:600}
+  .kc-q{font-size:11.8px;color:var(--dim);line-height:1.6;border-left:2px solid var(--ring2);padding-left:9px}
+  .kc-pg{color:var(--blue6);font-weight:600;white-space:nowrap}
+  @media(max-width:980px){.kc-grid{grid-template-columns:1fr}}
+  /* 跳转高亮 */
+  .kc.kc-flash{box-shadow:inset 0 0 0 2px var(--blue6),0 0 0 4px rgba(37,99,235,.13);
+      animation:kcpulse 2.4s ease-out 1}
+  @keyframes kcpulse{0%{box-shadow:inset 0 0 0 2px var(--blue6),0 0 0 8px rgba(37,99,235,.22)}
+    70%{box-shadow:inset 0 0 0 2px var(--blue6),0 0 0 4px rgba(37,99,235,.10)}
+    100%{box-shadow:inset 0 0 0 1px var(--ring),0 0 0 0 rgba(37,99,235,0)}}
+  /* 趋势箭头列 */
+  .vsa-trend{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+      border-radius:50%;font-size:16px;font-weight:700;line-height:1;cursor:default}
+  .vsa-trend.up{background:#ecfdf5;color:#047857;box-shadow:inset 0 0 0 1px rgba(4,120,87,.16)}
+  .vsa-trend.down{background:#fff1f2;color:#be123c;box-shadow:inset 0 0 0 1px rgba(190,18,60,.16)}
+  .vsa-trend.flat{background:#f3f4f6;color:#9ca3af;box-shadow:inset 0 0 0 1px var(--ring)}
+  .vsa-trend .ar{transform:translateY(-1px)}
+  /* 量价分析页的形态徽章 */
+  .vsa-chip{cursor:pointer;text-decoration:none;white-space:nowrap;border-bottom:1px dashed transparent}
+  .vsa-chip:hover{border-bottom-color:currentColor;text-decoration:none}
+  .vsa-chip .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:0 0 auto}
 </style>
 </head>
 <body>
@@ -233,29 +349,33 @@ table.fire-mt{table-layout:auto;width:100%}
       <div class="logo">O</div>
       <div><div class="t">Oranger Cockpit</div><div class="s">组合驾驶舱</div></div>
     </div>
+    <div class="gccy-row"><span>显示货币</span><span id="g-ccy"><button type="button" data-ccy="USD" class="cur">US$</button><button type="button" data-ccy="HKD">HK$</button><button type="button" data-ccy="CNY">¥</button></span></div>
     <nav class="nav" id="nav">
       <div class="grp">总览</div>
-      <a data-v="cockpit" class="on"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M2.6 12a9.4 9.4 0 0 1 18.8 0"/></svg></span><span class="lbl">Cockpit 总览</span></a>
-      <a data-v="holdings"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></svg></span><span class="lbl">Holdings 持仓</span><span class="cnt" id="c-hold"></span></a>
-      <a data-v="closed"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">清仓战绩</span><span class="cnt" id="c-closed"></span></a>
+      <a data-v="cockpit"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M2.6 12a9.4 9.4 0 0 1 18.8 0"/></svg></span><span class="lbl">投资总览 Cockpit</span></a>
+      <a data-v="holdings"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></svg></span><span class="lbl">持仓 Holdings</span><span class="cnt" id="c-hold"></span></a>
+      <a data-v="closed"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">清仓战绩 Closed</span><span class="cnt" id="c-closed"></span></a>
       <div class="grp">决策</div>
-      <a data-v="rebalance"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 8.5h13l-3.2-3.2M20 15.5H7l3.2 3.2"/></svg></span><span class="lbl">Rebalance 再平衡</span><span class="cnt" id="c-reb"></span></a>
-      <a data-v="fire"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">FIRE 财富自由</span><span class="cnt" id="c-fire"></span></a>
-      <a data-v="resis"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3.5h12M6 8h12M6 12.5h12M6 17h12M6 21.5h12"/><path d="M18.5 3.5h2M18.5 8h2M18.5 12.5h2M18.5 17h2M18.5 21.5h2"/></svg></span><span class="lbl">阻力位分析</span><span class="cnt" id="c-resis"></span></a>
+      <a data-v="rebalance"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 8.5h13l-3.2-3.2M20 15.5H7l3.2 3.2"/></svg></span><span class="lbl">再平衡 Rebalance</span><span class="cnt" id="c-reb"></span></a>
+      <a data-v="fire"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">财富自由 FIRE</span><span class="cnt" id="c-fire"></span></a>
+      <a data-v="kchart"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 4v16M6 8h4v6H6zM11 6h4v3h-4zM11 11h4v5h-4z"/></svg></span><span class="lbl">K线图谱 K-Charts</span><span class="cnt" id="c-kchart"></span></a>
+      <a data-v="resis"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3.5h12M6 8h12M6 12.5h12M6 17h12M6 21.5h12"/><path d="M18.5 3.5h2M18.5 8h2M18.5 12.5h2M18.5 17h2M18.5 21.5h2"/></svg></span><span class="lbl">量价分析 VSA</span><span class="cnt" id="c-resis"></span></a>
       <div class="grp">记录</div>
-      <a data-v="trades"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7.5h9M4 12h16M4 16.5h6"/><circle cx="17.2" cy="7.5" r="1.7"/></svg></span><span class="lbl">交易日志</span><span class="cnt" id="c-tr"></span></a>
-      <a data-v="discipline"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 6.5L9.5 17.5 4 12"/></svg></span><span class="lbl">Discipline 纪律</span><span class="cnt" id="c-disc"></span></a>
-      <a data-v="notes"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5.5 3.5h10l4 4v13h-14z"/><path d="M8.5 12h7M8.5 15.5h4.5"/></svg></span><span class="lbl">交易笔记</span><span class="cnt" id="c-notes"></span></a>
+      <a data-v="trades"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7.5h9M4 12h16M4 16.5h6"/><circle cx="17.2" cy="7.5" r="1.7"/></svg></span><span class="lbl">交易日志 Trades</span><span class="cnt" id="c-tr"></span></a>
+      <a data-v="discipline"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 6.5L9.5 17.5 4 12"/></svg></span><span class="lbl">纪律 Discipline</span><span class="cnt" id="c-disc"></span></a>
+      <a data-v="notes"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5.5 3.5h10l4 4v13h-14z"/><path d="M8.5 12h7M8.5 15.5h4.5"/></svg></span><span class="lbl">交易笔记 Notes</span><span class="cnt" id="c-notes"></span></a>
     </nav>
     <div class="sb-foot" id="sbfoot">loading…</div>
   </aside>
 
   <main>
+    
     <!-- ① Cockpit -->
     <section class="view on" id="v-cockpit">
-      <div class="mhead"><h1>Cockpit</h1><span class="d" id="gen"></span>
+      <div class="mhead"><h1>投资总览 Cockpit</h1><span class="d" id="gen"></span>
         <span style="flex:1"></span><span class="badge blue"><span class="dot"></span>P1 · 只读</span></div>
       <div class="grid kpis" id="kpis"></div>
+      <div class="dim" data-notes style="font-size:12px">今日盈亏 = 净值变动（相对 0 点基准）并<b>剔除组合出入金</b>：在券商/银行之间搬钱（转出/转入投资账户）不计入盈亏，只在备注里标出金额。</div>
 
       <div class="sec">历史净值（合并口径） <small data-notes>证券 + Blockchain 永续 · 今天/本周按 10 分钟点，长周期逐日 · 对固定成本基准</small><span class="badge gray" id="hsRange"></span>
         <span style="flex:1"></span>
@@ -269,7 +389,12 @@ table.fire-mt{table-layout:auto;width:100%}
       <div class="grid cols" id="nav-kpis" style="margin-bottom:14px"></div>
       <div class="card">
         <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px">
-          <span class="ttl" style="margin:0">累计 P&L 与 收益率</span>
+          <span class="ttl" style="margin:0" id="nav-chart-ttl">P&L 与 收益率</span>
+          <span style="flex:1"></span>
+          <span id="nav-mode" style="display:flex;gap:6px">
+            <button class="btn primary" data-m="pnl">P&L (%)</button>
+            <button class="btn" data-m="nav">净值 NAV</button>
+          </span>
         </div>
         <div id="nav-chart-dual"></div>
       </div>
@@ -278,14 +403,33 @@ table.fire-mt{table-layout:auto;width:100%}
       <div class="sec">偏离告警</div>
       <div id="alerts"></div>
 
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-cockpit"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-cockpit"></div></details>
     </section>
 
     <!-- ② Holdings -->
     <section class="view" id="v-holdings">
-      <div class="mhead"><h1>Holdings</h1><span class="d" id="gen2"></span>
+      <div class="mhead"><h1>持仓 Holdings</h1><span class="d" id="gen2"></span>
         <span style="flex:1"></span><span class="badge gray">红跌绿涨（欧惯例）</span></div>
+      <div class="sec">账户市值 vs 基准
+        <small id="acct-bars-sub" data-notes>市值 − 基准 = 相对投入的盈亏 · 红跌绿涨（欧惯例）</small>
+        <span style="flex:1"></span><span class="badge gray">跟随左栏显示货币</span></div>
+      <div class="card" id="acct-bars-card"><div id="acct-bars"></div></div>
+
+      <div class="sec">持仓构成（个股穿透 · 前十大）
+        <small id="pie-sub">ETF 按成分股权重穿透到个股</small>
+        <span style="flex:1"></span>
+        <span id="pie-basis" style="display:flex;gap:6px">
+          <button class="btn primary" data-pb="exposure">占敞口</button>
+          <button class="btn" data-pb="nav">占 NAV</button>
+        </span></div>
+      <div class="card" id="pie-card">
+        <div class="pie-wrap">
+          <div id="pie-chart"></div>
+          <div class="pie-legend" id="pie-legend"></div>
+        </div>
+      </div>
+
       <div class="sec">四维结构
         <small id="four-sub">分母：占敞口</small>
         <span style="flex:1"></span>
@@ -311,6 +455,7 @@ table.fire-mt{table-layout:auto;width:100%}
         <button class="btn" data-s="csci">CSCI</button>
         <button class="btn" data-s="hl">Blockchain</button>
         <button class="btn" data-s="dxbz">DXBZ</button>
+        <button class="btn" data-s="ibkr">IBKR</button>
       </div>
       <div class="card" style="padding:6px 8px;overflow-x:auto">
         <table id="hold"><thead><tr>
@@ -318,7 +463,7 @@ table.fire-mt{table-layout:auto;width:100%}
           <th data-sk="bucket" data-st="txt">层级<i class="caret"></i></th>
           <th class="hideS" data-sk="sector" data-st="txt">行业<i class="caret"></i></th>
           <th class="hideS" data-sk="side" data-st="txt">左/右<i class="caret"></i></th>
-          <th data-sk="exposure_hkd">敞口 HK$<i class="caret"></i></th>
+          <th data-sk="exposure_hkd" id="hold-expo-th">敞口 <span id="hold-expo-ccy">HK$</span><i class="caret"></i></th>
           <th data-sk="weight_nav">占NAV<i class="caret"></i></th>
           <th class="hideS" data-sk="leverage">杠杆<i class="caret"></i></th>
           <th data-sk="change_pct">今日<i class="caret"></i></th>
@@ -330,13 +475,13 @@ table.fire-mt{table-layout:auto;width:100%}
 
       <div class="mhead" style="margin:22px 0 10px"><h1 style="font-size:15px">按仓位层级汇总</h1></div>
       <div class="grid cols" id="grouped"></div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-holdings"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-holdings"></div></details>
     </section>
 
     <!-- ②b 清仓战绩 (独立 section, 与 总览/持仓 并列) -->
     <section class="view" id="v-closed">
-      <div class="mhead"><h1>清仓战绩</h1><span class="d" id="genC"></span>
+      <div class="mhead"><h1>清仓战绩 Closed</h1><span class="d" id="genC"></span>
         <span style="flex:1"></span><span class="badge gray" id="closedCnt"></span>
         <span class="badge gray" style="margin-left:6px">点表头排序</span></div>
 
@@ -347,6 +492,7 @@ table.fire-mt{table-layout:auto;width:100%}
         <button class="btn" data-s="csci">CSCI</button>
         <button class="btn" data-s="hl">Blockchain</button>
         <button class="btn" data-s="dxbz">DXBZ</button>
+        <button class="btn" data-s="ibkr">IBKR</button>
       </div>
       <div class="card" style="padding:6px 8px;overflow-x:auto">
         <table id="closed"><thead><tr>
@@ -364,13 +510,13 @@ table.fire-mt{table-layout:auto;width:100%}
         </tr></thead><tbody></tbody></table>
       </div>
       <div class="dim" id="closed-note" data-notes style="font-size:12px;line-height:1.95"></div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-closed"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-closed"></div></details>
     </section>
 
     <!-- ③ Rebalance (P2) -->
     <section class="view" id="v-rebalance">
-      <div class="mhead"><h1>Rebalance</h1><span class="d">再平衡 · 算出「今晚要动多少」</span>
+      <div class="mhead"><h1>再平衡 Rebalance</h1><span class="d">再平衡 · 算出「今晚要动多少」</span>
         <span style="flex:1"></span><span class="badge gray" id="rbApi">检测本地 API…</span></div>
       <div class="grid rb-grid">
         <div class="card">
@@ -387,7 +533,7 @@ table.fire-mt{table-layout:auto;width:100%}
             <button class="btn" id="rb-clear">清空个仓覆盖</button>
           </div>
           <div class="rb-hint" id="rb-hint"></div>
-          <div class="rb-note">
+          <div class="rb-note" data-notes>
             分配规则：个仓设了目标就<b>优先满足</b>；该层级剩余额度在<b>未设目标的同层级仓位</b>间按现敞口比例分配。
             层级归一化只看四个层级的相对比例，与总敞口目标独立。
           </div>
@@ -414,13 +560,13 @@ table.fire-mt{table-layout:auto;width:100%}
           </div>
         </div>
       </div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-rebalance"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-rebalance"></div></details>
     </section>
 
     <!-- ⑧ 交易笔记 -->
     <section class="view" id="v-notes">
-      <div class="mhead"><h1>交易笔记</h1><span class="d" id="ntgen"></span>
+      <div class="mhead"><h1>交易笔记 Notes</h1><span class="d" id="ntgen"></span>
         <span style="flex:1"></span><span class="badge gray" id="ntcnt"></span></div>
       <div class="card" style="padding:12px 14px;margin-bottom:14px">
         <div class="dim" data-notes style="font-size:12.5px;line-height:1.9">
@@ -431,13 +577,13 @@ table.fire-mt{table-layout:auto;width:100%}
       <div id="notes-list"></div>
       <div class="sec" id="tj-head" style="display:none">投资思维笔记 <small data-notes>来自你的研报库（Trader韭），自动取最新几条</small></div>
       <div id="tj-list"></div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-notes"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-notes"></div></details>
     </section>
 
     <!-- ⑥ 交易日志 (P3) -->
     <section class="view" id="v-trades">
-      <div class="mhead"><h1>交易日志</h1><span class="d">Blockchain fills + CSCI 成交 + DX 合并</span>
+      <div class="mhead"><h1>交易日志 Trades</h1><span class="d">Blockchain fills + CSCI 成交 + DX 合并</span>
         <span style="flex:1"></span>
         <span class="badge gray" id="trFilter"></span></div>
       <div class="grid kpis" id="tr-kpis"></div>
@@ -450,6 +596,7 @@ table.fire-mt{table-layout:auto;width:100%}
           <button class="btn" data-src="hl">Blockchain</button>
           <button class="btn" data-src="csci">CSCI</button>
           <button class="btn" data-src="dxbz">DXBZ</button>
+          <button class="btn" data-src="ibkr">IBKR</button>
         </div>
       </div>
       <div class="card" style="padding:6px 8px;overflow-x:auto">
@@ -458,26 +605,30 @@ table.fire-mt{table-layout:auto;width:100%}
           <th>盈亏</th><th class="hideS">手续费</th>
         </tr></thead><tbody></tbody></table>
       </div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-trades"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-trades"></div></details>
     </section>
 
     <!-- ⑤ Discipline -->
     <section class="view" id="v-discipline">
-      <div class="mhead"><h1>Discipline</h1><span class="d">把写在 Obsidian 的纪律变成每天自动打脸的数字</span></div>
+      <div class="mhead"><h1>纪律 Discipline</h1><span class="d">把写在 Obsidian 的纪律变成每天自动打脸的数字</span></div>
       <div class="card" id="disc"></div>
       <div class="sec">纪律阈值 <small data-notes>改 ~/cockpit/data/targets.json</small></div>
       <div class="card" id="thresholds"></div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-discipline"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-discipline"></div></details>
     </section>
 
     <!-- ⑥ 阻力位分析 (决策) -->
     <section class="view" id="v-resis">
-      <div class="mhead"><h1>阻力位分析</h1><span class="d">量价结构 · Volume Profile + 摆动点 · 对持仓标的</span>
+      <div class="mhead"><h1>量价分析 VSA</h1><span class="d">Volume Price Analysis · 阻力/支撑结构 + 威科夫形态识别 · 对持仓标的</span>
         <span style="flex:1"></span><span class="badge gray" id="resGen"></span></div>
 
-      <div class="sec">逐仓阻力 / 支撑 <small data-notes>对每支持仓算最近阻力与最近支撑。方法：① 量价分布（最近 120 日按对数分桶，桶内成交量最多的价位 = POC，高于现价的厚量桶=阻力，低于=支撑）；② 结构摆动点（跌入同带的局部高/低点 = 多次被拒的位）；③ 均线 MA20/50/100/200。共振越多项越硬。距现价 +%=阻力在上方，−%=支撑在下方。</small></div>
+      <div class="sec">逐仓量价结构与形态
+        <small data-notes>「形态」列 = 用真实日线跑《量价分析》(威科夫/安娜·库林) 的量价规则识别出的当前形态（K线构成 + 成交量确认 + 所处位置），点形态名可跳到「K线图谱」看该形态的图与买卖分析。
+        阻力/支撑方法：① 量价分布（最近 120 日按对数分桶，桶内成交量最多的价位 = POC，高于现价的厚量桶=阻力，低于=支撑）；② 结构摆动点（跌入同带的局部高/低点 = 多次被拒的位）；③ 均线 MA20/50/100/200。共振越多项越硬。距现价 +%=阻力在上方，−%=支撑在下方。
+        <br><br><b>数据更新：</b>日线每 4 小时重取一次（收盘后当天拿到新的一根），形态/趋势随日线每日更新；每行下方标注实际使用的日线日期。
+        <br><b>LSE 爱尔兰 UCITS ETF：</b>CNDX / SPYL / SMH 在腾讯/新浪没有日线，改用<b>对应美股 ETF</b>作代理（CNDX→QQQ、SPYL→SPY、SMH→SMH）跑同一套规则，阻力/支撑价位按相对幅度映射回真实持仓价（标的旁标「代理 QQQ」等）。</small></div>
       <div class="grid cols" id="res-kpis" style="margin-bottom:12px"></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px" id="res-src">
         <span class="dim" style="font-size:12px">账户</span>
@@ -485,6 +636,7 @@ table.fire-mt{table-layout:auto;width:100%}
         <button class="btn" data-s="csci">CSCI</button>
         <button class="btn" data-s="hl">Blockchain</button>
         <button class="btn" data-s="dxbz">DXBZ</button>
+        <button class="btn" data-s="ibkr">IBKR</button>
         <span style="flex:1"></span>
         <span class="badge rose"><span class="dot"></span>距清算 &lt;10%</span>
       </div>
@@ -492,6 +644,8 @@ table.fire-mt{table-layout:auto;width:100%}
         <table id="res-table"><thead><tr>
           <th data-sk="symbol" data-st="txt">标的<i class="caret"></i></th>
           <th class="hideS" data-sk="source" data-st="txt">账户<i class="caret"></i></th>
+          <th data-sk="vsa" data-st="txt">形态<i class="caret"></i></th>
+          <th data-sk="trend">趋势<i class="caret"></i></th>
           <th data-sk="price">现价<i class="caret"></i></th>
           <th data-sk="res1">最近阻力<i class="caret"></i></th>
           <th data-sk="res2">次近阻力<i class="caret"></i></th>
@@ -503,19 +657,21 @@ table.fire-mt{table-layout:auto;width:100%}
           <th class="hideS" data-sk="liq_dist_pct">距清算<i class="caret"></i></th>
         </tr></thead><tbody></tbody></table>
       </div>
-      <div class="callout yellow" style="margin-top:10px"><span class="bar"></span><div>
+      <div class="callout yellow" data-notes style="margin-top:10px"><span class="bar"></span><div>
+        <b>趋势箭头怎么读：</b>综合「形态语义 + 形态发生<b>之前</b>的趋势」得出单一结论 —— 之前下跌 + 底部反转形态（锤头线/放量止跌/供给测试）→ <span style="color:#047857;font-weight:600">↑ 看涨</span>；之前上涨 + 顶部转弱形态（吊人线/射击十字星/放量止涨）→ <span style="color:#be123c;font-weight:600">↓ 看跌</span>；同向则标「延续」。悬停箭头可见依据与置信度。</div></div>
+      <div class="callout yellow" data-notes style="margin-top:10px"><span class="bar"></span><div>
         <b>看哪里最危险：</b>当<a style="color:var(--blue6)">最近支撑</a>与持仓的<b>清算价</b>重合或落在其下时最危险；最近阻力在清算价上方则是安全参照。方法只是量价统计，不是买卖建议。</div></div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-resis"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-resis"></div></details>
     </section>
 
     <!-- ⑨ FIRE 财富自由 (决策) -->
     <section class="view" id="v-fire">
-      <div class="mhead"><h1>FIRE 财富自由预估</h1><span class="d" id="fireGen"></span>
+      <div class="mhead"><h1>财富自由 FIRE 预估</h1><span class="d" id="fireGen"></span>
         <span style="flex:1"></span>
         <span class="btn-group" id="fire-ccy" style="display:inline-flex">
-          <button type="button" data-ccy="HKD" class="cur">HK$</button>
-          <button type="button" data-ccy="USD">US$</button>
+          <button type="button" data-ccy="USD" class="cur">US$</button>
+          <button type="button" data-ccy="HKD">HK$</button>
           <button type="button" data-ccy="CNY">¥</button>
         </span>
         <span class="badge blue"><span class="dot"></span>4% 法则 · 定投复利 · 硅谷居士思路</span></div>
@@ -525,10 +681,10 @@ table.fire-mt{table-layout:auto;width:100%}
       <div class="grid rb-grid">
         <div class="card">
           <div class="ttl">参数（全部可调，改动即重算）</div>
-          <div class="rb-row"><span class="nm">可投资金融资产起点 <span class="dim">（HK$）</span></span>
+          <div class="rb-row"><span class="nm">可投资金融资产起点 <span class="dim" id="fire-lblP">（HK$）</span></span>
             <label class="sw fire-follow" title="开启后起点恒等于当前组合净资产(快照 NAV)，半自动更新/本地刷新时随之变化；关掉可手动填任意口径"><input type="checkbox" id="fire-linknav" checked> 随净资产</label>
             <input type="number" id="fire-p" step="10000" min="0"></div>
-          <div class="rb-row"><span class="nm">每月定投 <span class="dim">（HK$）</span></span>
+          <div class="rb-row"><span class="nm">每月定投 <span class="dim" id="fire-lblM">（HK$）</span></span>
             <input type="number" id="fire-m" step="1000" min="0"></div>
           <div class="rb-row"><span class="nm">年化回报率（名义）</span>
             <input type="range" id="fire-r" min="0" max="20" step="0.1" value="10" style="flex:1.2">
@@ -536,9 +692,9 @@ table.fire-mt{table-layout:auto;width:100%}
           <div class="rb-row"><span class="nm">4% 法则取款率</span>
             <input type="range" id="fire-w" min="1" max="8" step="0.1" value="4" style="flex:1.2">
             <b id="fire-w-v" style="width:52px;text-align:right;font-variant-numeric:tabular-nums">4.0%</b></div>
-          <div class="rb-row"><span class="nm">目标年生活开支 <span class="dim">（HK$）</span></span>
+          <div class="rb-row"><span class="nm">目标年生活开支 <span class="dim" id="fire-lblS">（HK$）</span></span>
             <input type="number" id="fire-s" step="10000" min="0"></div>
-          <div class="rb-note">
+          <div class="rb-note" data-notes>
             口径：<b>目标资产 = 目标年开支 ÷ 取款率</b>（取款率 4% ⇒ 目标 = 年开支 × 25）。
             预估到账年份按<b>定投逐月复利</b>推算：<code>A(t)=P·(1+r)⁾ᵗ + 12·M·[(1+r)⁾ᵗ−1]/r</code>（<code>r</code>=年化名义收益率）。
             标注「已达成」即当前资产已 ≥ 目标。<b>括号里是同龄同业参考</b>。
@@ -560,8 +716,30 @@ table.fire-mt{table-layout:auto;width:100%}
       <div class="card">
         <div class="fire-rules" style="display:flex;gap:10px;flex-wrap:wrap" id="fire-rule72"></div>
       </div>
-    <div class="sec notes-sec">说明与口径</div>
-    <div class="card notes" id="notes-v-fire"></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-fire"></div></details>
+    </section>
+
+    <!-- ⑩ K线图谱 (决策) -->
+    <section class="view" id="v-kchart">
+      <div class="mhead"><h1>K线图谱 K-Charts</h1><span class="d">威科夫量价分析 · 一个形态一张图 + 一段买卖分析</span>
+        <span style="flex:1"></span><span class="badge gray" id="kc-cnt"></span></div>
+
+      <div class="sec">形态速查
+        <small data-notes>取自 Anna Coulling《量价分析：威科夫的盘口解读方法》（2016 中文版）。红跌绿涨（欧惯例）。图为<b>合成示意K线</b>，只用于形态教学，不代表任何真实标的。<br>页码为 <b>PDF 提取序号</b>（非纸书印刷页码）。「威科夫对应」列中的英文（Spring / Last Point of Support / Climax 等）为<b>术语体系映射标注</b>，书中原文只出现"吸筹/派筹/买入高峰/抛售高峰/测试"等中文说法。</small></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px" id="kc-filter">
+        <button class="btn primary" data-c="all">全部</button>
+        <button class="btn" data-c="趋势反转">趋势反转</button>
+        <button class="btn" data-c="量价确认">量价确认</button>
+        <button class="btn" data-c="支撑阻力">支撑阻力</button>
+        <button class="btn" data-c="突破">突破</button>
+      </div>
+      <div class="grid kc-grid" id="kc-grid"></div>
+
+      <div class="callout yellow" data-notes style="margin-top:14px"><span class="bar"></span><div>
+        <b>三条铁律（全书）：</b>① 影线长度第一优先——上影＝买转卖的情绪反转，下影＝卖转买；② <b>没有影线＝情绪强，低实体＝情绪弱</b>；③ 同一形态在不同位置含义相反，必须放进更长趋势与支撑阻力里看。<b>量价分析只做两件事：确认价格，还是发现异常。</b></div></div>
+    <details class="notesdet"><summary>说明与口径（点击展开）</summary>
+    <div class="card notes" id="notes-v-kchart"></div></details>
     </section>
 
     <!-- ⑥ 交易日志 已在 Risk 之后渲染 -->
@@ -578,7 +756,48 @@ table.fire-mt{table-layout:auto;width:100%}
 var PAL={core:'#3b82f6',defense:'#14b8a6',attack:'#f97316',lever:'#8b5cf6',dxbz:'#0ea5e9'};
 var SEQ=['#3b82f6','#8b5cf6','#14b8a6','#f97316','#f59e0b','#ec4899','#06b6d4','#84cc16','#6366f1','#f43f5e','#60a5fa','#9ca3af'];
 var LBL={core:'核心',defense:'防御',attack:'进攻',lever:'杠杆进攻',dxbz:'DXBZ',left:'左侧',right:'右侧',both:'各半'};
-function hk(n,d){d=d||0;return (n<0?'-':'')+'HK$'+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
+/* ── 全站显示货币单位 (HKD / USD / CNY) ──────────────────────────────────
+   内部一律以 HKD 存储/计算, 只在显示层换算。hk()/nvFmt()/fireFmt() 全走这里,
+   切换单位一次性作用于净值、持仓、清仓、FIRE、图表刻度等全站金额。
+   汇率在数据加载后刷新: USD 用看板实时工作汇率, CNY 用台账 fx.cnyhkd。
+   Blockchain(HL) 与 IBKR 的账户基准同为美元计, 选 US$ 即为原生美元数字。 */
+var CCY = 'USD';   // 默认显示货币 = 美金 (用户 2026-10-27: 优先用美金显示)
+var GFX = { USD: 7.82, CNY: 1.17 };            // 1 USD / 1 CNY 各折多少 HKD
+try { var _ccy = localStorage.getItem('cockpit.ccy'); if (_ccy === 'USD' || _ccy === 'CNY' || _ccy === 'HKD') CCY = _ccy; } catch (e) {}
+function ccySym(){ return CCY === 'USD' ? 'US$' : (CCY === 'CNY' ? '¥' : 'HK$'); }
+function ccyRate(){ return GFX[CCY] || 1; }
+function ccyApply(){
+  try { document.querySelectorAll('#g-ccy button,#fire-ccy button').forEach(function(b){
+    b.classList.toggle('cur', b.getAttribute('data-ccy') === CCY); }); } catch (e) {}
+}
+function setCcy(c){
+  if (c !== 'HKD' && c !== 'USD' && c !== 'CNY') return;
+  CCY = c; try { localStorage.setItem('cockpit.ccy', c); } catch (e) {}
+  try { FIRE.ccy = c; } catch (e) {}
+  ccyApply();
+  if (typeof rerenderAll === 'function') rerenderAll();
+  // 账户市值 vs 基准 / 饼图 / 四维结构 都是手绘 SVG, 切币种必须显式重画
+  try { if (typeof acctBarsRender === 'function') acctBarsRender(); } catch (e) {}
+  try { if (typeof pieRender === 'function') pieRender(); } catch (e) {}
+  try { if (typeof fourRender === 'function') fourRender(); } catch (e) {}
+  // 表头单位跟随币种 (敞口列)
+  try {
+    var th = document.getElementById('hold-expo-ccy');
+    if (th) th.textContent = ccySym();
+  } catch (e) {}
+  // FIRE 输入框的单位标签也跟随币种 (否则数字换了、标签还写着 HK$)
+  try {
+    ['fire-lblP', 'fire-lblM', 'fire-lblS'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = '（' + ccySym() + '）';
+    });
+  } catch (e) {}
+}
+if (document && document.addEventListener) document.addEventListener('click', function (e) {
+  var b = e.target && e.target.closest ? e.target.closest('#g-ccy button,#fire-ccy button') : null;
+  if (b && b.getAttribute('data-ccy')) setCcy(b.getAttribute('data-ccy'));
+});
+function hk(n,d){d=d||0;var v=(Number(n)||0)/ccyRate();return (v<0?'-':'')+ccySym()+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
 function sgn(n){return n>0?'+':'';}
 function cls(n){return n>0?'up':(n<0?'down':'');}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -832,7 +1051,7 @@ function notesCollect() {
 notesCollect();
 
 /* ── 合并净值曲线 (总览) + 四维结构 (Holdings 顶部) ── */
-var NVS = { series: [], intraday: [], meta: {}, cb: 0, range: 'all', prevNav: 0, prevDate: '' };
+var NVS = { series: [], intraday: [], meta: {}, cb: 0, range: 'all', prevNav: 0, prevDate: '', mode: (function(){ try { return localStorage.getItem('cockpit.navmode') || 'pnl'; } catch (e) { return 'pnl'; } })() };
 var SNAP = null;
 var FOUR = { basis: 'exposure' };
 var nvUid = 0;
@@ -840,7 +1059,7 @@ var nvUid = 0;
 function isNum(v) { return v != null && isFinite(v); }
 function nvFmt(v) {
   if (v == null) return '—';
-  return (v < 0 ? '-' : '') + 'HK$' + Math.abs(v).toLocaleString('en-US', { maximumFractionDigits: 0 });
+  return (v < 0 ? '-' : '') + ccySym() + Math.abs(v / ccyRate()).toLocaleString('en-US', { maximumFractionDigits: 0 });
 }
 function nvFmtPct(v) {
   if (v == null) return '—';
@@ -860,6 +1079,7 @@ function nvTick(v, isPct) {
 
 function nvDualChart(boxId, points, opts) {
   opts = opts || {};
+  var NAVM = !!opts.navMode;          // true = 画净值曲线 (左轴 HK$); false = 画 P&L + 右轴收益率
   var box = document.getElementById(boxId);
   if (!box) return;
   if (!points || points.length < 2) {
@@ -873,12 +1093,17 @@ function nvDualChart(boxId, points, opts) {
   var narrow = W < 560;
   var H = Math.max(180, Math.round(Math.min(272, W * 0.30)));
   var PL = narrow ? 44 : 54, PR = narrow ? 46 : 58, PT = 26, PB = narrow ? 22 : 26;
-  var pnls = points.map(function (p) { return p.pnl; }).filter(isNum);
+  var pnls = points.map(function (p) { return NAVM ? p.nav : p.pnl; }).filter(isNum);
   var rets = points.map(function (p) { return p.ret; }).filter(isNum);
   var invLast = Number(points[points.length - 1].invested) || 1;
   var baseNav = Number(opts.baseNav) || invLast;   // 窗口基准净值 (全部=成本基准)
   var Mp, Mc = 0, Mr, McR = 0;
-  if (opts.short && pnls.length > 1) {
+  if (NAVM) {
+    // 净值模式: 纵轴按区间自身范围定 (净值是正数, 不能用对称零轴)
+    var vLo = Math.min.apply(null, pnls), vHi = Math.max.apply(null, pnls);
+    Mc = (vLo + vHi) / 2;
+    Mp = Math.max((vHi - vLo) / 2 * 1.12, Math.abs(Mc) * 0.0015, 1);
+  } else if (opts.short && pnls.length > 1) {
     // 短周期(今天/本周): 纵轴按【区间自身范围】定, 不能再用对称零轴 ——
     // 一天里的盈亏本来就在窄带内, 用 ±max|v| 定轴会把曲线压成一条看着"平"的线。
     var pLo = Math.min.apply(null, pnls), pHi = Math.max.apply(null, pnls);
@@ -890,14 +1115,15 @@ function nvDualChart(boxId, points, opts) {
     Mr = Math.max((rHi - rLo) / 2 * 1.35, Math.abs(McR) * 0.002, 0.02);
   } else {
     Mp = (Math.max.apply(null, pnls.map(Math.abs)) || 1) * 1.10;
-    // 右轴 %: 按【窗口基准净值】线性换算 (全部=成本基准 75万), 同一高度恒对应同一百分比。
+    // 右轴 %: 按【窗口基准净值】线性换算 (全部=成本基准 77.5万), 同一高度恒对应同一百分比。
     // 收益率序列本身 = P&L/当日投入, 分母在变, 所以右轴刻度只在期末精确, 见脚注。
     Mr = Mp / (baseNav || 1) * 100;
   }
   var X = function (i) { return PL + (W - PL - PR) * (i / (points.length - 1)); };
   var Yp = function (v) { return PT + (H - PT - PB) * (1 - ((Number(v) - Mc) + Mp) / (2 * Mp)); };
   var Yr = function (v) { return PT + (H - PT - PB) * (1 - ((Number(v) - McR) + Mr) / (2 * Mr)); };
-  var y0 = Math.max(PT, Math.min(H - PB, Yp(0)));   // 面积填充的零线(0 出界时整块单色)
+  var Yv = function (p) { return Yp(NAVM ? p.nav : p.pnl); };        // 曲线值 → Y (按模式取净值或 P&L)
+  var y0 = NAVM ? (H - PB) : Math.max(PT, Math.min(H - PB, Yp(0)));   // 面积填充的零线(0 出界时整块单色)
   var uid = 'nd' + (nvUid++);
   var defs = '', body = '';
 
@@ -906,15 +1132,15 @@ function nvDualChart(boxId, points, opts) {
     var pv = Mc + Mp * f, rv = McR + Mr * f, y = Yp(pv).toFixed(1);
     body += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + y + '" y2="' + y + '" stroke="#f1f5f9" stroke-width="1"/>' +
       '<text x="' + (PL - 7) + '" y="' + (Number(y) + 3.5) + '" text-anchor="end" font-size="10" fill="#94a3b8">' + esc(nvTick(pv)) + '</text>' +
-      '<text x="' + (W - PR + 7) + '" y="' + (Number(y) + 3.5) + '" font-size="10" fill="#a78bfa">' + esc(nvTick(rv, true)) + '</text>';
+      (NAVM ? '' : '<text x="' + (W - PR + 7) + '" y="' + (Number(y) + 3.5) + '" font-size="10" fill="#a78bfa">' + esc(nvTick(rv, true)) + '</text>');
   });
   if (Mc - Mp < 0 && Mc + Mp > 0) {
     var yz = Yp(0).toFixed(1);
     body += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + yz + '" y2="' + yz + '" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>';
   }
   // 轴上单位
-  body += '<text x="' + (PL - 7) + '" y="' + (PT - 8) + '" text-anchor="end" font-size="10" fill="#cbd5e1">HK$</text>' +
-    '<text x="' + (W - PR + 7) + '" y="' + (PT - 8) + '" font-size="10" fill="#ddd6fe">%</text>';
+  body += '<text x="' + (PL - 7) + '" y="' + (PT - 8) + '" text-anchor="end" font-size="10" fill="#cbd5e1">' + ccySym() + '</text>' +
+    (NAVM ? '' : '<text x="' + (W - PR + 7) + '" y="' + (PT - 8) + '" font-size="10" fill="#ddd6fe">%</text>');
 
   // P&L 面积 (正绿负红) + 折线
   var dP = '', n = 0, firstIdx = -1, lastIdx = -1;
@@ -922,10 +1148,14 @@ function nvDualChart(boxId, points, opts) {
     if (!isNum(p.pnl)) return;
     if (firstIdx < 0) firstIdx = i;
     lastIdx = i;
-    dP += (n ? ' L' : ' M') + X(i).toFixed(1) + ' ' + Yp(p.pnl).toFixed(1);
+    dP += (n ? ' L' : ' M') + X(i).toFixed(1) + ' ' + Yv(p).toFixed(1);
     n++;
   });
-  if (dP) {
+  if (dP && NAVM) {
+    var areaN = dP.trim() + ' L' + X(lastIdx).toFixed(1) + ' ' + (H - PB).toFixed(1) + ' L' + X(firstIdx).toFixed(1) + ' ' + (H - PB).toFixed(1) + ' Z';
+    body += '<path d="' + areaN + '" fill="#475569" fill-opacity="0.08" stroke="none"/>' +
+      '<path d="' + dP.trim() + '" fill="none" stroke="#475569" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>';
+  } else if (dP) {
     var area = dP.trim() + ' L' + X(lastIdx).toFixed(1) + ' ' + y0.toFixed(1) + ' L' + X(firstIdx).toFixed(1) + ' ' + y0.toFixed(1) + ' Z';
     defs += '<clipPath id="' + uid + '-up"><rect x="0" y="0" width="' + W + '" height="' + y0.toFixed(1) + '"/></clipPath>' +
       '<clipPath id="' + uid + '-dn"><rect x="0" y="' + y0.toFixed(1) + '" width="' + W + '" height="' + (H - y0).toFixed(1) + '"/></clipPath>';
@@ -940,7 +1170,7 @@ function nvDualChart(boxId, points, opts) {
     dR += (m ? ' L' : ' M') + X(i).toFixed(1) + ' ' + Yr(p.ret).toFixed(1);
     m++;
   });
-  if (opts.short && dR) {
+  if (!NAVM && (opts.short || opts.showRet) && dR) {
     body += '<path d="' + dR.trim() + '" fill="none" stroke="#a78bfa" stroke-width="1.6" ' +
       'stroke-linejoin="round" stroke-linecap="round"/>';
   }
@@ -956,9 +1186,9 @@ function nvDualChart(boxId, points, opts) {
     '<text x="' + (W - PR) + '" y="' + (H - 7) + '" text-anchor="end" font-size="10" fill="#94a3b8">' + esc(points[points.length - 1].date) + '</text>';
 
   var last = points[points.length - 1];
-  var pnlLbl = opts.intervalPnl ? '区间 P&L' : '累计 P&L';
-  var legend = '<span class="badge gray" style="box-shadow:inset 0 0 0 1px #47556955"><span class="dot" style="background:#475569"></span>' + pnlLbl + ' <span class="dim" style="font-size:11px">左轴</span> <b style="margin-left:2px">' + esc(nvFmt(last.pnl)) + '</b></span>' +
-    (opts.short ? '<span class="badge gray" style="box-shadow:inset 0 0 0 1px #a78bfa55"><span class="dot" style="background:#a78bfa"></span>收益率曲线 <span class="dim" style="font-size:11px">右轴 %</span></span>' : '') +
+  var pnlLbl = NAVM ? '净值 NAV' : (opts.intervalPnl ? '区间 P&L' : '累计 P&L');
+  var legend = '<span class="badge gray" style="box-shadow:inset 0 0 0 1px #47556955"><span class="dot" style="background:#475569"></span>' + pnlLbl + ' <span class="dim" style="font-size:11px">左轴</span> <b style="margin-left:2px">' + esc(NAVM ? nvFmt(last.nav) : nvFmt(last.pnl)) + '</b></span>' +
+    ((!NAVM && (opts.short || opts.showRet)) ? '<span class="badge gray" style="box-shadow:inset 0 0 0 1px #a78bfa55"><span class="dot" style="background:#a78bfa"></span>收益率曲线 <span class="dim" style="font-size:11px">右轴 %</span></span>' : '') +
     '<span class="dim" style="font-size:11.5px">收益率 <b style="color:' + (last.ret >= 0 ? '#047857' : '#be123c') + '">' + esc(nvFmtPct(last.ret)) + '</b></span>';
 
   box.innerHTML = '<div id="' + uid + '-wrap" style="position:relative">' +
@@ -980,7 +1210,7 @@ function nvDualChart(boxId, points, opts) {
     cross.style.display = '';
     var ln = cross.querySelector('line'), cs = cross.querySelectorAll('circle');
     ln.setAttribute('x1', x); ln.setAttribute('x2', x);
-    cs[0].setAttribute('cx', x); cs[0].setAttribute('cy', isNum(p.pnl) ? Yp(p.pnl) : y0);
+    cs[0].setAttribute('cx', x); cs[0].setAttribute('cy', isNum(NAVM ? p.nav : p.pnl) ? Yv(p) : y0);
     tip.style.display = '';
     tip.innerHTML = '<b>' + esc(p.date) + '</b><br>' +
       '<span style="color:#94a3b8">净值</span> ' + esc(nvFmt(p.nav)) + '<br>' +
@@ -1133,8 +1363,27 @@ function nvInit() {
             cost_basis: bNav, pnl: 0, ret: 0 }].concat(cs);
   }
 
-  nvDualChart('nav-chart-dual', cs, { short: (rng === 'today' || rng === 'week'),
-                                      baseNav: bNav, intervalPnl: !isAll });
+  // —— 两个视图 (用户 2026-10-27: 基准会变, 要能看原始净值) ——
+  //   P&L (%): 左轴 P&L (相对区间基准/累计投入), 右轴 收益率 %   ← 基准会变时用这个看"赚了多少"
+  //   净值 NAV: 左轴直接画合并净值本身 (不受基准/出入金影响)   ← 看"账户有多少钱"
+  var mode = NVS.mode || 'pnl';
+  var ttl = document.getElementById('nav-chart-ttl');
+  if (ttl) ttl.textContent = (mode === 'nav' ? '合并净值' : 'P&L 与 收益率');
+  var nmEl = document.getElementById('nav-mode');
+  if (nmEl) [].forEach.call(nmEl.querySelectorAll('button'), function (x) {
+    x.className = 'btn' + (x.getAttribute('data-m') === mode ? ' primary' : '');
+  });
+  if (mode === 'nav') {
+    var csn = s.map(function (p) {
+      return { date: p.date, intraday: p.intraday, d: p.d, nav: p.nav,
+               invested: p.invested, cost_basis: p.cost_basis, pnl: p.pnl, ret: p.ret };
+    });
+    nvDualChart('nav-chart-dual', csn, { navMode: true, short: (rng === 'today' || rng === 'week'),
+                                         baseNav: bNav, intervalPnl: false });
+  } else {
+    nvDualChart('nav-chart-dual', cs, { short: (rng === 'today' || rng === 'week'),
+                                        baseNav: bNav, intervalPnl: !isAll, showRet: true });
+  }
 
   if (el4) {
     var cards = [
@@ -1163,11 +1412,12 @@ function nvInit() {
   var m = NVS.meta || {};
   if (note) {
     var parts = [];
+    parts.push('折线图两个视图（右上角切换，2026-10-27）：<b>P&amp;L (%)</b> = 左轴 P&amp;L（相对区间基准 / 累计投入）、右轴 收益率 %，<b>基准会变时（取出/追加资金）看这个</b> —— 出入金已在分母同步剔除，不会算成盈亏；<b>净值 NAV</b> = 左轴直接画合并净值本身，不受基准与出入金影响，看「账户有多少钱」。切换状态记在本机 localStorage。');
     parts.push('口径：合并净值 = 证券市值+现金 + Blockchain 账户净值 + DX 净值。<b>四张卡片都只统计当前选中区间</b>，且前两张的基准随区间变化 —— <b>今天 = 昨收</b>、<b>本周 = 上周末收盘</b>、近 30/60 天 = <b>区间起点</b>、全部 = <b>成本基准 ' + hk(last.cost_basis) + '</b>；所以「今日 P&L」就是当天涨跌，不是全期累计。<b>折线画的是 P&L</b>：今天 / 本周 / 近 30·60 天相对窗口基准（起点 = 0，终点 = 该区间卡片上的 P&L）；「全部」= <b>NAV − 累计投入</b>（每点按当时已到账资金衡量，早期资金分批到位，故是一路按实际增加的本金计盈亏，末点 = 累计 P&L，与卡片一致）。长周期左右轴对称于 0 共用零轴，<b>今天 / 本周按区间自身范围定轴</b>（否则窄带数据会被压成平线）；右轴 % 按窗口基准净值线性换算，故其刻度只在期末精确（悬浮框给的是当时精确值）。');
     parts.push('HL 入金：链上到账 USDC 折 HK$ 低于实际投入（差 ≈ HK$8,910 为 HKD→USDC 汇损 + 跨链桥费），已按入金节奏<b>等比平滑</b>计入成本，所以累计投入末点正好等于 ' + hk(last.cost_basis) + '。');
     parts.push('DX 自 <b>2026-06-05</b> 资金到位日起并入（成本 HK$25,000）；其历史段按当前净值平推（无逐日估值，权重约 3%，不影响末点）。');
     if (m.hl_err_pct != null) {
-      parts.push('HL 由 <b>' + (m.hl_fills || '?') + ' 笔成交 + 资金费 + 入金流水</b>重放还原（首笔 ' + (m.hl_first_fill || '?') + '），再按末日实盘值等比校正 <b>×' + (m.hl_calib || 1).toFixed(4) + '</b>（校正前差 ' + m.hl_err_raw_pct + '%）。<b>末日取实时值，与顶部 NAV 完全一致</b>；此前各日为重建值（证券为日报快照、HL 为重放）。');
+      parts.push('HL 由 <b>' + (m.hl_fills || '?') + ' 笔成交 + 资金费 + 入金流水</b>重放还原（首笔 ' + (m.hl_first_fill || '?') + '），再按末日实盘值等比校正 <b>×' + (m.hl_calib || 1).toFixed(4) + '</b>（校正前差 ' + m.hl_err_raw_pct + '%）。<b>末日取实时值，与顶部 NAV 完全一致</b>；2026-09-17 起各日直接取<b>看板自记的每日真实 NAV</b>（data/history.jsonl），此前为重建值（HL 重放）。');
     }
     note.innerHTML = parts.join('<br>');
   }
@@ -1207,6 +1457,7 @@ function fourRender() {
     { label: '证券市值', value: a.csci_mv_hkd, pct: denom ? a.csci_mv_hkd / denom * 100 : 0, color: '#3b82f6' },
     { label: 'Blockchain 永续权益', value: a.hl_perp_equity_hkd, pct: denom ? a.hl_perp_equity_hkd / denom * 100 : 0, color: '#8b5cf6' },
     { label: 'DXBZ', value: s.dxbz_nav_hkd, pct: denom ? s.dxbz_nav_hkd / denom * 100 : 0, color: '#f59e0b' },
+    { label: 'IBKR', value: s.ibkr_nav_hkd, pct: denom ? s.ibkr_nav_hkd / denom * 100 : 0, color: '#7c3aed' },
     { label: '现金', value: s.cash_hkd, pct: denom ? s.cash_hkd / denom * 100 : 0, color: '#9ca3af' }
   ]);
 }
@@ -1326,8 +1577,8 @@ function rkRenderMargin(s){
       '<div style="font-size:13px;line-height:1.9">'+
       '清算价 <b>$'+c.liq_price.toFixed(2)+'</b> ｜ 当前价 <b>$'+c.mark.toFixed(2)+'</b> ｜ 缓冲距离 <b class="down">'+c.dist_pct.toFixed(1)+'%</b>'+
       '<br>'+
-      '建议补保 <b>HK$'+Math.round(c.add_margin_low_hkd).toLocaleString('en-US')+' ~ HK$'+Math.round(c.add_margin_high_hkd).toLocaleString('en-US')+'</b>'+
-      '（或减仓名义 HK$'+Math.round(c.cut_notional_hkd).toLocaleString('en-US')+'，把杠杆压到 '+c.target_lev+'x）<br>'+
+      '建议补保 <b>'+hk(c.add_margin_low_hkd)+' ~ '+hk(c.add_margin_high_hkd)+'</b>'+
+      '（或减仓名义 '+hk(c.cut_notional_hkd)+'，把杠杆压到 '+c.target_lev+'x）<br>'+
       '<span class="dim">触发原因：'+esc(c.reason||'—')+(c.dist_prev_pct!=null?('（上次 '+c.dist_prev_pct.toFixed(1)+'%）'):'')+'</span><br>'+
       '提醒状态：'+(c.paused?('<b class="warn">已暂停</b>（至 '+esc(c.pause_until)+'）'):'<b class="up">未暂停</b>')+
       '</div>'+
@@ -1399,17 +1650,100 @@ function rkRenderFix(){
   }).join('')||'<tr><td colspan="6" class="dim" style="text-align:center;padding:18px">无永续持仓</td></tr>';
 }
 
+
+/* ── 持仓构成饼图 (logo 版) ─────────────────────────────────── */
+var PIE = { basis: 'exposure' };
+var PIE_COLORS = ['#3b82f6','#8b5cf6','#f59e0b','#10b981','#ec4899','#06b6d4','#84cc16','#f43f5e','#6366f1','#14b8a6','#a855f7','#eab308'];
+function pieMono(sym) { return '<span class="lg-mono">' + esc(String(sym || '?').slice(0,3)) + '</span>'; }
+function pieLogo(p) {
+  if (p && p.logo) {
+    return '<img src="assets/logos/' + esc(p.logo) + '" alt="' + esc(p.symbol) + ' logo" loading="lazy" data-mono="' + esc(String(p.symbol || '?').slice(0,3)) + '">';
+  }
+  return pieMono(p && p.symbol);
+}
+// 仓位真实占用净值: 杠杆仓用保证金(equity), 非杠杆仓用市值
+function pieNavVal(p) {
+  var e = Number(p.equity_hkd) || 0;
+  if (e > 0) return e;
+  var lv = Number(p.leverage) || 1;
+  if (lv > 1) return (p.exposure_hkd || 0) / lv;
+  return (p.exposure_hkd || 0);
+}
+function pieRender() {
+  var s = SNAP, box = document.getElementById('pie-chart'), lg = document.getElementById('pie-legend');
+  if (!s || !box || !lg) return;
+  var rows = (s.lookthrough || []).slice();
+  if (!rows.length) { box.innerHTML = '<div class="dim">暂无穿透数据</div>'; lg.innerHTML = ''; return; }
+  var useNav = PIE.basis === 'nav';
+  // 分母 = 全组合该口径 (敞口 = 名义敞口; NAV = 组合净值), 两个口径刻意用不同分母, 数字会真的变
+  var meta = s.lookthrough_meta || {};
+  var total = useNav ? (meta.nav_total_hkd || s.nav_hkd || 0) : (meta.exp_total_hkd || s.exposure_hkd || 0);
+  if (!total) { box.innerHTML = '<div class="dim">—</div>'; return; }
+  rows.sort(function (a, b) { return (useNav ? b.nav_pct : b.exp_pct) - (useNav ? a.nav_pct : a.exp_pct); });
+  var TOPN = 10;
+  var top = rows.slice(0, TOPN);
+
+  var R = 104, SW = 34, C = 2 * Math.PI * R, cx = 130, cy = 130;
+  var acc = 0, segs = [], marks = [];
+  top.forEach(function (p, i) {
+    var pct = Math.max(0, useNav ? (p.nav_pct || 0) : (p.exp_pct || 0));
+    var len = pct / 100 * C;
+    var col = PIE_COLORS[i % PIE_COLORS.length];
+    var mid = (acc + pct / 100 / 2) * 2 * Math.PI - Math.PI / 2;
+    segs.push('<circle class="pie-slice" data-sym="' + esc(p.symbol) + '" cx="' + cx + '" cy="' + cy + '" r="' + R +
+      '" fill="none" stroke="' + col + '" stroke-width="' + SW + '" stroke-dasharray="' + len.toFixed(2) + ' ' + (C - len).toFixed(2) +
+      '" stroke-dashoffset="' + (-acc * C + C / 4).toFixed(2) + '"><title>' + esc(p.name || p.symbol) + ' ' + pct.toFixed(1) + '%</title></circle>');
+    // 扇区上只放 logo, 不放 ticker 文字
+    if (pct >= 2.5 && p.logo) {
+      var lx = cx + Math.cos(mid) * R, ly = cy + Math.sin(mid) * R;
+      marks.push('<g class="pie-mark"><circle cx="' + lx.toFixed(1) + '" cy="' + ly.toFixed(1) + '" r="15" fill="#fff" opacity=".96"/>' +
+        '<image href="assets/logos/' + esc(p.logo) + '" x="' + (lx - 11).toFixed(1) + '" y="' + (ly - 11).toFixed(1) + '" width="22" height="22" preserveAspectRatio="xMidYMid meet"/></g>');
+    }
+    acc += pct / 100;
+  });
+  var sumPct = top.reduce(function (a, p) { return a + (useNav ? (p.nav_pct || 0) : (p.exp_pct || 0)); }, 0);
+  var headline = useNav ? '占 NAV' : '占敞口';
+  box.innerHTML = '<svg width="' + (cx * 2) + '" height="' + (cy * 2) + '" viewBox="0 0 ' + (cx * 2) + ' ' + (cy * 2) + '">' +
+    '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#f1f5f9" stroke-width="' + SW + '"/>' +
+    segs.join('') + marks.join('') +
+    '<text x="' + cx + '" y="' + (cy - 14) + '" text-anchor="middle" font-size="11" fill="#94a3b8">前 ' + top.length + ' 大标的 · ' + headline + '</text>' +
+    '<text x="' + cx + '" y="' + (cy + 8) + '" text-anchor="middle" font-size="22" font-weight="650" fill="#0f172a">' + sumPct.toFixed(1) + '%</text>' +
+    '<text x="' + cx + '" y="' + (cy + 27) + '" text-anchor="middle" font-size="10.5" fill="#94a3b8">' + (useNav ? 'NAV ' + hk(total) : '敞口 ' + hk(total)) + '</text>' +
+    '</svg>';
+
+  lg.innerHTML = top.map(function (p, i) {
+    var pct = useNav ? (p.nav_pct || 0) : (p.exp_pct || 0);
+    var col = PIE_COLORS[i % PIE_COLORS.length];
+    var amt = useNav ? (p.nav_hkd || 0) : (p.exp_hkd || 0);
+    return '<div class="pie-lg"><span class="lg-img">' + pieLogo(p) + '</span>' +
+      '<span class="nm" title="' + esc(p.symbol + ' · ' + (p.name || '')) + '">' + esc(p.name || p.symbol) + '</span>' +
+      '<span class="pc" style="color:' + col + '">' + pct.toFixed(1) + '%</span>' +
+      '<span class="vl">' + hk(amt) + '</span></div>';
+  }).join('');
+
+  var sub = document.getElementById('pie-sub');
+  if (sub) sub.textContent = 'ETF 按成分股权重穿透到个股 · 前十之外留白 · ' + (useNav ? '分母 = 组合净值' : '分母 = 名义敞口');
+  [].forEach.call(document.querySelectorAll('#pie-basis button'), function (b) {
+    b.className = 'btn' + (b.getAttribute('data-pb') === PIE.basis ? ' primary' : '');
+  });
+  [].forEach.call(lg.querySelectorAll('img[data-mono]'), function (im) {
+    im.onerror = function () { im.parentNode.innerHTML = pieMono(im.getAttribute('data-mono')); };
+  });
+
+}
+
 /* ── P3 交易日志 ── */
 function trKpis(s){
   var t=s.trades||[];
   var hl=t.filter(function(x){return x.source==='hl';});
   var pnl=hl.reduce(function(a,x){return a+(x.pnl_usd||0);},0);
   var fee=hl.reduce(function(a,x){return a+(x.fee_usd||0);},0)*s.fx_usdhkd;
-  var cfee=t.filter(function(x){return x.source!=='hl';}).reduce(function(a,x){return a+(x.fee_usd||0);},0);
+  var cfee=t.filter(function(x){return x.source!=='hl' && x.source!=='ibkr';}).reduce(function(a,x){return a+(x.fee_usd||0);},0);
+  var ibfee=t.filter(function(x){return x.source==='ibkr';}).reduce(function(a,x){return a+(x.fee_usd||0);},0);
   var cards=[
-    {k:'合并流水',v:t.length+' 笔',d:'<span class="sub2">HL '+hl.length+' · CSCI '+t.filter(function(x){return x.source==='csci';}).length+' · DXBZ '+t.filter(function(x){return x.source==='dxbz';}).length+'</span>'},
+    {k:'合并流水',v:t.length+' 笔',d:'<span class="sub2">HL '+hl.length+' · CSCI '+t.filter(function(x){return x.source==='csci';}).length+' · DXBZ '+t.filter(function(x){return x.source==='dxbz';}).length+' · IBKR '+t.filter(function(x){return x.source==='ibkr';}).length+'</span>'},
     {k:'Blockchain 已实现盈亏',v:sgn(pnl)+'$'+Math.abs(pnl).toFixed(2),d:'<span class="sub2">近 48h fills</span>'},
-    {k:'手续费合计',v:hk(fee+cfee),d:'<span class="sub2">HL $'+ (fee/s.fx_usdhkd).toFixed(2) +' + CSCI '+hk(cfee)+'</span>'},
+    {k:'手续费合计',v:hk(fee+cfee)+' + $'+ibfee.toFixed(2),d:'<span class="sub2">HL $'+ (fee/s.fx_usdhkd).toFixed(2) +' + CSCI '+hk(cfee)+' + IBKR $'+ibfee.toFixed(2)+'</span>'},
     {k:'最近一笔',v:t.length?t[0].ts:'—',d:'<span class="sub2">'+(t.length?esc(t[0].symbol+' '+t[0].action):'')+'</span>'}
   ];
   document.getElementById('tr-kpis').innerHTML=cards.map(function(c){
@@ -1432,14 +1766,14 @@ function trRender(){
     if(x.fee_est) fee='<span title="券商未回填 commission，按 '+(x.ts||'').slice(0,7)+' 的档位推定">~</span>'+fee;
     var pnl=(x.pnl_usd==null)?'<span class="dim">—</span>':('<span class="'+cls(x.pnl_usd)+'">'+sgn(x.pnl_usd)+'$'+Math.abs(x.pnl_usd).toFixed(2)+'</span>');
     return '<tr><td class="dim">'+esc(x.ts)+'</td>'+
-      '<td><span class="badge '+(x.source==='hl'?'blue':'gray')+'">'+(x.source==='hl'?'Blockchain':(x.source==='dxbz'?'DXBZ':'CSCI'))+'</span></td>'+
+      '<td><span class="badge '+(x.source==='hl'?'blue':'gray')+'">'+(x.source==='hl'?'Blockchain':(x.source==='dxbz'?'DXBZ':(x.source==='ibkr'?'IBKR':'CSCI')))+'</span></td>'+
       '<td><span class="sym">'+esc(x.symbol)+'</span></td>'+
       '<td class="'+(/Open|BUY/i.test(x.action)?'up':(/Close|SELL/i.test(x.action)?'down':'dim'))+'">'+esc(x.action)+'</td>'+
       '<td>'+x.qty+'</td><td>'+x.price+'</td><td>'+pnl+'</td>'+
       '<td class="hideS dim">'+fee+'</td></tr>';
   }).join('')||'<tr><td colspan="8" class="dim" style="text-align:center;padding:22px">无流水</td></tr>';
   var b=document.getElementById('trFilter');
-  if(b) b.textContent='显示 '+(TR.src==='all'?'全部':(TR.src==='hl'?'Blockchain':'CSCI'))+' · '+t.length+' 笔';
+  if(b) b.textContent='显示 '+(TR.src==='all'?'全部':(TR.src==='hl'?'Blockchain':(TR.src==='dxbz'?'DXBZ':(TR.src==='ibkr'?'IBKR':'CSCI'))))+' · '+t.length+' 笔';
 }
 function trInit(s){
   TR.s=s; trKpis(s); trRender();
@@ -1494,6 +1828,16 @@ function trInit(s){
     });
     nvInit();
   });
+  var nm=document.getElementById('nav-mode');
+  if(nm) nm.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('button'); if(!b) return;
+    NVS.mode=b.getAttribute('data-m')||'pnl';
+    [].forEach.call(nm.querySelectorAll('button'),function(x){
+      x.className='btn'+(x.getAttribute('data-m')===NVS.mode?' primary':'');
+    });
+    try{ localStorage.setItem('cockpit.navmode',NVS.mode); }catch(err){}
+    nvInit();
+  });
   var fb=document.getElementById('four-basis');
   if(fb) fb.addEventListener('click',function(e){
     var b=e.target.closest&&e.target.closest('button'); if(!b) return;
@@ -1503,8 +1847,15 @@ function trInit(s){
     });
     fourRender();
   });
+  var pb=document.getElementById('pie-basis');
+  if(pb) pb.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('button'); if(!b) return;
+    PIE.basis=b.getAttribute('data-pb')||'exposure';
+    pieRender();
+  });
 })();
-var VIEWS=['cockpit','holdings','closed','rebalance','discipline','resis','fire','trades','notes'];
+var VIEWS=['cockpit','holdings','closed','rebalance','discipline','resis','fire','kchart','trades','notes'];
+var KEEP_SCROLL = false;     // 从别处跳转到本视图时, 不要把滚动位置复位到顶
 function showView(v){
   if(VIEWS.indexOf(v)<0) v='cockpit';
   VIEWS.forEach(function(x){
@@ -1514,8 +1865,11 @@ function showView(v){
     a.className=(a.getAttribute('data-v')===v?'on':(a.className.indexOf('todo')>=0?'todo':''));
   });
   try{ localStorage.setItem('cockpit.view',v); }catch(e){}
+  if(v==='holdings') acctBarsRender();      // 视图刚显示, 此时才能量到容器宽度
+
   if(location.hash.slice(1)!==v) location.hash=v;
-  window.scrollTo(0,0);
+  if(!KEEP_SCROLL) window.scrollTo(0,0);
+  KEEP_SCROLL = false;
 }
 document.getElementById('nav').addEventListener('click',function(e){
   var a=e.target.closest('a'); if(!a) return;
@@ -1590,13 +1944,14 @@ function holdRender() {
   var s = SNAP;
   if (!s || !document.getElementById('hold')) return;
   accRender(s);
+  acctBarsRender();
   var allPos = s.positions.filter(function (p) { return HSRC === 'all' || p.source === HSRC; });
   var rows = genericSort(allPos, HSORT, hsVal).map(function (p) {
     var liq = (p.liq_dist_pct == null) ? '<span class="dim">—</span>' :
       '<span class="' + (p.liq_dist_pct < 10 ? 'down' : (p.liq_dist_pct < 20 ? 'warn' : 'up')) + '">' + p.liq_dist_pct.toFixed(1) + '%</span>';
     var bcol = PAL[p.bucket] || '#9ca3af';
     return '<tr data-sym="' + esc(p.symbol) + '"><td><span class="sym symlink" title="点击查看交易记录">' + esc(p.symbol) + '</span>' +
-      (p.source === 'hl' ? ' <span class="badge gray">PERP</span>' : (p.source === 'dxbz' ? ' <span class="badge gray" style="color:#0284c7">DXBZ</span>' : '')) +
+      (p.source === 'hl' ? ' <span class="badge gray">PERP</span>' : (p.source === 'dxbz' ? ' <span class="badge gray" style="color:#0284c7">DXBZ</span>' : (p.source === 'ibkr' ? ' <span class="badge gray" style="color:#7c3aed">IBKR</span>' : ''))) +
       '<div class="symsub">' + esc(p.name).slice(0, 26) + '</div></td>' +
       '<td><span class="badge gray" style="color:' + bcol + ';box-shadow:inset 0 0 0 1px ' + bcol + '55;background:#fff">' +
       '<span class="dot" style="background:' + bcol + '"></span>' + esc(BUCKLBL(p.bucket)) + '</span></td>' +
@@ -1632,17 +1987,101 @@ function holdRender() {
     var hlN = allPos.filter(function (x) { return x.source === 'hl'; }).length;
     var dxN = (s.dxbz_positions || []).length;
     var csciN = allPos.filter(function (x) { return x.source === 'csci'; }).length;
-    hc.textContent = allPos.length + ' 个持仓 · CSCI ' + csciN + ' / Blockchain ' + hlN + ' / DXBZ ' + dxN +
+    var ibN = allPos.filter(function (x) { return x.source === 'ibkr'; }).length;
+    hc.textContent = allPos.length + ' 个持仓 · CSCI ' + csciN + ' / Blockchain ' + hlN + ' / DXBZ ' + dxN + ' / IBKR ' + ibN +
       (s.dividends_total_hkd ? ' · 股息已收 ' + hk(s.dividends_total_hkd) : '') + (HSRC === 'all' ? '' : '（已筛选）');
   }
+  pieRender();
   bindSort('#hold thead', HSORT, holdRender);
   markSorted('#hold thead', HSORT);
   bindSrc('#hold-src', holdRender);
   markSrc('#hold-src', HSRC);
 }
 
-/* ── 账户 (CSCI / HL / DXBZ): 三个净值框 + 持仓/清仓的来源筛选 ── */
+/* ── 账户 (CSCI / IBKR / HL / DXBZ): 账户净值卡 + 持仓/清仓的来源筛选 ── */
 var HSRC = 'all', CSRC = 'all';
+
+/* ── 账户市值 vs 基准 (Holdings 顶部, 用户 2026-10-13 v2) ────────────────
+   版式 (用户点名): 每账户只画【一根柱】—— 空心柱 = 基准(投入成本), 实心柱 = 当前市值,
+   两者同宽同基座叠在一起: 实心比空心高 = 高于基准, 短一截 = 低于基准。
+   合计不占柱位, 单独放在图上方做【横向对比条】(用户: "放一个横的在前面")。
+   金额一律走 hk() → 跟随全站显示货币。 */
+function hkShort(v) {                    // 窄屏柱状图小字: HK$1.25M / HK$548k (跟随币种换算)
+  var x = (Number(v) || 0) / ccyRate(), a = Math.abs(x), s = ccySym();
+  if (a >= 1e6) return s + (x / 1e6).toFixed(2) + 'M';
+  if (a >= 1e3) return s + Math.round(x / 1e3) + 'k';
+  return s + Math.round(x);
+}
+function acctBarsRender() {
+  var box = document.getElementById('acct-bars');
+  if (!box || !SNAP) return;
+  var list = (SNAP.accounts_detail || []).filter(function (a) { return (a.nav_hkd || 0) > 0 || (a.cost_hkd || 0) > 0; });
+  if (!list.length) { box.innerHTML = '<div class="dim">暂无账户数据</div>'; return; }
+  var tNav = 0, tCost = 0;
+  list.forEach(function (a) { tNav += (a.nav_hkd || 0); tCost += (a.cost_hkd || 0); });
+  var groups = list.map(function (a) { return { label: a.label || a.key, nav: a.nav_hkd || 0, cost: a.cost_hkd || 0 }; });
+
+  var W = Math.max(300, (box.clientWidth || 820) - 2), H = 268;
+  var narrow = W < 560;
+  var PL = narrow ? 52 : 62, PR = 12, PT = narrow ? 46 : 38, PB = narrow ? 66 : 48;
+  var iw = W - PL - PR, ih = H - PT - PB;
+  var maxV = 1; groups.forEach(function (g) { maxV = Math.max(maxV, g.nav, g.cost); });
+  var pow = Math.pow(10, Math.floor(Math.log(maxV) / Math.LN10)), step = pow;
+  [1, 2, 2.5, 5, 10].some(function (m) { if (maxV / (pow * m) <= 5) { step = pow * m; return true; } return false; });
+  var top = Math.ceil(maxV / step) * step;
+  var Y = function (v) { return PT + ih - (v / top) * ih; };
+  var gw = iw / groups.length, bw = Math.max(22, Math.min(52, gw * 0.52));
+  var CUP = '#10b981', CDN = '#f43f5e', CBASE = '#cbd5e1';
+
+  var svg = ['<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">'];
+  for (var v = 0; v <= top + 1e-6; v += step) {
+    var y = Y(v);
+    svg.push('<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + y + '" y2="' + y + '" stroke="' + (v === 0 ? '#cbd5e1' : '#f1f5f9') + '" stroke-dasharray="' + (v === 0 ? '' : '3 3') + '"/>' +
+      '<text x="' + (PL - 7) + '" y="' + (y + 3.5) + '" text-anchor="end" font-size="10" fill="#94a3b8">' + hk(v) + '</text>');
+  }
+  groups.forEach(function (g, i) {
+    var cx = PL + gw * (i + 0.5), x = cx - bw / 2;
+    var yN = Y(g.nav), yC = Y(g.cost), gain = g.nav - g.cost;
+    var col = gain >= 0 ? CUP : CDN, pct = g.cost > 0 ? gain / g.cost * 100 : null;
+    // 空心 = 基准
+    svg.push('<rect x="' + x + '" y="' + yC + '" width="' + bw + '" height="' + Math.max(1, PT + ih - yC) + '" rx="3" fill="#ffffff" stroke="' + CBASE + '" stroke-width="1.5"><title>基准 ' + esc(g.label) + ' ' + hk(g.cost) + '</title></rect>');
+    // 实心 = 当前市值 (同宽同基座, 叠在上面)
+    var hN = Math.max(2, PT + ih - yN);
+    svg.push('<rect x="' + (x + 1) + '" y="' + yN + '" width="' + Math.max(1, bw - 2) + '" height="' + hN + '" rx="2" fill="' + col + '" fill-opacity="0.88"><title>市值 ' + esc(g.label) + ' ' + hk(g.nav) + '</title></rect>');
+    var yTop = Math.min(yN, yC);
+    if (narrow) {   // 窄屏: 差额与百分比分两行, 免得相邻两组的文字打架
+      svg.push('<text x="' + cx + '" y="' + (yTop - 18) + '" text-anchor="middle" font-size="10" font-weight="600" fill="' + col + '">' + sgn(gain) + hk(gain) + '</text>');
+      svg.push('<text x="' + cx + '" y="' + (yTop - 7) + '" text-anchor="middle" font-size="9.5" fill="' + col + '">' + (pct == null ? '' : (pct > 0 ? '+' : '') + pct.toFixed(1) + '%') + '</text>');
+    } else {
+      svg.push('<text x="' + cx + '" y="' + (yTop - 8) + '" text-anchor="middle" font-size="11" font-weight="600" fill="' + col + '">' + sgn(gain) + hk(gain) + (pct == null ? '' : ' (' + (pct > 0 ? '+' : '') + pct.toFixed(1) + '%)') + '</text>');
+    }
+    svg.push('<text x="' + cx + '" y="' + (PT + ih + 16) + '" text-anchor="middle" font-size="' + (narrow ? 10.5 : 11.5) + '" font-weight="500" fill="#475569">' + esc(g.label) + '</text>');
+    if (narrow) {   // 窄屏: 数字太宽会跨组重叠 → 拆两行 + 用 k/M 缩写
+      svg.push('<text x="' + cx + '" y="' + (PT + ih + 30) + '" text-anchor="middle" font-size="9" fill="#94a3b8">市值 ' + hkShort(g.nav) + '</text>');
+      svg.push('<text x="' + cx + '" y="' + (PT + ih + 42) + '" text-anchor="middle" font-size="9" fill="#94a3b8">基准 ' + hkShort(g.cost) + '</text>');
+    } else {
+      svg.push('<text x="' + cx + '" y="' + (PT + ih + 30) + '" text-anchor="middle" font-size="9.5" fill="#94a3b8">' + hk(g.nav) + ' / ' + hk(g.cost) + '</text>');
+    }
+  });
+  svg.push('<rect x="' + PL + '" y="10" width="10" height="10" rx="2" fill="' + CUP + '" fill-opacity="0.88"/><text x="' + (PL + 15) + '" y="19" font-size="10.5" fill="#64748b">实心 = 当前市值</text>' +
+    '<rect x="' + (PL + 118) + '" y="10" width="10" height="10" rx="2" fill="#ffffff" stroke="' + CBASE + '" stroke-width="1.5"/><text x="' + (PL + 133) + '" y="19" font-size="10.5" fill="#64748b">空心 = 基准（投入成本）</text>');
+  svg.push('</svg>');
+
+  // 合计: 横向对比条 (不占柱位)
+  var tPnl = tNav - tCost, tpct = tCost > 0 ? tPnl / tCost * 100 : null;
+  var span = Math.max(tNav, tCost) || 1;
+  var pctW = Math.max(0, Math.min(100, tNav / span * 100));
+  var markPct = Math.max(0, Math.min(100, tCost / span * 100));
+  var tcol = tPnl >= 0 ? CUP : CDN;
+  var total = '<div class="acct-total">' +
+    '<div class="at-head"><b>合计</b><span class="dim">市值 <b style="color:#475569">' + hk(tNav) + '</b> ｜ 基准 <b style="color:#475569">' + hk(tCost) + '</b> ｜ 相对投入 <b style="color:' + tcol + '">' + sgn(tPnl) + hk(tPnl) + '</b>' + (tpct == null ? '' : '（' + (tpct > 0 ? '+' : '') + tpct.toFixed(1) + '%）') + '</span></div>' +
+    '<div class="at-track"><div class="at-fill" style="width:' + pctW.toFixed(2) + '%;background:' + tcol + '"></div>' +
+    '<div class="at-mark" style="left:' + markPct.toFixed(2) + '%"></div></div>' +
+    '<div class="at-scale dim">0' + '<span style="float:right">' + hk(span) + '</span></div></div>';
+
+  box.innerHTML = '<div class="ttl">账户市值 vs 基准 <span>· 合计市值 ' + hk(tNav) + '</span></div>' + total + svg.join('') +
+    '<div class="nwsub" style="margin-top:6px">每账户一根柱：<b>实心 = 当前市值</b>，<b>空心 = 基准（投入成本）</b>；实心比空心高就是高于基准，短一截就是低于基准（虚线 = 基准位置）。Blockchain(HL) 与 IBKR 的基准为美元计，切到 US$ 即为原生美元数字。</div>';
+}
 
 function accRender(s) {
   var box = document.getElementById('acc-kpis');
@@ -1659,7 +2098,7 @@ function accRender(s) {
       ' · <b class="' + cls(ret) + '">' + (ret == null ? '—' : (ret > 0 ? '+' : '') + ret.toFixed(2) + '%') + '</b>' +
       ' · 基准 ' + hk(a.cost_hkd) + '</span></div></div>';
   }).join('') +
-    '<div class="card kpi"><div class="k">三账户合计</div><div class="v">' + hk(tNav) + '</div>' +
+    '<div class="card kpi"><div class="k">账户合计</div><div class="v">' + hk(tNav) + '</div>' +
     '<div class="d"><span class="sub2">P&L <b class="' + cls(tPnl) + '">' + sgn(tPnl) + hk(tPnl) + '</b> · 基准 ' + hk(tCost) + '</span></div></div>';
 }
 
@@ -1730,7 +2169,8 @@ function closedRender() {
   tb.innerHTML = genericSort(rows, CLSORT, clsVal).map(function (r) {
     var src = r.src === 'hl' ? '<span class="badge gray"><span class="dot" style="background:#8b5cf6"></span>HL</span>'
       : (r.src === 'dxbz' ? '<span class="badge gray" style="color:#0284c7"><span class="dot" style="background:#0ea5e9"></span>DXBZ</span>'
-        : '<span class="badge gray">' + esc(r.market === 'HK' ? 'CSCI·HK' : 'CSCI·US') + '</span>');
+        : (r.src === 'ibkr' ? '<span class="badge gray" style="color:#7c3aed"><span class="dot" style="background:#8b5cf6"></span>IBKR·LSE</span>'
+          : '<span class="badge gray">' + esc(r.market === 'HK' ? 'CSCI·HK' : 'CSCI·US') + '</span>'));
     var st = r.closed
       ? '<span class="badge gray" style="color:#475569;box-shadow:inset 0 0 0 1px #cbd5e1">已清仓</span>'
       : '<span class="badge gray" style="color:#b45309;box-shadow:inset 0 0 0 1px #fcd34d">部分了结</span>';
@@ -1808,6 +2248,8 @@ function render(s){
   document.getElementById('gen').textContent=s.generated_at.replace('T',' ')+' 更新';
   var g2=document.getElementById('gen2'); if(g2) g2.textContent=s.generated_at.replace('T',' ')+' 更新';
   document.getElementById('fx').textContent=s.fx_usdhkd;
+  if(s.fx_usdhkd) GFX.USD=Number(s.fx_usdhkd)||GFX.USD;
+  ccyApply();
   document.getElementById('c-hold').textContent=s.positions.length;
   document.getElementById('c-disc').textContent=s.discipline.filter(function(c){return !c.ok;}).length+' RED';
 
@@ -1816,11 +2258,13 @@ function render(s){
   var cashPct=cashTot/s.nav_hkd*100;
   var levLimTxt = ((s.thresholds || []).filter(function (x) { return /总敞口上限/.test(x.k); })[0] || { v: '≤ 2.00x NAV' }).v;
   var levLim = parseFloat(String(levLimTxt).replace(/[^0-9.]/g, '')) || 2;
+  var extf=(s.daily_ext_flow_hkd||0);
+  var extNote=extf?('<span class="sub2">已剔除'+(extf<0?'出金':'入金')+' '+hk(Math.abs(extf))+'</span>'):'';
   var cards=[
     {k:'净资产 NAV',v:hk(s.nav_hkd),d:'<span class="sub2">'+(s.prev_date?('vs '+s.prev_date):'成本基准 '+hk(s.cost_basis_hkd))+'</span>'},
     {k:'总敞口',v:hk(s.exposure_hkd),d:'<span class="badge '+(s.leverage>levLim?'rose':(s.leverage>1?'amber':'gray'))+
       '"><span class="dot"></span>杠杆 '+s.leverage.toFixed(2)+'x</span><span class="sub2">上限 '+levLimTxt+'</span>'},
-    {k:'今日盈亏',v:(dp==null?'—':sgn(dp)+hk(dp)),d:(dpp==null?'<span class="sub2">history 自 09-18 起累积</span>':delta(dpp,sgn(dpp)+dpp.toFixed(2)+'%')+'<span class="sub2">0 点基准 '+hk(s.prev_nav_hkd)+' ('+(s.prev_date||'')+')</span>')},
+    {k:'今日盈亏',v:(dp==null?'—':sgn(dp)+hk(dp)),d:(dpp==null?'<span class="sub2">history 自 09-18 起累积</span>':delta(dpp,sgn(dpp)+dpp.toFixed(2)+'%')+'<span class="sub2">0 点基准 '+hk(s.prev_nav_hkd)+' ('+(s.prev_date||'')+')</span>'+extNote)},
     {k:'现金',v:hk(cashTot),d:delta(cashPct-3,cashPct.toFixed(1)+'% NAV')+ '<span class="sub2">含 Blockchain 侧 '+hk(cashTot-s.cash_hkd)+' ｜ 底线 3%</span>'},
     {k:'总回报',v:sgn(ret)+ret.toFixed(2)+'%',d:'<span class="sub2">含 HL/DXBZ ｜ 成本 '+hk(s.cost_basis_hkd)+'</span>'}
   ];
@@ -1894,12 +2338,9 @@ var FIRE={p:0,m:0,r:10,w:4,s:0,age:27,ready:false,linknav:true,ccy:'HKD'};
 var FIRE_DEFAULTS={m:20000,s:360000};           // 月投 / 目标年开支 的默认参考(用户可改, 非写死)
 /* 币种换算 (工作口径): HKD 存内部, 显示时换。USD=HKD/7.82, CNY=HKD×(1/1.08) */
 var FIRE_FX={USD:7.82, CNY:1.08};               // 每 1 USD=7.82HKD, 1 CNY=1.08HKD
-function fireSym(){ return FIRE.ccy==='USD'?'US$':(FIRE.ccy==='CNY'?'¥':'HK$'); }
-function fireConv(hkd){                         // HKD(内部) -> 当前币种
-  if(FIRE.ccy==='HKD') return hkd;
-  if(FIRE.ccy==='USD') return hkd/FIRE_FX.USD;
-  return hkd/FIRE_FX.CNY;
-}
+function fireSym(){ return ccySym(); }                       // 跟随全站单位
+function fireConv(hkd){ return (Number(hkd)||0)/ccyRate(); }   // HKD(内部) -> 当前币种
+function fireToHkd(v){ return (Number(v)||0)*ccyRate(); }      // 当前币种 -> HKD(内部)
 function fireFmt(n,d){ d=(d===undefined?0:d); n=fireConv(n);
   return (n<0?'-':'')+fireSym()+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
 }
@@ -1924,24 +2365,29 @@ function fireInit(s){
   fireRenderInputs(); fireRender(); FIRE.ready=true;
 }
 function fireRenderInputs(){
-  var p=document.getElementById('fire-p');
-  if(p) p.value=Math.round(FIRE.p);
-  var m=document.getElementById('fire-m'); if(m) m.value=Math.round(FIRE.m);
+  // 输入框显示【当前币种】值 (内部存 HKD)
+  var p=document.getElementById('fire-p'); if(p) p.value=Math.round(fireConv(FIRE.p));
+  var m=document.getElementById('fire-m'); if(m) m.value=Math.round(fireConv(FIRE.m));
   var r=document.getElementById('fire-r'); if(r) r.value=FIRE.r;
   var rv=document.getElementById('fire-r-v'); if(rv) rv.textContent=FIRE.r.toFixed(1)+'%';
   var w=document.getElementById('fire-w'); if(w) w.value=FIRE.w;
   var wv=document.getElementById('fire-w-v'); if(wv) wv.textContent=FIRE.w.toFixed(1)+'%';
-  var s=document.getElementById('fire-s'); if(s) s.value=Math.round(FIRE.s);
+  var s=document.getElementById('fire-s'); if(s) s.value=Math.round(fireConv(FIRE.s));
+  // 币种标签 + 里程碑表头单位
+  var sym=fireSym();
+  ['P','M','S'].forEach(function(k){
+    var l=document.getElementById('fire-lbl'+k); if(l) l.textContent='（'+sym+'）';
+  });
 }
 function fireCards(){
   var T=fireTgt(), y=fireYear(), now=new Date().getFullYear();
   var hit=(T>0 && FIRE.p>=T);
   var cards=[
-    {k:'目标资产', v:hk(T), d:'<span class="sub2">= 年开支 '+hk(FIRE.s)+' ÷ '+FIRE.w.toFixed(0)+'%'+(FIRE.w!==4?'':'（×25）')+'</span>', bad:''},
+    {k:'目标资产', v:fireFmt(T), d:'<span class="sub2">= 年开支 '+fireFmt(FIRE.s)+' ÷ '+FIRE.w.toFixed(0)+'%'+(FIRE.w!==4?'':'（×25）')+'</span>', bad:''},
     {k:'预计达成', v:(hit?'现在':'约 '+ (now+y)+' 年'), d:'<span class="sub2">'+(hit?'当前已 ≥ 目标 🎉':'还需 '+y+' 年 · '+(FIRE.age+y)+' 岁')+'</span>',
       theClass:(hit?'up':'')},
-    {k:'名义年化', v:FIRE.r.toFixed(1)+'%', d:'<span class="sub2">定投 '+(FIRE.m>0?hk(FIRE.m)+'/月':'—')+' ｜ '+(FIRE.r/100>0?('翻倍 ≈ '+(72/FIRE.r).toFixed(1)+' 年'):'—')+'</span>'},
-    {k:'当前进度', v:(T>0?(FIRE.p/T*100).toFixed(0)+'%':'—'), d:'<span class="sub2">起点 '+(FIRE.p?hk(FIRE.p):'—')+' / '+hk(T)+'</span>', theClass:cls(FIRE.p-T)}
+    {k:'名义年化', v:FIRE.r.toFixed(1)+'%', d:'<span class="sub2">定投 '+(FIRE.m>0?fireFmt(FIRE.m)+'/月':'—')+' ｜ '+(FIRE.r/100>0?('翻倍 ≈ '+(72/FIRE.r).toFixed(1)+' 年'):'—')+'</span>'},
+    {k:'当前进度', v:(T>0?(FIRE.p/T*100).toFixed(0)+'%':'—'), d:'<span class="sub2">起点 '+(FIRE.p?fireFmt(FIRE.p):'—')+' / '+fireFmt(T)+'</span>', theClass:cls(FIRE.p-T)}
   ];
   return cards.map(function(c){return '<div class="card kpi"><div class="k">'+esc(c.k)+'</div>'+
     '<div class="v '+(c.theClass||'')+'">'+esc(String(c.v))+'</div><div class="d">'+c.d+'</div></div>';}).join('');
@@ -1957,8 +2403,8 @@ function fireMilestones(){
     var A=fireAmt(yy), reached=(T>0 && A>=T);
     return '<tr'+(reached?' style="background:var(--emf)"':'')+'><td>'+(now+yy)+'</td>'+
       '<td>'+(FIRE.age+yy)+'</td>'+
-      '<td class="'+(reached?'up':'')+'">'+(reached?'<span class="badge em" style="margin-right:6px;display:inline-flex"><span class="dot"></span>达成</span>':'')+hk(Math.round(A))+'</td>'+
-      '<td class="dim">'+(T>0?(reached?'✓':'距目标 '+hk(Math.round(Math.max(0,T-A)))):'—')+'</td></tr>';
+      '<td class="'+(reached?'up':'')+'">'+(reached?'<span class="badge em" style="margin-right:6px;display:inline-flex"><span class="dot"></span>达成</span>':'')+fireFmt(Math.round(A))+'</td>'+
+      '<td class="dim">'+(T>0?(reached?'✓':'距目标 '+fireFmt(Math.round(Math.max(0,T-A)))):'—')+'</td></tr>';
   }).join('');
   return rows;
 }
@@ -1976,7 +2422,7 @@ function fireRender(){
   // 联动模式下: 起点恒等于当前快照净资产(合并 NAV), 每次 render(含本地刷新)自动取最新
   if(FIRE.linknav && SNAP && SNAP.nav_hkd){
     FIRE.p=Math.round(SNAP.nav_hkd||0);
-    var pEl=document.getElementById('fire-p'); if(pEl && document.activeElement!==pEl) pEl.value=Math.round(FIRE.p);
+    var pEl=document.getElementById('fire-p'); if(pEl && document.activeElement!==pEl) pEl.value=Math.round(fireConv(FIRE.p));
   }
   var T=fireTgt(), y=fireYear(), now=new Date().getFullYear();
   var kpi=document.getElementById('fire-kpis');
@@ -1987,7 +2433,7 @@ function fireRender(){
   }
   var sum=document.getElementById('fire-sum');
   if(sum){
-    sum.innerHTML='目标 <b>'+hk(T)+'</b>'+' ｜ '+((T>0&&FIRE.p>=T)?'✅ 已达成 (起点 ≥ 目标)':('预估 '+(y>=0?(''+(now+y)+' 年 ('+(FIRE.age+y)+' 岁)'):'—')+' 达成 ｜ 累计需投约 <b>'+hk(Math.round(FIRE.p+FIRE.m*12*Math.max(0,y)))+'</b>'))+
+    sum.innerHTML='目标 <b>'+fireFmt(T)+'</b>'+' ｜ '+((T>0&&FIRE.p>=T)?'✅ 已达成 (起点 ≥ 目标)':('预估 '+(y>=0?(''+(now+y)+' 年 ('+(FIRE.age+y)+' 岁)'):'—')+' 达成 ｜ 累计需投约 <b>'+fireFmt(Math.round(FIRE.p+FIRE.m*12*Math.max(0,y)))+'</b>'))+
       (FIRE.r>=10?' ｜ <span class="dim">10%+ 为标普长期名义均值偏乐观，建议按 8–9% 保守复核</span>':'');
   }
   var hint=document.getElementById('fire-hint');
@@ -2010,10 +2456,18 @@ function fireNoDom(){ return !document.getElementById('fire-milestones'); }
   ids.forEach(function(id){
     var el=document.getElementById(id); if(!el) return;
     el.addEventListener('input',function(){
-      FIRE[id==='fire-p'?'p':(id==='fire-m'?'m':'s')]=Number(this.value)||0;
+      var v=Number(this.value)||0;
+      FIRE[id==='fire-p'?'p':(id==='fire-m'?'m':'s')]=fireToHkd(v);   // 输入=当前币种, 内部存HKD
       if(id==='fire-p'){ FIRE.linknav=false; var ln=document.getElementById('fire-linknav'); if(ln) ln.checked=false; }
       fireRender();
     });
+  });
+  /* 币种切换 */
+  var grp=document.getElementById('fire-ccy');
+  if(grp) grp.addEventListener('click',function(e){
+    var b=e.target && e.target.closest?e.target.closest('button'):null;
+    if(!b || !b.dataset || !b.dataset.ccy) return;
+    setCcy(b.dataset.ccy);        // 全站统一货币单位
   });
   var ln=document.getElementById('fire-linknav');
   if(ln) ln.addEventListener('change',function(){
@@ -2053,11 +2507,41 @@ function rsVal(r, k) {
       var v = list[idx];
       return v ? v.dist_pct : null;      // 按距现价百分比排序(阻力正/支撑负)
     }
+    case 'vsa': return (r.vsa && r.vsa.score != null) ? r.vsa.score : null;
+    case 'trend': return (r.vsa && r.vsa.verdict != null) ? r.vsa.verdict : null;
     case 'poc': return r.poc;
     case 'ma50': return (r.mas && r.mas.ma50) ? r.mas.ma50 : null;
     case 'ma200': return (r.mas && r.mas.ma200) ? r.mas.ma200 : null;
   }
   return 0;
+}
+/* 形态单元格: 徽章可点, 点了跳到 K线图谱(v-kchart) 对应卡片并高亮 */
+function vsaCell(v) {
+  if (!v || !v.id) return '<span class="dim">—</span>';
+  var dirCls = v.dir > 0 ? 'em' : (v.dir < 0 ? 'rose' : 'amber');
+  var tip = v.name + (v.note ? ' — ' + v.note : '') + (v.date ? ' [' + v.date + ']' : '');
+  return '<a class="vsa-chip badge ' + dirCls + '" href="#kchart" data-kc="' + esc(v.id) + '" title="' + esc(tip) + '">' +
+    '<span class="dot"></span>' + esc(v.name) + '</a>' +
+    (v.alt && v.alt.length ? '<div class="symsub">' + esc(v.alt.map(function (a) { return a.name; }).join(' · ')) + '</div>' : '');
+}
+/* 趋势列: 综合「形态语义 + 之前趋势」给单一结论 —— 绿↑看涨 / 红↓看跌 / 灰→中性 */
+function trendCell(v) {
+  if (!v || v.verdict == null) return '<span class="dim">—</span>';
+  var d = v.verdict;
+  var kind = v.vkind || '信号';
+  var conf = v.conf || '';
+  if (d > 0) {
+    return '<span class="vsa-trend up" title="' + esc(v.name + '：' + (v.note || '') +
+      '（之前' + (v.trend === 'up' ? '上涨' : v.trend === 'down' ? '下跌' : '震荡') + ' → ' + kind + '看涨，置信度' + conf + '）') +
+      '"><span class="ar">↑</span></span><div class="symsub">' + esc(kind + '看涨') + '</div>';
+  }
+  if (d < 0) {
+    return '<span class="vsa-trend down" title="' + esc(v.name + '：' + (v.note || '') +
+      '（之前' + (v.trend === 'up' ? '上涨' : v.trend === 'down' ? '下跌' : '震荡') + ' → ' + kind + '看跌，置信度' + conf + '）') +
+      '"><span class="ar">↓</span></span><div class="symsub">' + esc(kind + '看跌') + '</div>';
+  }
+  return '<span class="vsa-trend flat" title="' + esc(v.name + '：' + (v.note || '') + '（中性信号，等待确认）') +
+    '"><span class="ar">→</span></span><div class="symsub">中性</div>';
 }
 function resCell(v, price) {
   if (!v || v.level == null) return '<span class="dim">—</span>';
@@ -2091,9 +2575,20 @@ function resRender() {
     var res0 = (r.res || [])[0];
     if (res0 && res0.dist_pct != null && res0.dist_pct >= 10) clampR++;
   });
+  var nVsa = 0, nBull = 0, nBear = 0, nFlat = 0;
+  rows.forEach(function (r) {
+    if (!r.vsa) return;
+    nVsa++;
+    var d = (r.vsa.verdict != null) ? r.vsa.verdict : r.vsa.dir;
+    if (d > 0) nBull++;
+    else if (d < 0) nBear++;
+    else nFlat++;
+  });
   var kb = document.getElementById('res-kpis');
   if (kb) kb.innerHTML = [
     { k: '有量价数据', v: rows.length + ' / ' + RESIS.length },
+    { k: '已识别形态', v: nVsa + ' 仓', c: nVsa ? 'blue' : 'gray' },
+    { k: '结论 看涨 / 看跌 / 中性', v: nBull + ' / ' + nBear + ' / ' + nFlat, c: (nBull || nBear) ? 'amber' : 'gray' },
     { k: '最近支撑 ≤ 清算价', v: dgr, c: dgr ? 'rose' : 'gray' },
     { k: '最近阻力 ≥ +10%', v: clampR, c: clampR ? 'amber' : 'gray' },
     { k: '有清算位对照', v: nShar, c: 'gray' },
@@ -2108,14 +2603,19 @@ function resRender() {
       : '<span class="dim">—</span>';
     var srcBadge = r.source === 'hl' ? ' <span class="badge gray">Blockchain</span>'
       : (r.source === 'dxbz' ? ' <span class="badge gray" style="color:#0284c7">DXBZ</span>' : '');
+    // LSE 爱尔兰 UCITS ETF 没有自己的日线, 用对应美股 ETF 代理 → 标注来源, 不让读者误以为是 LSE 本身
+    var proxyBadge = r.proxy ? ' <span class="badge gray" title="' + esc(r.proxy_note || '') + '">代理 ' + esc(r.proxy) + '</span>' : '';
+    var barDate = (r.last_date || r.vsa_date) ? '<div class="symsub">日线 ' + esc(String(r.last_date || r.vsa_date)) + '</div>' : '';
     if (!r.ok || !r.price) {
       return '<tr><td>' + esc(r.symbol) + srcBadge + '<div class="symsub">' + esc(r.name || '') + '</div></td>' +
-        '<td class="hideS dim">' + esc(r.source) + '</td><td class="dim">' + fmtNum(r.price) + '</td>' +
+        '<td class="hideS dim">' + esc(r.source) + '</td><td class="dim">—</td><td class="dim">—</td><td class="dim">' + fmtNum(r.price) + '</td>' +
         '<td class="dim" colspan="8">无历史数据</td></tr>';
     }
     return '<tr>' +
-      '<td><span class="sym">' + esc(r.symbol) + '</span>' + srcBadge + '<div class="symsub">' + esc(r.name || '') + '</div></td>' +
+      '<td><span class="sym">' + esc(r.symbol) + '</span>' + srcBadge + proxyBadge + '<div class="symsub">' + esc(r.name || '') + '</div>' + barDate + '</td>' +
       '<td class="hideS dim">' + esc(r.source) + '</td>' +
+      '<td>' + vsaCell(r.vsa) + '</td>' +
+      '<td>' + trendCell(r.vsa) + '</td>' +
       '<td><b>' + fmtNum(r.price) + '</b></td>' +
       '<td>' + resCell((r.res || [])[0], r.price) + '</td>' +
       '<td>' + resCell((r.res || [])[1], r.price) + '</td>' +
@@ -2178,7 +2678,402 @@ function tjRender(list){
       '<div style="margin-top:8px;font-size:12.5px;line-height:1.8;color:var(--fg2)">'+n.body+'</div></div>';
   }).join('');
 }
+/* ── 净资产（全部资产口径）────────────────────────────── */
+var NW = null;
+var NWC = { rmb: '#f59e0b', hkd: '#3b82f6', usd: '#8b5cf6' };
+function nwDelta(x, prefix) {
+  var d = x.delta_hkd || 0;
+  if (d >= 0) return '<span class="nwover">' + (prefix ? prefix + ' · ' : '') + '超出 ' + hk(d) + '</span>';
+  return '<span class="nwunder">' + (prefix ? prefix + ' · ' : '') + '距目标还差 ' + hk(-d) + '</span>';
+}
+var NWD = { mode: 'actual' };
+function nwDrawDonut(d) {
+  var box = document.getElementById('nw-donut'); if (!box) return;
+  var bs = ['rmb', 'hkd', 'usd'].map(function (k) {
+    var x = (d.buckets || []).filter(function (y) { return y.key === k; })[0] || {};
+    return { key: k, label: x.label || k, color: NWC[k],
+      pct: (NWD.mode === 'target' ? x.target_pct : x.pct) || 0, tgt: x.target_pct || 0,
+      real: x.pct || 0, value_hkd: x.value_hkd || 0 };
+  });
+  var R = 78, SW = 20, C = 2 * Math.PI * R, cx = 100, cy = 100, acc = 0;
+  var segs = bs.map(function (b) {
+    var len = Math.max(0, b.pct) / 100 * C;
+    var s = '<circle class="dseg" data-k="' + b.key + '" cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="' +
+      b.color + '" stroke-width="' + SW + '" stroke-dasharray="' + len.toFixed(2) + ' ' + (C - len).toFixed(2) +
+      '" stroke-dashoffset="' + (-acc * C + C / 4).toFixed(2) + '" style="cursor:pointer"></circle>';
+    acc += Math.max(0, b.pct) / 100;
+    return s;
+  }).join('');
+  var tacc = 0, ticks = bs.map(function (b) {
+    tacc += Math.max(0, b.tgt) / 100;
+    var a = (tacc * 360 - 90) * Math.PI / 180;
+    return '<line x1="' + (cx + Math.cos(a) * (R - SW / 2 - 3)).toFixed(1) + '" y1="' + (cy + Math.sin(a) * (R - SW / 2 - 3)).toFixed(1) +
+      '" x2="' + (cx + Math.cos(a) * (R + SW / 2 + 3)).toFixed(1) + '" y2="' + (cy + Math.sin(a) * (R + SW / 2 + 3)).toFixed(1) +
+      '" stroke="#0f172a" stroke-width="2" opacity=".5"></line>';
+  }).join('');
+  box.innerHTML = '<svg class="donut" width="200" height="200" viewBox="0 0 200 200">' +
+    '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#f1f5f9" stroke-width="' + SW + '"></circle>' +
+    segs + ticks +
+    '<text id="donut-t" x="100" y="92" text-anchor="middle" font-size="11.5" fill="#6b7280">' +
+    (NWD.mode === 'target' ? '目标配置' : '全部净资产') + '</text>' +
+    '<text id="donut-v" x="100" y="118" text-anchor="middle" font-size="19" font-weight="600" fill="#111827">' +
+    (NWD.mode === 'target' ? '5 / 15 / 80' : hk(d.net_worth_hkd)) + '</text>' +
+    '<text id="donut-s" x="100" y="137" text-anchor="middle" font-size="10.5" fill="#9ca3af">' +
+    (NWD.mode === 'target' ? '人民币 · 港币 · 美元 %' : '') + '</text></svg>';
+  var svg = box.querySelector('svg');
+  [].forEach.call(svg.querySelectorAll('.dseg'), function (el) {
+    el.addEventListener('mouseenter', function () {
+      svg.classList.add('dim'); el.classList.add('hot');
+      var b = bs.filter(function (x) { return x.key === el.getAttribute('data-k'); })[0]; if (!b) return;
+      var t = svg.querySelector('#donut-t'), v = svg.querySelector('#donut-v'), s = svg.querySelector('#donut-s');
+      if (t) t.textContent = b.label;
+      if (v) v.textContent = b.real.toFixed(1) + '%';
+      if (s) s.textContent = '目标 ' + b.tgt + '% · ' + hk(b.value_hkd);
+    });
+    el.addEventListener('mouseleave', function () { nwDrawDonut(NW); });
+  });
+}
+function nwGauge(frac, color, ticks) {
+  var cx = 120, cy = 116, R = 88, SW = 15, L = Math.PI * R;
+  var d = 'M ' + (cx - R) + ' ' + cy + ' A ' + R + ' ' + R + ' 0 0 1 ' + (cx + R) + ' ' + cy;
+  var f = Math.max(0, Math.min(1, frac));
+  var t = (ticks || []).filter(function (tk) { return tk && isFinite(tk.at); }).map(function (tk) {
+    var fr = Math.max(0, Math.min(1, tk.at)), a = Math.PI + fr * Math.PI;
+    return '<line x1="' + (cx + Math.cos(a) * (R - SW / 2 - 3)).toFixed(1) + '" y1="' + (cy + Math.sin(a) * (R - SW / 2 - 3)).toFixed(1) +
+      '" x2="' + (cx + Math.cos(a) * (R + SW / 2 + 3)).toFixed(1) + '" y2="' + (cy + Math.sin(a) * (R + SW / 2 + 3)).toFixed(1) +
+      '" stroke="' + (tk.color || '#0f172a') + '" stroke-width="2" opacity=".5"></line>' +
+      '<text x="' + (cx + Math.cos(a) * (R + SW / 2 + 16)).toFixed(1) + '" y="' + (cy + Math.sin(a) * (R + SW / 2 + 16) + 4).toFixed(1) +
+      '" text-anchor="middle" font-size="10" fill="#9ca3af">' + esc(tk.text) + '</text>';
+  }).join('');
+  return '<svg width="240" height="150" viewBox="0 0 240 150">' +
+    '<path d="' + d + '" fill="none" stroke="#f1f5f9" stroke-width="' + SW + '" stroke-linecap="round"></path>' +
+    '<path d="' + d + '" fill="none" stroke="' + color + '" stroke-width="' + SW + '" stroke-linecap="round" stroke-dasharray="' +
+    (f * L).toFixed(1) + ' ' + L.toFixed(1) + '"></path>' + t + '</svg>';
+}
+function nwTrack(pct, target, color) {
+  var w = Math.max(1.5, Math.min(100, pct || 0));
+  var t = Math.min(100, Math.max(0, target || 0));
+  return '<div class="track nwt"><div class="fill" style="width:' + w.toFixed(1) + '%;background:' + color + '"></div>' +
+    '<span class="tmark" style="left:' + t.toFixed(1) + '%"></span></div>';
+}
+function nwRender() {
+  if (!NW) return;
+  if (!document.getElementById('nw-kpis')) return;   // 净资产页已下线 (2026-10-27)
+  if (NW.fx && NW.fx.cnyhkd) GFX.CNY = Number(NW.fx.cnyhkd) || GFX.CNY;
+  var d = NW, gen = document.getElementById('nwgen');
+  if (gen) gen.textContent = (d.as_of ? ('台账 ' + d.as_of + ' · ') : '') + (d.generated_at || '').replace('T', ' ') + ' 重算';
+  var b = {}; (d.buckets || []).forEach(function (x) { b[x.key] = x; });
+  var cash = d.cash || {}, sp = d.surplus || { plan: [] };
+  var ACCS = d.accounts || [];
+  function sumBy(f) { return ACCS.filter(f).reduce(function (s, a) { return s + a.value_hkd; }, 0); }
+  var bankParts = ACCS.filter(function (a) { return a.cash && !a.mpf && a.key !== 'sec_cash'; });
+  var bankCash = bankParts.reduce(function (s, a) { return s + a.value_hkd; }, 0);
+  var secCash = sumBy(function (a) { return a.key === 'sec_cash'; });
+  var liabParts = ACCS.filter(function (a) { return a.liability; });
+  var alipay = sumBy(function (a) { return a.group === 'rmb' && !a.liability; });
+  var liab = -sumBy(function (a) { return a.liability; });
+  var mpf = sumBy(function (a) { return a.mpf; });
+  function parts(list, max) {
+    var s = list.slice().sort(function (a, c) { return Math.abs(c.value_hkd) - Math.abs(a.value_hkd); });
+    var head = max ? s.slice(0, max) : s;
+    var txt = head.map(function (a) {
+      // 括号内的「港币」保留（如 信用卡欠款（港币））；只压缩作为独立限定词的「 港币 」（如 HSBC One 港币活期）。
+      var lbl = a.label.replace(/（港币）|\(港币\)/g, '\u0001')
+                       .replace(/\s*港币\s*/g, ' ')
+                       .replace(/\u0001/g, '（港币）')
+                       .replace(/\s{2,}/g, ' ').trim();
+      return esc(lbl) + ' ' + hk(a.value_hkd);
+    }).join(' ＋ ');
+    if (max && s.length > max) txt += ' 等 ' + s.length + ' 笔';
+    return txt || '—';
+  }
+
+  var cards = [
+    { k: '全部净资产', v: hk(d.net_worth_hkd), d: '<span class="sub2">可配置 ' + hk(d.alloc_base_hkd) + (mpf ? (' ＋ 強積金 ' + hk(mpf) + '（不计入配置）') : '') + '</span>' },
+    { k: '信用卡负债（待还）', v: hk(liab), d: '<span class="sub2">' + parts(liabParts, 3) + '</span>' },
+    { k: '银行现金', v: hk(bankCash + secCash), d: '<span class="sub2">' + (parts(bankParts, 3) + ' ＋ 券商现金 ' + hk(secCash)) + '</span>' },
+    { k: '強積金 MPF', v: hk(mpf), d: '<span class="sub2">' + (parts(ACCS.filter(function (a) { return a.mpf; }), 2)) + ' · 计入净资产，不计入配置比例</span>' },
+    { k: '人民币资产', v: hk(b.rmb.value_hkd) + ' · ' + b.rmb.pct.toFixed(1) + '%', d: nwDelta(b.rmb, '目标 ' + b.rmb.target_pct + '%') },
+    { k: '港币资产', v: hk(b.hkd.value_hkd) + ' · ' + b.hkd.pct.toFixed(1) + '%', d: nwDelta(b.hkd, '目标 ' + b.hkd.target_pct + '%') },
+    { k: '美元资产', v: hk(b.usd.value_hkd) + ' · ' + b.usd.pct.toFixed(1) + '%', d: nwDelta(b.usd, '目标 ' + b.usd.target_pct + '%') }
+  ];
+  document.getElementById('nw-kpis').innerHTML = cards.map(function (c) {
+    return '<div class="card kpi"><div class="k">' + esc(c.k) + '</div><div class="v">' + esc(c.v) + '</div><div class="d">' + c.d + '</div></div>';
+  }).join('');
+
+  document.getElementById('nw-buckets').innerHTML = ['rmb', 'hkd', 'usd'].map(function (k) {
+    var x = b[k], col = NWC[k];
+    return '<div class="bl"><div class="top"><span class="nm">' + esc(x.label) + '</span>' +
+      '<span class="pc">' + hk(x.value_hkd) + ' · ' + x.pct.toFixed(1) + '%</span></div>' +
+      nwTrack(x.pct, x.target_pct, col) +
+      '<div class="nwsub">目标 ' + x.target_pct + '% （' + hk(x.target_hkd) + '）· ' + nwDelta(x, '') + '</div></div>';
+  }).join('');
+
+  nwDrawDonut(d);
+  var mb = document.getElementById('nw-mode');
+  if (mb && !mb.__bound) {
+    mb.__bound = true;
+    mb.addEventListener('click', function (e) {
+      var t = e.target, b = (t && t.closest) ? t.closest('button') : null; if (!b) return;
+      NWD.mode = b.getAttribute('data-m') || 'actual';
+      [].forEach.call(mb.querySelectorAll('button'), function (x) {
+        x.className = 'btn' + (x.getAttribute('data-m') === NWD.mode ? ' primary' : '');
+      });
+      nwDrawDonut(NW);
+    });
+  }
+
+  // ── 再配置前的两步: ① 还信用卡 ② 留够现金储备 → 剩下的(旧钱+新钱)才可以配置
+  var po = d.payoff;
+  if (po) {
+    var cardRows = (po.cards || []).map(function (c) {
+      var lb = c.label.replace(/\s*欠款/g, '').replace(/^中银香港/, '中银')
+        .replace(/（港币）/, '·港').replace(/（人民币）/, '·¥');
+      return esc(lb) + ' ' + hk(c.value_hkd) +
+        (c.due ? '<span style="color:#9ca3af">（' + esc(c.due.slice(5)) + '）</span>' : '');
+    }).join(' · ');
+    var step1 = '<div class="pfstep ' + (po.card_total_hkd > 0 ? 'warn' : 'done') + '"><span class="pfno">1</span><div class="pfb">' +
+      '<div class="pft"><span>先还信用卡</span><span class="pc nwneg">' + hk(po.card_total_hkd) + '</span></div>' +
+      '<div class="nwsub">' + cardRows + '</div>' +
+      '<div class="pfrow"><span>现金池 ' + hk(po.cash_pool_hkd) + ' − 还卡 ' + hk(po.card_total_hkd) + '</span><b>= ' + hk(po.after_pay_hkd) + '</b></div>' +
+      (po.next_due ? '<div class="pfrow"><span>最近到期</span><b>' + esc(po.next_due) + '</b></div>' : '') +
+      '</div></div>';
+    var step2 = '<div class="pfstep ' + (po.reserve_ok ? 'done' : 'warn') + '"><span class="pfno">2</span><div class="pfb">' +
+      '<div class="pft"><span>留够现金储备</span><span class="' + (po.reserve_ok ? 'nwunder' : 'nwover') + '">' +
+      (po.reserve_ok ? '已满足 ✓' : ('不足 ' + hk(po.reserve_short_hkd))) + '</span></div>' +
+      '<div class="pfrow"><span>下限 ' + ((d.targets || {}).cash_pct) + '% × 全部净资产</span><b>' + hk(po.reserve_min_hkd) + '</b></div>' +
+      '<div class="pfrow"><span>上限（硬顶）</span><b>' + hk(po.reserve_cap_hkd) + '</b></div>' +
+      '<div class="pfrow"><span>还卡后现金 ' + hk(po.after_pay_hkd) + '，按规则保留</span><b>' + hk(po.keep_cash_hkd) + '</b></div>' +
+      '</div></div>';
+    var step3 = '<div class="pfstep done"><span class="pfno">3</span><div class="pfb">' +
+      '<div class="pft"><span>剩下全部可投入配置</span><span class="pc">' + hk(po.available_hkd) + '</span></div>' +
+      '<div class="pfrow"><span>原有（还卡 + 留现金后剩）</span><b>' + hk(po.free_old_hkd) + '</b></div>' +
+      '<div class="pfrow"><span>本月新进（工资结余）</span><b>' + hk(po.new_money_hkd) + '</b></div>' +
+      '<div class="pfrow"><span>配置分母（剔除 MPF）</span><b>' + hk(po.post_alloc_base_hkd) + '</b></div>' +
+      '<div class="nwsub" style="margin-top:8px">' + (po.gaps || []).map(function (g) {
+        return esc(g.label) + ' ' + (g.gap_hkd > 0.5 ? ('缺 ' + hk(g.gap_hkd)) : '已达标');
+      }).join(' · ') + '</div></div></div>';
+    var staleBox = (po.stale_labels && po.stale_labels.length)
+      ? '<div class="callout amber" style="margin-top:12px"><span class="bar"></span><div>余额待更新（' +
+        esc(po.stale_labels.join(' / ')) + '）：' + esc(po.stale_note || '') + '</div></div>'
+      : '';
+    document.getElementById('nw-payoff').innerHTML = step1 + step2 + step3 + staleBox;
+  }
+
+  // 账户分解: 用户口径 = IBKR / CSCI / Hyperliquid·加密 / 支付宝 / DX (+ 银行 / 负债 / MPF)
+  var grps = (d.account_groups || []).filter(function (a) { return Math.abs(a.value_hkd) > 0.5; })
+    .slice().sort(function (a, c) { return Math.abs(c.value_hkd) - Math.abs(a.value_hkd); });
+  var mx = Math.max.apply(null, grps.map(function (a) { return Math.abs(a.value_hkd); }).concat([1]));
+  document.getElementById('nw-accts').innerHTML = grps.map(function (a) {
+    var neg = a.value_hkd < 0, sub = (a.items || []);
+    var subs = (sub.length > 1 || (sub[0] && sub[0].value_hkd !== a.value_hkd))
+      ? sub.map(function (it) {
+        return esc(it.label) + ' ' + (it.recorded === false ? '<span class="nwover">待录入</span>' : hk(it.value_hkd));
+      }).join(' · ') : '';
+    return '<div class="bl"><div class="top"><span class="nm">' + esc(a.label) + '</span>' +
+      '<span class="pc ' + (neg ? 'nwneg' : '') + '">' + hk(a.value_hkd) + '</span></div>' +
+      '<div class="track"><div class="fill" style="width:' + Math.max(1.5, Math.abs(a.value_hkd) / mx * 100).toFixed(1) +
+      '%;background:' + (neg ? '#f43f5e' : (NWC[a.group] || '#94a3b8')) + '"></div></div>' +
+      (subs ? '<div class="nwsub">' + subs + '</div>' : '') + '</div>';
+  }).join('') || '<div class="dim">—</div>';
+
+  var over = cash.over_cap;
+  var scaleMax = Math.max(30, Math.ceil((cash.pct || 0) / 5) * 5);
+  var capPct = d.alloc_base_hkd ? (cash.cap_hkd / d.alloc_base_hkd * 100) : 0;
+  document.getElementById('nw-cash').innerHTML =
+    '<div class="ttl">现金储备 <span>· 目标 ' + cash.target_pct + '% 且 ≤ ' + hk(cash.cap_hkd) + '</span></div>' +
+    '<div class="nw-gauge">' + nwGauge(cash.pct / scaleMax, over ? '#f43f5e' : '#10b981',
+      [{ at: cash.target_pct / scaleMax, text: '目标 ' + cash.target_pct + '%' },
+       { at: capPct / scaleMax, text: '上限 ' + hk(cash.cap_hkd).replace(ccySym(), '') }]) + '</div>' +
+    '<div style="text-align:center"><span class="nwbig">' + hk(cash.value_hkd) + '</span> <span class="sub2" style="font-size:13px">= 净资产的 ' + cash.pct.toFixed(1) + '%</span></div>' +
+    '<div class="nwsub" style="text-align:center;margin-top:10px">目标 ' + cash.target_pct + '% ＝ ' + hk(cash.target_hkd) +
+    '　｜　上限 ' + hk(cash.cap_hkd) + '　｜　<span class="' + (over ? 'nwover' : 'nwunder') + '">' +
+    (over ? ('超出上限 ' + hk(cash.value_hkd - cash.cap_hkd)) : ('还可放 ' + hk(cash.cap_hkd - cash.value_hkd))) + '</span></div>' +
+    '<div class="nwsub" style="margin-top:12px">' + ((cash.parts || []).filter(function (p) { return Math.abs(p.value_hkd) > 0.5; }).map(function (p) {
+      return esc(p.label) + ' ' + hk(p.value_hkd);
+    }).join(' ＋ ') || '—') + (d.sec_cash_adjust_hkd ? '（券商现金已扣 2026-10-12 转出 ' + hk(-d.sec_cash_adjust_hkd) + '）' : '') + '</div>' +
+    ((d.missing && d.missing.length) ? '<div class="callout amber" style="margin-top:12px"><span class="bar"></span><div>尚未录入：<b>' +
+      esc(d.missing.join('、')) + '</b>（每月 20 日截图更新，当前按 0 计入）</div></div>' : '');
+
+  var rows = (sp.plan || []);
+  document.getElementById('nw-plan').innerHTML =
+    '<div class="ttl">本月结余分配建议 <span>· 结余 ' + hk(sp.monthly_hkd) + '</span></div>' +
+    '<div class="nwsub" style="margin-bottom:12px">金额按<b>目的地货币</b>给并取整到 100：美股 → <b>US$</b>、港股 → <b>HK$</b>、支付宝 → <b>¥</b>。先补低于目标的桶，其余归默认桶；人民币现金超上限（¥10,000）时提示转黄金。执行完成后在该条后打勾（IBKR 美元余额增加对应金额即视为完成）。<b>MPF 供款 HK$5,000/月为银行自动扣款（无需手动操作）</b>，美股/IBKR 每月投入上限 <b>US$2,500</b>。仅为数字口径，非投资建议。</div>' +
+    (rows.length ? '<table><thead><tr><th>方向</th><th>金额</th><th style="text-align:left">说明</th></tr></thead><tbody>' +
+      rows.map(function (p) {
+        var main = p.amount_ccy_str || hk(p.amount_hkd);
+        return '<tr><td>' + esc(p.label) + (p.done ? ' <span style="color:#22c55e;font-weight:700">✓ 已完成' + (p.done_at ? '（' + esc(p.done_at) + '）' : '') + '</span>' : '') +
+          '</td><td style="font-weight:600">' + esc(main) + '<div class="dim" style="font-weight:400">' + hk(p.amount_hkd) + '</div></td>' +
+          '<td class="dim" style="text-align:left">' + esc(p.note) + '</td></tr>';
+      }).join('') + '</tbody></table>'
+      : '<div class="dim">—</div>');
+
+  var cl2 = d.checklist;
+  if (cl2) {
+    var pg = document.getElementById('nw-cl-prog');
+    if (pg) pg.textContent = cl2.done + ' / ' + cl2.total + (cl2.due ? (' · ' + cl2.due + ' 前完成') : '');
+    var box = document.getElementById('nw-checklist');
+    if (box) box.innerHTML =
+      '<div class="nwsub" style="margin-bottom:12px">' + esc(cl2.note || '') +
+      '　每发来一个银行/户口，我就识别入库并在这里勾一个。</div>' +
+      '<div class="clchips">' + (cl2.items || []).map(function (it) {
+        return '<span class="clchip ' + (it.done ? 'ok' : 'todo') + '">' + (it.done ? '✓' : '○') + ' ' + esc(it.label) +
+          (it.done && it.as_of ? '<b>' + esc(String(it.as_of).slice(5)) + '</b>' : '') + '</span>';
+      }).join('') + '</div>';
+  }
+
+  var fn = document.getElementById('nw-fxnote');
+  if (fn && d.fx) fn.innerHTML = '当前换算：USD/HKD ' + d.fx.usdhkd + ' · USD/CNY ' + d.fx.usdcny + '（¥1 = HK$' + d.fx.cnyhkd + '）'
+    + (d.xau && d.xau.usd_per_toz ? (' · XAU/USD ' + d.xau.usd_per_toz.toLocaleString('en-US') + '/toz') : '');
+  var xn = document.getElementById('nw-xaunote');
+  if (xn && d.xau) xn.textContent = d.xau.toz_total + ' toz × US$' + d.xau.usd_per_toz.toLocaleString('en-US') + '/toz';
+}
+
+/* ── 净资产月度折线图 (2026-10-13 新增) ──
+   数据 = networth_history.json：每个月一个点（键 YYYY-MM），每月 30 号由 networth_snapshot.py 落点，
+   首点 = 开始记录的那个月。只有 1 个点也照画（单点 + 虚线基准），不显示「数据不足」。 */
+var NWH = null, _nwhUid = 0;
+function nwhTick(v) {
+  var a = Math.abs(Number(v) || 0) / ccyRate(), s = (Number(v) < 0) ? '-' : '';
+  if (a >= 1e6) return s + (a / 1e6).toFixed(2) + 'M';
+  if (a >= 1000) return s + (a / 1000).toFixed(0) + 'k';
+  return s + a.toFixed(0);
+}
+function nwhFmt(v, d) {
+  var x = Number(v) || 0;
+  return (x < 0 ? '-' : '') + ccySym() + Math.abs(x / ccyRate()).toLocaleString('en-US', { maximumFractionDigits: (d === undefined ? 0 : d) });
+}
+function nwhRender() {
+  var box = document.getElementById('nw-hist'); if (!box) return;
+  var pts = (NWH && NWH.points) || [];
+  if (!pts.length) {
+    box.innerHTML = '<div class="dim" style="padding:22px;text-align:center;font-size:12.5px">' +
+      '还没有净资产记录点 —— 每月 30 号自动记一个点（从现在开始累计）。</div>';
+    return;
+  }
+  var vs = pts.map(function (p) { return Number(p.net_worth_hkd) || 0; });
+  var first = vs[0], last = vs[vs.length - 1], chg = last - first;
+  var pct = first ? (chg / first * 100) : 0, up = chg >= 0, col = up ? '#10b981' : '#f43f5e';
+  var W = Math.max(300, Math.round(box.clientWidth || 860)), narrow = W < 560;
+  var H = Math.max(180, Math.round(Math.min(272, W * 0.30)));
+  var PL = narrow ? 46 : 56, PR = narrow ? 44 : 56, PT = 24, PB = narrow ? 24 : 28;
+  var lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs);
+  var pad = Math.max((hi - lo) * 0.18, Math.abs(last) * 0.004, 1);
+  var y0v = lo - pad, y1v = hi + pad, span = y1v - y0v || 1;
+  var X = function (i) { return pts.length < 2 ? (PL + (W - PL - PR) / 2) : PL + (W - PL - PR) * (i / (pts.length - 1)); };
+  var Y = function (v) { return PT + (H - PT - PB) * (1 - ((Number(v) || 0) - y0v) / span); };
+  var uid = 'nh' + (_nwhUid++), defs = '', body = '', mth = [];
+
+  [1, 0.5, 0, -0.5, -1].forEach(function (f) {
+    var v = (y0v + y1v) / 2 + span / 2 * f, y = Y(v).toFixed(1);
+    body += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + y + '" y2="' + y + '" stroke="#f1f5f9" stroke-width="1"/>' +
+      '<text x="' + (PL - 7) + '" y="' + (Number(y) + 3.5) + '" text-anchor="end" font-size="10" fill="#94a3b8">' + esc(nwhTick(v)) + '</text>';
+  });
+  body += '<text x="' + (PL - 7) + '" y="' + (PT - 8) + '" text-anchor="end" font-size="10" fill="#cbd5e1">' + ccySym() + '</text>';
+  // 虚线基准 = 首个记录点
+  var yF = Y(first).toFixed(1);
+  body += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + yF + '" y2="' + yF + '" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>' +
+    '<text x="' + (W - PR + 6) + '" y="' + (Number(yF) + 3.5) + '" font-size="10" fill="#94a3b8">基准</text>';
+
+  // 折线 + 面积 (正绿负红, 相对首点)
+  var d = '', n = 0;
+  pts.forEach(function (p, i) {
+    d += (n ? ' L' : ' M') + X(i).toFixed(1) + ' ' + Y(p.net_worth_hkd).toFixed(1); n++;
+  });
+  if (pts.length >= 2) {
+    defs += '<clipPath id="' + uid + '-up"><rect x="0" y="0" width="' + W + '" height="' + yF + '"/></clipPath>' +
+      '<clipPath id="' + uid + '-dn"><rect x="0" y="' + yF + '" width="' + W + '" height="' + (H - yF) + '"/></clipPath>';
+    var area = d.trim() + ' L' + X(pts.length - 1).toFixed(1) + ' ' + yF + ' L' + X(0).toFixed(1) + ' ' + yF + ' Z';
+    body += '<path d="' + area + '" fill="#10b981" fill-opacity="0.14" clip-path="url(#' + uid + '-up)"/>' +
+      '<path d="' + area + '" fill="#f43f5e" fill-opacity="0.14" clip-path="url(#' + uid + '-dn)"/>';
+  }
+  body += '<path d="' + d.trim() + '" fill="none" stroke="' + col + '" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>';
+  pts.forEach(function (p, i) {
+    body += '<circle cx="' + X(i).toFixed(1) + '" cy="' + Y(p.net_worth_hkd).toFixed(1) + '" r="3.2" fill="#fff" stroke="' + col + '" stroke-width="1.8"/>';
+  });
+  // 光标
+  body += '<g id="' + uid + '-cross" style="display:none">' +
+    '<line x1="0" x2="0" y1="' + PT + '" y2="' + (H - PB) + '" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>' +
+    '<circle r="3.6" fill="' + col + '" stroke="#fff" stroke-width="1.4"/></g>';
+  // X 轴: 首/末两个月份 + 中间均匀取样(点少时全给)
+  var lab = pts.length <= 6 ? pts.map(function (p, i) { return i; }) : [0, Math.round((pts.length - 1) / 2), pts.length - 1];
+  lab.forEach(function (i, k) {
+    var anchor = (k === 0 && lab.length > 1) ? 'start' : (i === pts.length - 1 ? 'end' : 'middle');
+    body += '<text x="' + X(i).toFixed(1) + '" y="' + (H - 7) + '" text-anchor="' + anchor + '" font-size="10" fill="#94a3b8">' + esc(pts[i].month) + '</text>';
+  });
+
+  var badge = document.getElementById('nw-hist-badge');
+  if (badge) badge.textContent = pts.length + ' 个点 · 每月 30 号记录';
+  var legend = '<span class="badge gray" style="box-shadow:inset 0 0 0 1px ' + col + '55"><span class="dot" style="background:' + col + '"></span>' +
+    '全部净资产 <b style="margin-left:2px">' + esc(nwhFmt(last)) + '</b></span>' +
+    (pts.length >= 2
+      ? '<span class="dim" style="font-size:11.5px">较首点（' + esc(pts[0].month) + '）<b style="color:' + (up ? '#047857' : '#be123c') + '">' +
+        sgn(chg) + esc(nwhFmt(chg)) + ' · ' + sgn(pct) + pct.toFixed(2) + '%</b></span>'
+      : '<span class="dim" style="font-size:11.5px">开始记录的第 1 个月 · 每月 30 号追加一个点，下个月起就有曲线</span>') +
+    '<span class="dim" style="font-size:11.5px">' + esc(pts[pts.length - 1].month) + ' 记录 · ' + esc(pts[pts.length - 1].date || '') + '</span>';
+
+  box.innerHTML = '<div id="' + uid + '-wrap" style="position:relative">' +
+    '<div style="margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">' + legend + '</div>' +
+    '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" style="display:block;cursor:crosshair">' + defs + body + '</svg>' +
+    '<div id="' + uid + '-tip" style="position:absolute;display:none;pointer-events:none;background:#0f172a;color:#f8fafc;' +
+    'border-radius:7px;padding:6px 9px;font-size:11.5px;line-height:1.6;white-space:nowrap;z-index:5;box-shadow:0 6px 18px rgba(15,23,42,.18)"></div></div>';
+
+  var wrap = document.getElementById(uid + '-wrap'), svg = wrap.querySelector('svg');
+  var cross = document.getElementById(uid + '-cross'), tip = document.getElementById(uid + '-tip');
+  function show(i, px, py, rw) {
+    var p = pts[i], x = X(i);
+    cross.style.display = '';
+    var ln = cross.querySelector('line'), cs = cross.querySelectorAll('circle');
+    ln.setAttribute('x1', x); ln.setAttribute('x2', x);
+    cs[0].setAttribute('cx', x); cs[0].setAttribute('cy', Y(p.net_worth_hkd));
+    var dv = (Number(p.net_worth_hkd) || 0) - first, dp = first ? dv / first * 100 : 0;
+    tip.style.display = '';
+    tip.innerHTML = '<b>' + esc(p.month) + '</b> <span style="color:#94a3b8">(' + esc(p.date || '') + ')</span><br>' +
+      '<span style="color:#94a3b8">全部净资产</span> <b>' + esc(nwhFmt(p.net_worth_hkd)) + '</b><br>' +
+      '<span style="color:#94a3b8">较首点</span> <b style="color:' + (dv >= 0 ? '#34d399' : '#fb7185') + '">' + sgn(dv) + esc(nwhFmt(dv)) + ' · ' + sgn(dp) + dp.toFixed(2) + '%</b><br>' +
+      '<span style="color:#94a3b8">可配置净资产</span> ' + esc(nwhFmt(p.alloc_base_hkd)) + '<br>' +
+      '<span style="color:#94a3b8">強積金 MPF</span> ' + esc(nwhFmt(p.mpf_hkd)) + '<br>' +
+      '<span style="color:#94a3b8">现金</span> ' + esc(nwhFmt(p.cash_hkd)) + '　<span style="color:#94a3b8">负债</span> ' + esc(nwhFmt(p.liabilities_hkd));
+    var tw = tip.offsetWidth, th = tip.offsetHeight, left = px + 12, top = py - th - 8;
+    if (left + tw > rw - 2) left = px - tw - 12;
+    if (top < 0) top = py + 12;
+    tip.style.left = Math.max(2, left) + 'px'; tip.style.top = Math.max(2, top) + 'px';
+  }
+  function hide() { cross.style.display = 'none'; tip.style.display = 'none'; }
+  function at(clientX, clientY) {
+    var r = svg.getBoundingClientRect();
+    var vx = (clientX - r.left) * (W / r.width);
+    var step = pts.length < 2 ? 1 : (W - PL - PR) / (pts.length - 1);
+    var i = Math.max(0, Math.min(pts.length - 1, Math.round((vx - PL) / step)));
+    show(i, clientX - r.left, clientY - r.top, r.width);
+  }
+  svg.addEventListener('mousemove', function (e) { at(e.clientX, e.clientY); });
+  svg.addEventListener('mouseleave', hide);
+  svg.addEventListener('touchstart', function (e) { if (e.touches[0]) { at(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  svg.addEventListener('touchmove', function (e) { if (e.touches[0]) { at(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  svg.addEventListener('touchend', hide);
+}
+
+// 仅按当前数据重渲染 (切换显示货币时用, 不重新 fetch)
+function rerenderAll(){
+  try { if (SNAP) render(SNAP); } catch (e) {}
+  try { if (NW) nwRender(); } catch (e) {}
+  try { if (NWH) nwhRender(); } catch (e) {}
+  try { if (RESIS && RESIS.length) resRender(); } catch (e) {}
+  try { if (NOTES && NOTES.length) ntRender(); } catch (e) {}
+  try { if (NVS.series && NVS.series.length) nvInit(); } catch (e) {}
+  try { fireRenderInputs(); fireRender(); } catch (e) {}
+}
+
 function loadAll(){
+  // 净资产 / 配置目标 (封面, 独立文件)
+  fetch('networth.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    NW = d; nwRender();
+  }).catch(function () { });
+  // 净资产月度曲线 (每月 30 号一个点, 首点 2026-10)
+  fetch('networth_history.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    NWH = (d && d.points) ? d : null; nwhRender();
+  }).catch(function () { });
   // 阻力位/支撑位分析 (决策 tab 独立文件)
   fetch('resistance.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
     RESIS=d.items||[]; resRender();
@@ -2217,6 +3112,8 @@ window.addEventListener('resize', function () {
   if (_rzT) clearTimeout(_rzT);
   _rzT = setTimeout(function () {
     if (NVS.series && NVS.series.length) nvInit();
+    acctBarsRender();
+    if (NWH) nwhRender();
     if (HDS.series && HDS.series.length) rkChart();
   }, 180);
 });
@@ -2240,6 +3137,139 @@ function bootRefresh(){
     if(b && !_refreshed){ b.className='badge gray'; b.innerHTML='<span class="dot"></span>静态模式 · 只读 (cron 每 10 分钟更新)'; }
   });
 }
-bootRefresh();</script>
+FIRE.ccy = CCY; ccyApply(); try { fireRenderInputs(); } catch (e) {}
+bootRefresh();
+function kchartSvg(p, opt){
+  opt = opt || {};
+  var W = opt.w || 560, PH = opt.ph || 200, VH = opt.vh || 64, PADL = 10, PADR = 48, GAP = 12;
+  var H = PH + GAP + VH + 24;
+  var d = p.ohlcv, n = d.length, i;
+  var hi = -Infinity, lo = Infinity, vmax = 0;
+  for(i=0;i<n;i++){ if(d[i][1]>hi) hi=d[i][1]; if(d[i][2]<lo) lo=d[i][2]; if(d[i][4]>vmax) vmax=d[i][4]; }
+  var span = (hi-lo) || 1; hi += span*0.08; lo -= span*0.08; span = hi-lo;
+  var pw = W - PADL - PADR, step = pw / n, bw = Math.max(3.5, Math.min(12, step*0.56));
+  function y(v){ return PADL + (hi - v)/span*PH; }
+  var vy0 = PADL + PH + GAP;
+  function vy(v){ return vy0 + VH - (v/vmax)*VH; }
+  var s = '<svg class="kcv" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" role="img" aria-label="'+esc(p.name)+' 示意图">';
+  var f;
+  for(f=0; f<=1.0001; f+=0.25){
+    var yy = PADL + f*PH;
+    s += '<line x1="'+PADL+'" y1="'+yy.toFixed(1)+'" x2="'+(W-PADR)+'" y2="'+yy.toFixed(1)+'" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2 3"/>';
+    s += '<text x="'+(W-PADR+6)+'" y="'+(yy+3.5).toFixed(1)+'" class="kcv-ax">'+((hi - f*span)).toFixed(1)+'</text>';
+  }
+  s += '<line x1="'+PADL+'" y1="'+vy0+'" x2="'+(W-PADR)+'" y2="'+vy0+'" stroke="#d1d5db" stroke-width="1"/>';
+  s += '<text x="'+(W-PADR+6)+'" y="'+(vy0+9)+'" class="kcv-ax">'+kfmtVol(vmax)+'</text>';
+  s += '<text x="'+(W-PADR+6)+'" y="'+(vy0+VH+3)+'" class="kcv-ax">0</text>';
+  for(i=0;i<(p.levels||[]).length;i++){
+    var L = p.levels[i], ly = y(L.y), col = L.type==='s' ? '#047857' : '#be123c';
+    s += '<line x1="'+PADL+'" y1="'+ly.toFixed(1)+'" x2="'+(W-PADR)+'" y2="'+ly.toFixed(1)+'" stroke="'+col+'" stroke-width="1.2" stroke-dasharray="5 4" opacity=".85"/>';
+    s += '<text x="'+(PADL+4)+'" y="'+(ly-5).toFixed(1)+'" class="kcv-lv" fill="'+col+'">'+esc(L.label)+' '+L.y.toFixed(1)+'</text>';
+  }
+  for(i=0;i<n;i++){
+    var b = d[i], up = b[3] >= b[0], col = up ? '#10b981' : '#f43f5e';
+    var cx = PADL + step*i + step/2, x0 = cx - bw/2;
+    var yO = y(b[0]), yC = y(b[3]), yH = y(b[1]), yL = y(b[2]);
+    s += '<line x1="'+cx.toFixed(1)+'" y1="'+yH.toFixed(1)+'" x2="'+cx.toFixed(1)+'" y2="'+yL.toFixed(1)+'" stroke="'+col+'" stroke-width="1.4"/>';
+    var top = Math.min(yO,yC), bh = Math.max(1.6, Math.abs(yC-yO));
+    s += '<rect x="'+x0.toFixed(1)+'" y="'+top.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+bh.toFixed(1)+'" fill="'+col+'" rx="1"/>';
+    var vh = (b[4]/vmax)*VH;
+    s += '<rect x="'+x0.toFixed(1)+'" y="'+(vy0+VH-vh).toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+vh.toFixed(1)+'" fill="'+col+'" opacity=".5" rx="1"/>';
+  }
+  if(p.mark && p.mark.i != null && d[p.mark.i]){
+    var mi = p.mark.i, mb = d[mi], mcx = PADL + step*mi + step/2;
+    s += '<circle cx="'+mcx.toFixed(1)+'" cy="'+y(mb[3]).toFixed(1)+'" r="'+(bw/2+4.5).toFixed(1)+'" fill="none" stroke="#111827" stroke-width="1.7"/>';
+    var lbl = esc(p.mark.text||''), tw = lbl.length*11+14;
+    var lx = Math.min(Math.max(mcx-tw/2, PADL), Math.max(PADL, W-PADR-tw));
+    var ly = Math.max(y(mb[3])-34, 14);
+    s += '<rect x="'+lx.toFixed(1)+'" y="'+ly.toFixed(1)+'" width="'+tw.toFixed(1)+'" height="19" rx="5" fill="#111827"/>';
+    s += '<text x="'+(lx+7).toFixed(1)+'" y="'+(ly+14).toFixed(1)+'" class="kcv-lb">'+lbl+'</text>';
+  }
+  s += '<text x="'+PADL+'" y="'+(vy0+VH+16)+'" class="kcv-note">示意图：合成K线，仅用于形态教学，非真实行情</text>';
+  s += '</svg>';
+  return s;
+}
+function kfmtVol(v){ if(v>=1e8) return (v/1e8).toFixed(1)+'亿'; if(v>=1e4) return (v/1e4).toFixed(1)+'万'; return String(v); }
+function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+
+var KCHART_PATTERNS = [{"id": "long-upper-shadow", "name": "长上影线（弱势反转）", "cat": "趋势反转", "ohlcv": [[99.0, 100.0, 98.5, 99.5, 600], [99.5, 100.5, 99.0, 100.2, 800], [100.2, 102.0, 100.0, 101.8, 1200], [101.8, 104.0, 101.2, 102.0, 2600], [102.0, 104.5, 101.5, 102.2, 3200], [102.2, 103.5, 100.5, 101.0, 1500], [101.0, 101.5, 98.0, 99.5, 1800]], "levels": [{"y": 104.0, "label": "阻力", "type": "r"}], "mark": {"i": 4, "text": "长上影 + 巨量"}, "kl": "开盘买方先推高，后被卖压打回，收盘回到开盘价附近；上影明显长于实体，实体偏小。", "vol": "上影必须靠量确认：<b>放量</b>＝卖压真实（局内人在卖出、了结利润）；<b>缩量</b>上影＝投入有限的假突破嫌疑。", "ctx": "上涨一段后、接近阻力位/派筹区最有效；出现在趋势中段只表示一次小回落。", "buy": "本身不构成买入；缩量且未跌破前一根低点，可视为趋势中继，继续持有。", "sell": "<b>长上影＋高量＝减仓/离场信号</b>（书中列为最有效量价组合之一，抛售高峰的典型K线）。", "stop": "收盘跌破长上影线的最低价 → 形态失效，下跌延续。", "wl": "派发 Distribution 后期 / 抛售高峰 Selling Climax 前兆", "pg": 42, "qt": "市场情绪出现了完全的反转，这一次是从看涨情绪到看跌情绪"}, {"id": "long-lower-shadow", "name": "长下影线（砸出底部）", "cat": "趋势反转", "ohlcv": [[105.0, 105.4, 103.0, 103.2, 900], [103.2, 103.6, 101.6, 102.0, 900], [102.0, 102.4, 100.0, 100.4, 900], [100.4, 100.7, 97.2, 100.2, 3200], [100.2, 101.8, 99.8, 101.6, 2200], [101.6, 103.2, 101.2, 102.9, 1600]], "levels": [{"y": 101.8, "label": "阻力", "type": "r"}], "mark": {"i": 3, "text": "长下影 + 放量"}, "kl": "开盘价格先跌，卖方占优；卖压被买方吸收后逐级抬升，收盘回到开盘价附近，下影长、实体小或无。", "vol": "<b>放量长下影</b>＝恐慌卖盘被真实买盘承接；<b>缩量长下影</b>＝卖压衰竭式的弱反抽。", "ctx": "下跌趋势末端、支撑位/低价震荡区（吸筹区）下方最有效；出现在上涨顶部则含义反转（见吊人线）。", "buy": "下跌后出现<b>长下影＋放量</b>＝空头被挤出，潜在买入/空头平仓信号；后续测试量更小则可靠性更高。", "sell": "若出现在长期上涨后的顶部并配高量，视为弱势而非强势 → 减仓。", "stop": "收盘跌破该长下影的最低价 → 形态失效，下跌延续。", "wl": "吸筹 Accumulation 末端的买盘承接；成功测试 Secondary Test 常表现为低量长下影", "pg": 40, "qt": "市场情绪发生了完全的反转"}, {"id": "shooting-star", "name": "射击十字星（顶部弱势）", "cat": "趋势反转", "ohlcv": [[99.0, 100.0, 98.8, 99.9, 700], [99.9, 101.4, 99.8, 101.2, 1400], [101.2, 103.0, 101.0, 102.8, 2000], [102.8, 104.8, 102.6, 103.0, 3600], [103.0, 104.2, 101.8, 102.2, 2200], [102.2, 102.8, 101.0, 101.4, 2000]], "levels": [{"y": 103.0, "label": "阻力", "type": "r"}], "mark": {"i": 3, "text": "射击十字星 + 高量"}, "kl": "价格先升后跌回，收于开盘价附近；上下有影线、实体极小。作者眼中<b>永远代表弱势</b>的三种K线之一。", "vol": "低量＝弱势有限；平均量＝回调更深；<b>高量/极高量＝局内人正在卖出</b>。同一价位连出两三根且量递增，弱势呈指数级增强。", "ctx": "上涨趋势中（尤其已涨一段、位于盘整/阻力区）最强；单根不足以言反转，须等后续K线与更高周期确认；刚脱离吸筹区则不易立刻反转。", "buy": "无直接买入信号；下跌趋势中它反而是<b>需求测试</b>的证据（抛售高峰后）。", "sell": "上涨趋势中出现即提高警惕；伴随高量或同价位重复出现 → 卖出/减仓。", "stop": "随后K线放量收阳并突破该K线高点 → 弱势判断失效。", "wl": "派发 Distribution 开始 / 抛售高峰 Selling Climax 的一部分（三连同价位＋增量）", "pg": 106, "qt": "射击十字星会出现在每一个上升和下降趋势中"}, {"id": "hammer", "name": "锤头线（底部强势）", "cat": "趋势反转", "ohlcv": [[104.0, 104.5, 103.0, 103.2, 900], [103.2, 103.6, 102.0, 102.4, 800], [102.4, 102.8, 101.0, 101.3, 700], [101.3, 101.6, 98.2, 98.6, 2600], [98.6, 101.4, 98.4, 101.2, 2400], [101.2, 102.6, 101.0, 102.4, 1500]], "levels": [{"y": 101.4, "label": "阻力", "type": "r"}], "mark": {"i": 3, "text": "锤头 + 高量"}, "kl": "价格先下跌，随后反弹并收于开盘价附近；实体小、下方长影，像“砸出了底部”。与射击十字星互为镜像。", "vol": "低量＝仅略微强势、反转幅度小；平均量＝较强反转信号，可给日内获利机会；<b>极高量＝局内人大举买入，属买入高峰一部分</b>。连出两三根且高量＝买入高峰确立。", "ctx": "下跌趋势后（最好是支撑位下方/吸筹区）有效；在上涨顶部出现则要反过来读。", "buy": "下跌趋势中的锤头线＋平均/高量＝买入或空头平仓信号；买入高峰后仍可能有一两根<b>测试用</b>锤头线（影线短），需低量。", "sell": "锤头之后紧跟一根高量射击十字星 → 强势判断被证伪，继续持有空头/卖出。", "stop": "收盘跌破锤头线最低价 → 形态失效；跌破前低则结构转为继续下跌。", "wl": "买入高潮 Buying Climax / 吸筹 Accumulation 末端；“锤头线代表局内人强行买入”", "pg": 115, "qt": "一个伴随着低成交量的锤头线表明市场略微强势"}, {"id": "hanging-man", "name": "吊人线（顶部锤头＝弱势）", "cat": "趋势反转", "ohlcv": [[95.0, 96.0, 94.8, 95.8, 900], [95.8, 97.4, 95.6, 97.2, 1200], [97.2, 98.8, 97.0, 98.6, 1500], [98.6, 98.8, 96.2, 98.5, 3200], [98.5, 98.8, 97.4, 97.6, 2200]], "levels": [{"y": 98.6, "label": "阻力", "type": "r"}], "mark": {"i": 3, "text": "顶部锤头 + 高量"}, "kl": "形态与锤头线完全相同（长下影、小实体、收于开盘附近），但出现在<b>上涨趋势顶部</b>，含义相反。", "vol": "书中强调：必须伴随<b>高于平均</b>的成交量才算弱势确认；低量不足以说明问题。", "ctx": "上涨趋势（涨势已成熟、进入派筹区）顶部；与随后的射击十字星组成强力组合。", "buy": "不构成买入信号。", "sell": "吊人线＋高量＝减仓/离场预警；随后出现射击十字星（尤其高量）即获验证 → 强烈卖出确认。", "stop": "后续K线放量收阳并创新高 → 弱势预警失效。", "wl": "派发 Distribution / 抛售高峰 Selling Climax 前兆", "pg": 125, "qt": "如果后续几根K线图中出现了射击十字星，那么吊人线将被验证"}, {"id": "long-leg-doji", "name": "长腿十字星（多空平衡／低量为异常）", "cat": "趋势反转", "ohlcv": [[99.0, 99.6, 98.8, 99.4, 1000], [99.4, 99.8, 99.2, 99.5, 900], [99.5, 102.5, 96.5, 99.4, 700], [99.4, 101.0, 99.2, 99.8, 1400]], "levels": [{"y": 100.0, "label": "阻力", "type": "r"}], "mark": {"i": 2, "text": "长腿 + 异常低量"}, "kl": "开收相同或极接近，实体极小，上下都有长影；开盘后先急冲一方向，再急掉头反向，收盘回到开盘价附近。", "vol": "须<b>至少平均量</b>验证，高量更佳。<b>低量＋长腿十字星＝异常</b>：价格大幅波动却“没有投入”，是局内人在操纵震仓，此时<b>不</b>预示反转。", "ctx": "长期上涨之后＝趋势转跌的第一个信号；长期下跌之后＝可能预示转牛。常见于重大新闻（如 NFP）发布时。", "buy": "下跌趋势后出现＋平均量以上 → 潜在反转的初步信号，等锤头线等后续K线确认再介入。", "sell": "上涨趋势后出现且量正常 → 转弱第一预警，减仓；低量版本不可据此反转，应观望。", "stop": "本身无止损意义，以随后K线高低点为失效参考；低量版本＝等后续K线展开。", "wl": "新闻催化下的市场清洗（局内人借新闻震出持仓者）", "pg": 118, "qt": "一根长腿十字线，应该至少由平均水平的成交量验证"}, {"id": "high-body", "name": "高实体K线（情绪强烈，须放量）", "cat": "量价确认", "ohlcv": [[99.0, 99.4, 98.8, 99.2, 900], [99.2, 99.8, 99.0, 99.6, 1100], [99.6, 102.4, 99.5, 102.2, 3400], [102.2, 102.6, 101.8, 102.4, 2100]], "levels": [{"y": 102.4, "label": "阻力", "type": "r"}], "mark": {"i": 2, "text": "高实体 + 放量"}, "kl": "实体很高，近单边推进：收于阳线最高价附近或阴线最低价附近，常无影线 → 市场情绪<b>强烈</b>。", "vol": "<b>放量</b>＝价格被确认，局内人参与，行情为真；<b>缩量高实体＝警示</b>，价格上去了但投入有限，多为散户跟进，随时反转。", "ctx": "任何位置都可出现；用于判断趋势是否健康、持仓能否继续持有。", "buy": "高实体＋放量＝顺势买入/持有的确认；缩量高实体不追多，等回落。", "sell": "高实体阴线＋放量＝下跌有效，离场；高实体但缩量＝准备离场。", "stop": "以该K线实体的另一端（最低/最高价）作短线失效参考；结构止损设在关键盘整区间外侧。", "wl": "吸筹/派筹推进阶段的价格运动；投入产出定律下的确认", "pg": 119, "qt": "局内人参与了价格的上涨、下跌，一切事物都在正轨"}, {"id": "low-body-high-vol", "name": "低实体＋高量（异常信号）", "cat": "量价确认", "ohlcv": [[99.0, 100.0, 98.8, 99.8, 1200], [99.8, 101.4, 99.6, 101.2, 1600], [101.2, 103.0, 100.8, 102.8, 2000], [102.8, 103.6, 102.5, 103.2, 4200], [103.2, 103.8, 102.4, 102.6, 2400]], "levels": [{"y": 103.6, "label": "阻力", "type": "r"}], "mark": {"i": 3, "text": "小实体 + 巨量"}, "kl": "实体很小（价格窄幅波动）却放出较高/极高量。单独的“低实体”不重点，重点是<b>投入与产出不匹配</b>的异常。", "vol": "高量本应产生高实体。<b>阳线低实体＋高量</b>＝局内人用力推却推不动（被阻力压住），顶部转弱；<b>阴线低实体＋高量</b>＝买方入场吸收卖压，熊转牛的第一个信号。", "ctx": "多根看更清楚：上涨中若连续出现高量低实体、随后实体更高但量萎缩＝量价背离，趋势可能被颠覆；下跌端则量能枯竭＝卖压衰竭。", "buy": "低实体阴线＋高量（下跌末端）＝买入/空头平仓信号，随后锤头线或长腿十字星可增强信心。", "sell": "低实体阳线＋高量（上涨中或顶部）＝做市商在卖出 → 卖出/减仓。", "stop": "异常确认后跌破该K线低点 → 多头逻辑失效；反之突破高点则空头逻辑失效。", "wl": "超买 Overbought 做市商挣扎 / 抛售高峰前期；下跌端对应超卖 Oversold", "pg": 121, "qt": "高成交量应当产生一根高实体K线图，而不是低实体的"}, {"id": "volume-stop-down", "name": "放量止跌信号（成交量见底）", "cat": "趋势反转", "ohlcv": [[110.0, 110.4, 108.0, 108.2, 2600], [108.2, 108.6, 104.5, 104.8, 3200], [104.8, 105.2, 102.4, 102.6, 2800], [102.6, 102.8, 99.8, 102.4, 2200], [102.4, 102.6, 99.6, 102.0, 1600], [102.0, 102.4, 99.6, 102.1, 1200]], "levels": [{"y": 102.4, "label": "反转区", "type": "s"}], "mark": {"i": 3, "text": "放量刹车"}, "kl": "一段暴跌后，局内人进场买吸收卖压：先出现长下影、实体较高的K线，随后实体变低、下影变长，最终出现第一根锤头线——像油轮“刹车”需两三个阶段。", "vol": "关键是<b>介入本身</b>：局内人与专业投资者在下跌中开始买入阻止进一步下跌，成交量由放量转向衰竭。", "ctx": "必须出现在一段急速下跌之后；随后仍需锤头线、测试等确认，不宜单点入场。", "buy": "预示<b>买入高峰</b>到来（最后卖压被吸收、局内人已准备行动）→ 买入/持有多头或平空的主要依据。", "sell": "仅在形态被破坏时出现：重新放量下跌并跌破该组K线低点。", "stop": "以该组“放量止跌”K线的最低价为失效参考，收盘跌破即止损。", "wl": "买入高潮 Buying Climax / 吸筹 Accumulation 完成", "pg": 127, "qt": "这个信号预示着买入高峰的到来，市场中最后的卖压被吸收"}, {"id": "volume-stop-up", "name": "放量止涨信号（成交量见顶）", "cat": "趋势反转", "ohlcv": [[98.0, 99.4, 97.8, 99.2, 1200], [99.2, 101.0, 99.0, 100.8, 1800], [100.8, 102.6, 100.6, 102.4, 2400], [102.4, 103.6, 102.2, 103.0, 2600], [103.0, 104.8, 102.8, 103.2, 3000], [103.2, 104.6, 102.6, 103.0, 3400]], "levels": [{"y": 104.6, "label": "阻力", "type": "r"}], "mark": {"i": 5, "text": "量增价滞"}, "kl": "上涨后段力竭：实体逐渐变低、涨速下降形成“弧线模式”，随后长上影线，最后一根常是射击十字星。", "vol": "成交量<b>大幅高于平均并持续走高</b>（贪婪与FOMO驱动的需求被局内人满足），实体变低时量仍高＝派筹已在进行。", "ctx": "长期上涨趋势的顶部区域（派筹末端），下一阶段通常是抛售高峰。", "buy": "不构成买入信号，应准备离场。", "sell": "市场在一段上涨后力竭 → <b>减仓/清仓信号</b>；随后跌破派筹区间下沿为正式确认。", "stop": "K线实体重新放大且量同步放大、突破前高 → “止涨”判断失效。", "wl": "派发 Distribution / 抛售高峰 Selling Climax 前奏", "pg": 127, "qt": "成交量见顶信号就是市场在一段上涨趋势后力竭的信号"}, {"id": "supply-demand-test", "name": "供给/需求测试（低量回测）", "cat": "支撑阻力", "ohlcv": [[95.0, 96.0, 94.8, 95.8, 900], [95.8, 97.0, 95.6, 96.8, 1100], [96.8, 98.0, 96.5, 97.8, 1300], [97.8, 99.4, 97.6, 99.2, 1800], [99.2, 100.2, 97.6, 98.0, 1200], [98.0, 98.6, 97.2, 97.5, 600], [97.5, 99.8, 97.4, 99.6, 1900]], "levels": [{"y": 97.5, "label": "支撑", "type": "s"}], "mark": {"i": 5, "text": "低量二次测试"}, "kl": "吸筹完成后局内人把价格拉回原先大量卖盘区做<b>供给测试</b>：低实体＋长下影、收盘回到开盘附近；派筹末端则做<b>需求测试</b>：价格被调高后收盘接近开盘、量极低。", "vol": "<b>成功的测试＝极低成交量</b>（几乎无剩余卖/买盘）；<b>失败的测试＝高成交量</b>，说明对手盘卷土重来。测试往往不止一次，后一次量更低。", "ctx": "吸筹区/派筹区，或突破后的初始阶段、价格回到之前大量成交的区域；连续多次低量测试是最强信号。", "buy": "供给测试成功（低量＋长下影）＝吸筹完成，可买入；随后量能配合的向上突破是进场点。", "sell": "需求测试成功（低量、收盘≈开盘）＝派筹完成，可安全离场/做空；测试失败（高量）＝趋势未完，勿追。", "stop": "测试失败＝形态不成立，局内人会把价格打回震荡区继续洗盘，此时不进场。", "wl": "Secondary Test / 供给与需求测试，威科夫体系中最强的信号之一", "pg": 82, "qt": "测试很成功，确认所有的卖压已经被消除"}, {"id": "sr-test-pivot", "name": "支撑/阻力测试（孤立支点）", "cat": "支撑阻力", "ohlcv": [[99.0, 100.4, 98.8, 100.2, 1200], [100.2, 101.2, 99.4, 99.6, 1000], [99.6, 101.4, 99.4, 101.2, 1100], [101.2, 101.6, 99.2, 99.4, 900], [99.4, 100.6, 99.0, 100.2, 1100]], "levels": [{"y": 101.4, "label": "区间上沿", "type": "r"}, {"y": 99.2, "label": "区间下沿", "type": "s"}], "mark": {"i": 2, "text": "孤立高位支点"}, "kl": "用“孤立支点”识别盘整：上升趋势中先出现三柱体的孤立高位支点（中间柱高低点均高于两侧）＝可能变弱的第一信号，再配合孤立低位支点；两者齐备即画出震荡区间上沿（前高）与下沿（前低）。同一价位反复被测试三次＝三重顶/底。", "vol": "区间内成交量普遍低于平均即确认盘整（成交量告诉你盘整从哪开始，支点只是辅助画边界）；支撑/阻力被测试时的量能表现决定突破真伪。", "ctx": "市场约 70% 时间处于横盘震荡、趋势仅约 30%；区间越窄盘整越久，因果定律决定后续突破力度与持续时间越大。", "buy": "支撑位被缩量测试且不破＝加仓/买点；三重底经量价确认后可买，或等向上突破做多。", "sell": "阻力位被缩量测试且不破＝减仓/做空机会；三重顶经量价确认后可卖空。", "stop": "止损设在盘整区间的另一侧（突破方向的反侧）之外——市场竖起的屏障是天然保护。", "wl": "吸筹/派筹区间上下沿；Last Point of Support 与阻力测试", "pg": 139, "qt": "孤立支点是任何窄幅整理阶段开始的决定性点位"}, {"id": "breakout-volume", "name": "放量突破（突破型交易）", "cat": "突破", "ohlcv": [[96.0, 97.0, 95.8, 96.5, 900], [96.5, 97.2, 96.0, 96.8, 800], [96.8, 98.6, 96.6, 98.4, 2600], [98.4, 99.6, 98.2, 99.4, 2400], [99.4, 100.2, 98.6, 98.9, 1200]], "levels": [{"y": 98.0, "label": "阻力", "type": "r"}], "mark": {"i": 2, "text": "放量过阻力"}, "kl": "价格明确离开震荡区间的天花板（向上）或地板（向下）：收盘价要<b>明显地</b>高于/低于区间边界，而不是只滑出几个点。", "vol": "突破必须伴随显著高于平均、且持续放大的成交量——推高市场需要很大力气。<b>没有放量＝局内人没参与或设了陷阱</b>。", "ctx": "区间震荡之后；方向可能是延续原趋势也可能是反转，量价分析不关心方向，只关心<b>是否被成交量确认</b>。更高周期须有更慢时间跨度的同向趋势配合。", "buy": "向上放量突破且更慢周期同向＝建仓的绝佳时机（突破型交易）；已有同向多头仓位可放心持有。", "sell": "向下放量突破＝趋势反转信号，持仓应平仓离场。", "stop": "止损设在震荡区间外侧一点（突破失败位）；盘整时长决定趋势能走多久（因果定律）。", "wl": "吸筹/派筹之后的“行动”启动；离开 Accumulation/Distribution 区间", "pg": 146, "qt": "如果你没有看到放量，那你就会明白这其实是局内人设置的陷阱"}, {"id": "pullback-holds", "name": "缩量回踩（突破后的回测）", "cat": "突破", "ohlcv": [[96.0, 96.8, 95.8, 96.6, 900], [96.6, 98.4, 96.4, 98.2, 2500], [98.2, 99.2, 97.4, 97.8, 1300], [97.8, 98.2, 97.2, 97.6, 700], [97.6, 99.6, 97.5, 99.4, 2200]], "levels": [{"y": 96.6, "label": "突破位=支撑", "type": "s"}], "mark": {"i": 3, "text": "缩量回踩守住"}, "kl": "真实突破后价格回探、夯实底部：向上突破后回踩之前的天花板（原阻力转支撑），向下突破后上探之前的地板（原支撑转阻力）。", "vol": "回踩必须伴随<b>很低或减少的成交量</b>——说明是整理而非反转，这是“这是真突破”的确认条件之一。", "ctx": "紧接有效突破之后；此时原区间边界已翻转角色，成为新趋势的天然保护层与止损位。", "buy": "缩量回踩不破新支撑（且上行放量确认后）＝低风险顺势加仓点。", "sell": "回踩<b>放量</b>并跌破区间边界＝突破失败（假突破），按纪律离场。", "stop": "止损设在被突破的区间边界（下方/上方）之外。", "wl": "突破后的最后测试 Last Point of Support（缩量回测常是最后的进场机会）", "pg": 146, "qt": "这种回探要伴随着很低或是减少的成交量"}, {"id": "fake-breakout", "name": "伪突破（低量突破陷阱）", "cat": "突破", "ohlcv": [[96.5, 97.2, 96.0, 96.8, 900], [96.8, 97.6, 96.6, 97.4, 600], [97.4, 99.2, 97.2, 98.8, 700], [98.8, 98.9, 97.0, 97.2, 1600], [97.2, 97.6, 96.4, 96.6, 1400]], "levels": [{"y": 98.0, "label": "阻力", "type": "r"}], "mark": {"i": 2, "text": "低量突破"}, "kl": "价格突破震荡区间上/下沿，但没有真正的价格“水流”，区间很快被收回，价格回到原区间运行。", "vol": "核心识别：<b>突破伴随很小的成交量</b>。区间内聚集大量被套的弱势交易者，真突破需要很大量，所以低量突破必是局内人设的经典陷阱。", "ctx": "震荡整理区间突破时；也包括“跳空高开＋低量”这类变体。", "buy": "无买入信号；不追突破，等真突破（放量）确认。", "sell": "阻力位上方低量突破＝诱多，卖出/减仓；支撑位下方低量破位＝诱空，可顺势做空。", "stop": "以突破区间的另一侧（区间边界）为失效位；收回区间即判突破失败。", "wl": "派筹/吸筹中的假突破（局内人制造假突破是经典做法）", "pg": 144, "qt": "当你看到一个突破伴随着一个很小的交易量时，那就要小心了"}, {"id": "volume-divergence", "name": "量价背离（涨而缩量）", "cat": "量价确认", "ohlcv": [[99.0, 100.0, 98.8, 99.8, 1200], [99.8, 101.4, 99.6, 101.2, 1600], [101.2, 103.0, 100.8, 102.8, 2000], [102.8, 104.6, 102.4, 102.9, 2600], [102.9, 104.8, 102.6, 103.1, 2400], [103.1, 104.0, 101.0, 101.4, 3000]], "levels": [{"y": 104.6, "label": "阻力", "type": "r"}], "mark": {"i": 3, "text": "价新高 · 量不配合"}, "kl": "多根序列：第一根正常，第二根出现“投入与产出不匹配”（实体更大但量更大→量大却涨不动；或实体更高而量更低），随后连续第三、第四根背离延续。", "vol": "上涨趋势中价格继续创新高而成交量逐根萎缩＝买压枯竭、做市商已在卖出；下跌趋势中价格继续创新低而量萎缩＝卖压枯竭、买方承接。两个方向对称适用。", "ctx": "先定位（趋势中段/顶部/底部），再看支撑阻力、趋势线与K线形态，确认是小回落还是趋势级反转——起因程度决定结果程度（因果定律）。", "buy": "下跌趋势中“跌而缩量”的连续异常＝空头动能衰竭，可分批买入，等锤头线/长腿十字线确认。", "sell": "上涨趋势中“涨而缩量”的连续异常＝多方动能衰竭，了结利润离场，准备反转时反手。", "stop": "以序列中最低/最高点为参考：跌破异常起点低点则反弹假设失效。", "wl": "超买/超卖后的做市商挣扎；弱于 Spring/Climax 的早期预警（书中称“异常”）", "pg": 66, "qt": "虽然市场处于上升阶段，但是这根K线图的成交量却下降了"}];
+var KCHART_CATS = ["趋势反转", "量价确认", "支撑阻力", "突破"];
+var KCHART_CAT = 'all';
+function kchartCard(p){
+  var rows = [
+    ['K线构成', p.kl],
+    ['量价配合', p.vol],
+    ['有效位置', p.ctx],
+    ['买入信号', p.buy],
+    ['卖出/减仓', p.sell],
+    ['止损/失效', p.stop],
+    ['威科夫对应', p.wl],
+  ];
+  var h = '<div class="kc" id="kc-'+esc(p.id)+'" data-kc="'+esc(p.id)+'">'
+    + '<div class="kc-hd"><span class="kc-t">'+esc(p.name)+'</span>'
+    + '<span class="badge '+(p.cat==='趋势反转'?'rose':(p.cat==='突破'?'blue':(p.cat==='支撑阻力'?'em':'amber')))+'">'+esc(p.cat)+'</span></div>'
+    + '<div class="kc-ch">'+kchartSvg(p)+'</div>'
+    + '<table class="kc-tb">';
+  for(var i=0;i<rows.length;i++){
+    h += '<tr><th>'+esc(rows[i][0])+'</th><td>'+rows[i][1]+'</td></tr>';
+  }
+  h += '</table>'
+    + '<div class="kc-q">“'+esc(p.qt)+'” <span class="kc-pg">P'+p.pg+'</span></div>'
+    + '</div>';
+  return h;
+}
+/* 从「量价分析 VSA」页点形态跳到本图谱: 切页 -> 滚到该卡片 -> 高亮 */
+function kchartJump(pid){
+  if(!pid) return;
+  KCHART_CAT = 'all';
+  var fb = document.getElementById('kc-filter');
+  if(fb) [].forEach.call(fb.querySelectorAll('button'), function(x){
+    x.className = 'btn' + (x.getAttribute('data-c')==='all' ? ' primary' : '');
+  });
+  kchartRender();
+  KEEP_SCROLL = true;
+  showView('kchart');
+  // hashchange 会再触发一次 showView, 故滚动要等 hash 稳定后再做, 且做两次兜底
+  [60, 320].forEach(function(delay){
+    setTimeout(function(){
+      var el = document.getElementById('kc-' + pid);
+      if(!el) return;
+      var r = el.getBoundingClientRect();
+      var target = window.pageYOffset + r.top - Math.max(80, (window.innerHeight - r.height) / 2);
+      window.scrollTo({top: Math.max(0, target), behavior: (delay > 100 ? 'smooth' : 'auto')});
+      el.classList.add('kc-flash');
+      setTimeout(function(){ el.classList.remove('kc-flash'); }, 2800);
+    }, delay);
+  });
+}
+function kchartRender(){
+  var box = document.getElementById('kc-grid'); if(!box) return;
+  var list = KCHART_PATTERNS.filter(function(p){ return KCHART_CAT==='all' || p.cat===KCHART_CAT; });
+  box.innerHTML = list.map(kchartCard).join('');
+  var cnt = document.getElementById('kc-cnt'); if(cnt) cnt.textContent = list.length + ' / ' + KCHART_PATTERNS.length + ' 个形态';
+  var nc = document.getElementById('c-kchart'); if(nc) nc.textContent = KCHART_PATTERNS.length;
+}
+(function(){
+  /* 形态徽章 -> 跳 K线图谱 */
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('.vsa-chip') : null;
+    if(!a) return;
+    e.preventDefault();
+    kchartJump(a.getAttribute('data-kc'));
+  });
+  var fb = document.getElementById('kc-filter');
+  if(fb) fb.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('button'); if(!b) return;
+    KCHART_CAT = b.getAttribute('data-c');
+    [].forEach.call(fb.querySelectorAll('button'), function(x){
+      x.className = 'btn' + (x.getAttribute('data-c')===KCHART_CAT ? ' primary' : '');
+    });
+    kchartRender();
+  });
+})();
+
+kchartRender();
+</script>
 </body>
 </html>
