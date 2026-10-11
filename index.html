@@ -109,6 +109,41 @@ h1{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:0}
 .card.notes{padding:14px 16px;font-size:12px;line-height:1.95;color:var(--dim);background:#fcfcfd}
 .card.notes>:not(:last-child){margin-bottom:9px}
 .card.notes small{font-size:12px;color:var(--dim);font-weight:400}
+/* ── 净资产 Net Worth ── */
+.nwt{position:relative}
+.nwt .tmark{position:absolute;top:-4px;bottom:-4px;width:2px;background:#111827;opacity:.45;border-radius:2px}
+.nwsub{font-size:11.5px;color:var(--dim);margin-top:5px;line-height:1.6}
+.nwbig{font-size:26px;font-weight:650;letter-spacing:-.025em;margin-top:4px}
+.nwover{color:#b45309} .nwunder{color:#1d4ed8} .nwneg{color:var(--rose7)}
+#nw-kpis{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));margin-bottom:6px}
+.nwsec-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--dim);margin-top:10px}
+.nwsec-legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.clchips{display:flex;flex-wrap:wrap;gap:8px}
+.clchip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:6px 10px;border-radius:9999px;line-height:1.3}
+.clchip.ok{color:var(--em7);background:var(--emf);box-shadow:inset 0 0 0 1px rgba(4,120,87,.15)}
+.clchip.todo{color:var(--amber7);background:var(--amberf);box-shadow:inset 0 0 0 1px rgba(180,83,9,.15)}
+.clchip b{font-weight:500;opacity:.7;font-variant-numeric:tabular-nums}
+.clchip{transition:transform .15s ease, box-shadow .15s ease;cursor:default}
+.clchip:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px currentColor}
+#nw-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+#nw-kpis>.card{transition:transform .18s ease, box-shadow .18s ease}
+#nw-kpis>.card:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1px var(--ring),0 10px 22px -16px rgba(15,23,42,.55)}
+.nw-donutbox{display:flex;justify-content:center;padding:2px 0 10px}
+.dseg{transition:opacity .15s ease, stroke-width .15s ease}
+.donut.dim .dseg{opacity:.25}
+.donut.dim .dseg.hot{opacity:1}
+.donut .dseg.hot{stroke-width:26}
+.nw-gauge{display:flex;justify-content:center;margin:-4px 0 6px}
+.sec:not(.notes-sec)::before{content:'';display:inline-block;width:3px;height:13px;border-radius:2px;background:var(--blue6);margin-right:1px;vertical-align:-1px}
+.pfstep{display:flex;gap:12px;padding:11px 0}
+.pfstep+.pfstep{border-top:1px dashed #e5e7eb}
+.pfno{width:22px;height:22px;flex:0 0 22px;border-radius:50%;background:var(--blue6);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.pfstep.done .pfno{background:#10b981}
+.pfstep.warn .pfno{background:#f43f5e}
+.pfb{flex:1;min-width:0}
+.pft{font-weight:600;font-size:13.5px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.pfrow{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:#6b7280;margin-top:5px}
+.pfrow b{color:#111827;font-weight:600}
 .ttl{font-size:13px;font-weight:600;margin-bottom:14px}
 .ttl span{font-weight:400;color:var(--dim)}
 .barlist{display:flex;flex-direction:column;gap:12px}
@@ -164,6 +199,20 @@ input[type=range]{flex:1.5;min-width:60px;accent-color:var(--blue6)}
 #fire-ccy button{border:0;background:transparent;padding:6px 12px;font-size:12.5px;font-weight:600;color:#64748b;cursor:pointer;font-variant-numeric:tabular-nums}
 #fire-ccy button+button{border-left:1px solid #e5e7eb}
 #fire-ccy button.cur{background:var(--blue6);color:#fff}
+/* 全站显示货币 pill (侧栏) */
+.gccy-row{display:flex;align-items:center;gap:8px;padding:0 8px 14px;color:var(--dim);font-size:11px}
+#g-ccy{display:inline-flex;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
+#g-ccy button{border:0;background:transparent;padding:5px 10px;font-size:12px;font-weight:600;color:#64748b;cursor:pointer;font-variant-numeric:tabular-nums}
+#g-ccy button+button{border-left:1px solid #e5e7eb}
+#g-ccy button.cur{background:var(--blue6);color:#fff}
+/* 账户市值 vs 基准: 合计横向对比条 */
+.acct-total{margin:6px 0 10px}
+.acct-total .at-head{display:flex;gap:10px;align-items:baseline;font-size:12.5px;margin-bottom:6px;flex-wrap:wrap}
+.acct-total .at-head .dim{font-size:12px}
+.acct-total .at-track{position:relative;height:16px;border:1.5px solid #cbd5e1;border-radius:8px;background:#fff;overflow:hidden}
+.acct-total .at-fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
+.acct-total .at-mark{position:absolute;top:-2px;bottom:-2px;width:0;border-left:2px dashed #94a3b8}
+.acct-total .at-scale{font-size:10.5px;margin-top:2px}
 .rb-sum{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:12px;
   border-top:1px solid var(--ring);padding-top:12px}
 .rb-sum b{color:var(--fg);font-variant-numeric:tabular-nums}
@@ -199,6 +248,10 @@ table.fire-mt{table-layout:auto;width:100%}
   main{padding:16px 12px 48px;width:100%;max-width:100%;overflow-x:hidden}
   .kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
   #nav-kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  #nw-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #nw-kpis>.card:last-child:nth-child(odd){grid-column:1/-1}
+  #nw-kpis .kpi .v{font-size:19px}
+  .nw-donutbox svg{width:180px;height:180px}
   .cols{grid-template-columns:1fr}
   .rb-grid{grid-template-columns:1fr}
   .rb-t th,.rb-t td{padding:8px 4px;font-size:12.5px}
@@ -233,29 +286,85 @@ table.fire-mt{table-layout:auto;width:100%}
       <div class="logo">O</div>
       <div><div class="t">Oranger Cockpit</div><div class="s">组合驾驶舱</div></div>
     </div>
+    <div class="gccy-row"><span>显示货币</span><span id="g-ccy"><button type="button" data-ccy="HKD" class="cur">HK$</button><button type="button" data-ccy="USD">US$</button><button type="button" data-ccy="CNY">¥</button></span></div>
     <nav class="nav" id="nav">
       <div class="grp">总览</div>
-      <a data-v="cockpit" class="on"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M2.6 12a9.4 9.4 0 0 1 18.8 0"/></svg></span><span class="lbl">Cockpit 总览</span></a>
-      <a data-v="holdings"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></svg></span><span class="lbl">Holdings 持仓</span><span class="cnt" id="c-hold"></span></a>
-      <a data-v="closed"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">清仓战绩</span><span class="cnt" id="c-closed"></span></a>
+      <a data-v="networth" class="on"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20V9.5M10 20V4.5M16 20v-7M22 20H2"/></svg></span><span class="lbl">净资产 Net Worth</span><span class="cnt" id="c-nw"></span></a>
+      <a data-v="cockpit"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M2.6 12a9.4 9.4 0 0 1 18.8 0"/></svg></span><span class="lbl">投资总览 Cockpit</span></a>
+      <a data-v="holdings"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3.5 6.5h17M3.5 12h17M3.5 17.5h17"/></svg></span><span class="lbl">持仓 Holdings</span><span class="cnt" id="c-hold"></span></a>
+      <a data-v="closed"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">清仓战绩 Closed</span><span class="cnt" id="c-closed"></span></a>
       <div class="grp">决策</div>
-      <a data-v="rebalance"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 8.5h13l-3.2-3.2M20 15.5H7l3.2 3.2"/></svg></span><span class="lbl">Rebalance 再平衡</span><span class="cnt" id="c-reb"></span></a>
-      <a data-v="fire"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">FIRE 财富自由</span><span class="cnt" id="c-fire"></span></a>
-      <a data-v="resis"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3.5h12M6 8h12M6 12.5h12M6 17h12M6 21.5h12"/><path d="M18.5 3.5h2M18.5 8h2M18.5 12.5h2M18.5 17h2M18.5 21.5h2"/></svg></span><span class="lbl">阻力位分析</span><span class="cnt" id="c-resis"></span></a>
+      <a data-v="rebalance"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 8.5h13l-3.2-3.2M20 15.5H7l3.2 3.2"/></svg></span><span class="lbl">再平衡 Rebalance</span><span class="cnt" id="c-reb"></span></a>
+      <a data-v="fire"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3.2l2.3 6.2 6.4.2-5.1 4.1 1.8 6.3L12 16.4l-5.4 3.6 1.8-6.3-5.1-4.1 6.4-.2z"/></svg></span><span class="lbl">财富自由 FIRE</span><span class="cnt" id="c-fire"></span></a>
+      <a data-v="resis"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3.5h12M6 8h12M6 12.5h12M6 17h12M6 21.5h12"/><path d="M18.5 3.5h2M18.5 8h2M18.5 12.5h2M18.5 17h2M18.5 21.5h2"/></svg></span><span class="lbl">阻力位分析 Levels</span><span class="cnt" id="c-resis"></span></a>
       <div class="grp">记录</div>
-      <a data-v="trades"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7.5h9M4 12h16M4 16.5h6"/><circle cx="17.2" cy="7.5" r="1.7"/></svg></span><span class="lbl">交易日志</span><span class="cnt" id="c-tr"></span></a>
-      <a data-v="discipline"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 6.5L9.5 17.5 4 12"/></svg></span><span class="lbl">Discipline 纪律</span><span class="cnt" id="c-disc"></span></a>
-      <a data-v="notes"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5.5 3.5h10l4 4v13h-14z"/><path d="M8.5 12h7M8.5 15.5h4.5"/></svg></span><span class="lbl">交易笔记</span><span class="cnt" id="c-notes"></span></a>
+      <a data-v="trades"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7.5h9M4 12h16M4 16.5h6"/><circle cx="17.2" cy="7.5" r="1.7"/></svg></span><span class="lbl">交易日志 Trades</span><span class="cnt" id="c-tr"></span></a>
+      <a data-v="discipline"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20.5 6.5L9.5 17.5 4 12"/></svg></span><span class="lbl">纪律 Discipline</span><span class="cnt" id="c-disc"></span></a>
+      <a data-v="notes"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5.5 3.5h10l4 4v13h-14z"/><path d="M8.5 12h7M8.5 15.5h4.5"/></svg></span><span class="lbl">交易笔记 Notes</span><span class="cnt" id="c-notes"></span></a>
     </nav>
     <div class="sb-foot" id="sbfoot">loading…</div>
   </aside>
 
   <main>
+    <!-- ⓪ 净资产 (封面) -->
+    <section class="view on" id="v-networth">
+      <div class="mhead"><h1>净资产 Net Worth</h1><span class="d" id="nwgen"></span>
+        <span style="flex:1"></span><span class="badge blue"><span class="dot"></span>全部资产口径 · 含外部现金/负债</span></div>
+      <div class="grid kpis" id="nw-kpis"></div>
+
+      <div class="sec">净资产变动<span style="flex:1"></span><span class="badge gray" id="nw-hist-badge">每月 30 号记一个点</span></div>
+      <div class="card" id="nw-hist"></div>
+
+      <div class="sec">资产配置 · 目标 vs 实际<span style="flex:1"></span><span class="badge gray">目标：人民币 5% · 港币 15% · 美股 80%</span></div>
+      <div class="grid cols" id="nw-allocgrid">
+        <div class="card"><div class="ttl" style="display:flex;align-items:center;gap:10px">三桶配置 <span>· 占可配置净资产</span><span style="flex:1"></span>
+            <span id="nw-mode" style="display:flex;gap:6px"><button class="btn primary" data-m="actual">实际</button><button class="btn" data-m="target">目标</button></span></div>
+          <div class="nw-donutbox" id="nw-donut"></div>
+          <div class="barlist" id="nw-buckets"></div>
+          <div class="nwsec-legend"><span><i style="background:#f59e0b"></i>人民币</span><span><i style="background:#3b82f6"></i>港币</span><span><i style="background:#8b5cf6"></i>美元</span><span>▏黑线 = 目标位置</span></div></div>
+        <div class="card"><div class="ttl">账户分解 <span>· IBKR / CSCI / 加密 / 支付宝 / DX</span></div><div class="barlist" id="nw-accts"></div></div>
+      </div>
+
+      <div class="sec">现金储备</div>
+      <div class="card" id="nw-cash"></div>
+
+      <div class="sec">再配置前的两步</div>
+      <div class="card" id="nw-payoff"></div>
+
+      <div class="sec">本月结余分配建议</div>
+      <div class="card" id="nw-plan"></div>
+
+      <div class="sec">录入清单 <span style="flex:1"></span><span class="badge gray" id="nw-cl-prog"></span></div>
+      <div class="card" id="nw-checklist"></div>
+
+      <div class="sec notes-sec">说明与口径</div>
+      <div class="card notes" id="notes-v-networth">
+        <div data-notes>净资产 = 证券(美股+港股) + 券商现金 + 加密(HL/MetaMask) + DX + 银行现金(HSBC/SCB/中银/恒生) + 人民币资产(支付宝) + 強積金 MPF − 信用卡负债。</div>
+        <div data-notes>配置目标（分母 = <b>可配置净资产</b>）：人民币 5% / 港币 15% / 美元 80%。现金储备 ≥5% 且总额 ≤ HK$100,000。</div>
+        <div data-notes><b>再配置前的两步（2026-10-12 定稿）</b>：① 先还清信用卡（从现金池出）；② 现金留够下限（5% × 全部净资产，且 ≤ HK$100,000）。两步之后，<b>剩余现金 + 当月新进结余</b>全部可投入配置。</div>
+        <div data-notes><b>強積金 MPF</b>（HSBC + Sun Life）计入「全部净资产」，但<b>不计入配置比例</b> —— 该口径会随用户要求动态调整。</div>
+        <div data-notes>币种换算：USD/HKD 用看板实时工作汇率，USD/CNY 用台账记录值（¥1 → HK$ 见下），人民币资产按 CNY 折算。</div>
+        <div data-notes><b>显示货币（左栏切换 · 2026-10-13）</b>：全站金额（净值、持仓、清仓、FIRE、图表刻度、各账户基准）一律按所选单位显示 —— <b>HK$ / US$ / ¥</b>，内部仍以 HKD 存储、只在显示层换算。Blockchain(HL) 与 IBKR 的账户基准本为美元计，选 US$ 时即为原生美元数字。注：说明文字里写死的 HK$ 金额是规则描述，不随切换变化。</div>
+        <div data-notes>外部账户（HSBC / SCB / 信用卡 / 支付宝）每月 20 日截图更新；未录入时按 0 计入并在现金卡片标出「尚未录入」。</div>
+        <div data-notes><b>净资产变动曲线</b>（2026-10-13 起）：每个月只记一个点，键为月份；<b>每月 30 号</b>（该月无 30 号时取月末，如 2 月 28/29 号）自动写入/更新当月这一点，首点 = 2026-10（记账起点）。曲线为全部净资产（含 MPF），虚线 = 首个记录点，图例给「较首点」差额；点不足 2 个时只显示单点。</div>
+        <div data-notes><b>HSBC 黄金 1 troy oz</b>（<span id="nw-xaunote"></span>）按 XAU/USD 现货 × USD/HKD 实时折算，美元定价 → 计入<b>美元桶</b>；只需核对数量，价格由脚本取（数据源 gold-api.com）。</div>
+        <div data-notes>中银香港「外匯寶賬戶」HK$20,293.89 为<b>总值</b>（已含页面另列的 US$2,594 折算），用户 2026-10-12 确认，故不另加美元，避免重复计算。</div>
+        <div data-notes>「录入清单」列出全部需手工录入的银行/户口/信用卡；amount 为空即显示为待录入（按 0 计入），录满后自动勾选。截止日在清单右上角。</div>
+        <div data-notes>账户分解按账户划分：CSCI（美股证券 + 港股证券 + 券商现金）／IBKR（过渡阶段仅种子现金 US$100）／Hyperliquid·加密（永续+现货+MetaMask）／支付宝／DX，另列香港银行账户、美国银行账户、信用卡负债与 MPF。券商数据源为单一导出，美股/港股按持仓市场拆分。<b>迁移过渡期</b>：持仓正逐步由 CSCI 迁往 IBKR，目前美股+港股仍在 CSCI。</div>
+        <div data-notes>三桶配置环形图：悬停任一色段可看该分项的实际占比、目标与金额（鼠标移开即还原）。</div>
+        <div data-notes><b>人民币现金上限（用户 2026-10 规则）</b>：人民币现金（支付宝里的活钱/余额宝，<b>不含基金与黄金</b>）不超过 ¥10,000；超出部分在「本月结余分配建议」里提示<b>买入黄金</b>。</div>
+        <div data-notes><b>结余建议金额口径（用户 2026-10-13 规则）</b>：一律按<b>目的地货币</b>给金额并取整到 100 —— 美股 / IBKR → <b>US$</b>、港股 / 港币资产 → <b>HK$</b>、支付宝 / 人民币资产 → <b>¥</b>；执行完成后在该条建议后打勾（目的地账户余额增加对应金额即视为完成，IBKR 美元增加对应 US$ 金额）。</div>
+        <div data-notes>2026-10-12 从 CSCI 券商账户转出 HK$100,000 至 SCB；券商现金快照（10-05）尚未反映，脚本先做同额扣减以免与 SCB 存款重复计算。</div>
+        <div data-notes id="nw-fxnote"></div>
+      </div>
+    </section>
+
     <!-- ① Cockpit -->
-    <section class="view on" id="v-cockpit">
-      <div class="mhead"><h1>Cockpit</h1><span class="d" id="gen"></span>
+    <section class="view" id="v-cockpit">
+      <div class="mhead"><h1>投资总览 Cockpit</h1><span class="d" id="gen"></span>
         <span style="flex:1"></span><span class="badge blue"><span class="dot"></span>P1 · 只读</span></div>
       <div class="grid kpis" id="kpis"></div>
+      <div class="dim" data-notes style="font-size:12px">今日盈亏 = 净值变动（相对 0 点基准）并<b>剔除组合出入金</b>：在券商/银行之间搬钱（转出/转入投资账户）不计入盈亏，只在备注里标出金额。</div>
 
       <div class="sec">历史净值（合并口径） <small data-notes>证券 + Blockchain 永续 · 今天/本周按 10 分钟点，长周期逐日 · 对固定成本基准</small><span class="badge gray" id="hsRange"></span>
         <span style="flex:1"></span>
@@ -284,8 +393,13 @@ table.fire-mt{table-layout:auto;width:100%}
 
     <!-- ② Holdings -->
     <section class="view" id="v-holdings">
-      <div class="mhead"><h1>Holdings</h1><span class="d" id="gen2"></span>
+      <div class="mhead"><h1>持仓 Holdings</h1><span class="d" id="gen2"></span>
         <span style="flex:1"></span><span class="badge gray">红跌绿涨（欧惯例）</span></div>
+      <div class="sec">账户市值 vs 基准
+        <small id="acct-bars-sub">市值 − 基准 = 相对投入的盈亏 · 红跌绿涨（欧惯例）</small>
+        <span style="flex:1"></span><span class="badge gray">跟随左栏显示货币</span></div>
+      <div class="card" id="acct-bars-card"><div id="acct-bars"></div></div>
+
       <div class="sec">四维结构
         <small id="four-sub">分母：占敞口</small>
         <span style="flex:1"></span>
@@ -336,7 +450,7 @@ table.fire-mt{table-layout:auto;width:100%}
 
     <!-- ②b 清仓战绩 (独立 section, 与 总览/持仓 并列) -->
     <section class="view" id="v-closed">
-      <div class="mhead"><h1>清仓战绩</h1><span class="d" id="genC"></span>
+      <div class="mhead"><h1>清仓战绩 Closed</h1><span class="d" id="genC"></span>
         <span style="flex:1"></span><span class="badge gray" id="closedCnt"></span>
         <span class="badge gray" style="margin-left:6px">点表头排序</span></div>
 
@@ -370,7 +484,7 @@ table.fire-mt{table-layout:auto;width:100%}
 
     <!-- ③ Rebalance (P2) -->
     <section class="view" id="v-rebalance">
-      <div class="mhead"><h1>Rebalance</h1><span class="d">再平衡 · 算出「今晚要动多少」</span>
+      <div class="mhead"><h1>再平衡 Rebalance</h1><span class="d">再平衡 · 算出「今晚要动多少」</span>
         <span style="flex:1"></span><span class="badge gray" id="rbApi">检测本地 API…</span></div>
       <div class="grid rb-grid">
         <div class="card">
@@ -420,7 +534,7 @@ table.fire-mt{table-layout:auto;width:100%}
 
     <!-- ⑧ 交易笔记 -->
     <section class="view" id="v-notes">
-      <div class="mhead"><h1>交易笔记</h1><span class="d" id="ntgen"></span>
+      <div class="mhead"><h1>交易笔记 Notes</h1><span class="d" id="ntgen"></span>
         <span style="flex:1"></span><span class="badge gray" id="ntcnt"></span></div>
       <div class="card" style="padding:12px 14px;margin-bottom:14px">
         <div class="dim" data-notes style="font-size:12.5px;line-height:1.9">
@@ -437,7 +551,7 @@ table.fire-mt{table-layout:auto;width:100%}
 
     <!-- ⑥ 交易日志 (P3) -->
     <section class="view" id="v-trades">
-      <div class="mhead"><h1>交易日志</h1><span class="d">Blockchain fills + CSCI 成交 + DX 合并</span>
+      <div class="mhead"><h1>交易日志 Trades</h1><span class="d">Blockchain fills + CSCI 成交 + DX 合并</span>
         <span style="flex:1"></span>
         <span class="badge gray" id="trFilter"></span></div>
       <div class="grid kpis" id="tr-kpis"></div>
@@ -464,7 +578,7 @@ table.fire-mt{table-layout:auto;width:100%}
 
     <!-- ⑤ Discipline -->
     <section class="view" id="v-discipline">
-      <div class="mhead"><h1>Discipline</h1><span class="d">把写在 Obsidian 的纪律变成每天自动打脸的数字</span></div>
+      <div class="mhead"><h1>纪律 Discipline</h1><span class="d">把写在 Obsidian 的纪律变成每天自动打脸的数字</span></div>
       <div class="card" id="disc"></div>
       <div class="sec">纪律阈值 <small data-notes>改 ~/cockpit/data/targets.json</small></div>
       <div class="card" id="thresholds"></div>
@@ -474,7 +588,7 @@ table.fire-mt{table-layout:auto;width:100%}
 
     <!-- ⑥ 阻力位分析 (决策) -->
     <section class="view" id="v-resis">
-      <div class="mhead"><h1>阻力位分析</h1><span class="d">量价结构 · Volume Profile + 摆动点 · 对持仓标的</span>
+      <div class="mhead"><h1>阻力位分析 Levels</h1><span class="d">量价结构 · Volume Profile + 摆动点 · 对持仓标的</span>
         <span style="flex:1"></span><span class="badge gray" id="resGen"></span></div>
 
       <div class="sec">逐仓阻力 / 支撑 <small data-notes>对每支持仓算最近阻力与最近支撑。方法：① 量价分布（最近 120 日按对数分桶，桶内成交量最多的价位 = POC，高于现价的厚量桶=阻力，低于=支撑）；② 结构摆动点（跌入同带的局部高/低点 = 多次被拒的位）；③ 均线 MA20/50/100/200。共振越多项越硬。距现价 +%=阻力在上方，−%=支撑在下方。</small></div>
@@ -511,7 +625,7 @@ table.fire-mt{table-layout:auto;width:100%}
 
     <!-- ⑨ FIRE 财富自由 (决策) -->
     <section class="view" id="v-fire">
-      <div class="mhead"><h1>FIRE 财富自由预估</h1><span class="d" id="fireGen"></span>
+      <div class="mhead"><h1>财富自由 FIRE 预估</h1><span class="d" id="fireGen"></span>
         <span style="flex:1"></span>
         <span class="btn-group" id="fire-ccy" style="display:inline-flex">
           <button type="button" data-ccy="HKD" class="cur">HK$</button>
@@ -525,10 +639,10 @@ table.fire-mt{table-layout:auto;width:100%}
       <div class="grid rb-grid">
         <div class="card">
           <div class="ttl">参数（全部可调，改动即重算）</div>
-          <div class="rb-row"><span class="nm">可投资金融资产起点 <span class="dim">（HK$）</span></span>
+          <div class="rb-row"><span class="nm">可投资金融资产起点 <span class="dim" id="fire-lblP">（HK$）</span></span>
             <label class="sw fire-follow" title="开启后起点恒等于当前组合净资产(快照 NAV)，半自动更新/本地刷新时随之变化；关掉可手动填任意口径"><input type="checkbox" id="fire-linknav" checked> 随净资产</label>
             <input type="number" id="fire-p" step="10000" min="0"></div>
-          <div class="rb-row"><span class="nm">每月定投 <span class="dim">（HK$）</span></span>
+          <div class="rb-row"><span class="nm">每月定投 <span class="dim" id="fire-lblM">（HK$）</span></span>
             <input type="number" id="fire-m" step="1000" min="0"></div>
           <div class="rb-row"><span class="nm">年化回报率（名义）</span>
             <input type="range" id="fire-r" min="0" max="20" step="0.1" value="10" style="flex:1.2">
@@ -536,7 +650,7 @@ table.fire-mt{table-layout:auto;width:100%}
           <div class="rb-row"><span class="nm">4% 法则取款率</span>
             <input type="range" id="fire-w" min="1" max="8" step="0.1" value="4" style="flex:1.2">
             <b id="fire-w-v" style="width:52px;text-align:right;font-variant-numeric:tabular-nums">4.0%</b></div>
-          <div class="rb-row"><span class="nm">目标年生活开支 <span class="dim">（HK$）</span></span>
+          <div class="rb-row"><span class="nm">目标年生活开支 <span class="dim" id="fire-lblS">（HK$）</span></span>
             <input type="number" id="fire-s" step="10000" min="0"></div>
           <div class="rb-note">
             口径：<b>目标资产 = 目标年开支 ÷ 取款率</b>（取款率 4% ⇒ 目标 = 年开支 × 25）。
@@ -578,7 +692,32 @@ table.fire-mt{table-layout:auto;width:100%}
 var PAL={core:'#3b82f6',defense:'#14b8a6',attack:'#f97316',lever:'#8b5cf6',dxbz:'#0ea5e9'};
 var SEQ=['#3b82f6','#8b5cf6','#14b8a6','#f97316','#f59e0b','#ec4899','#06b6d4','#84cc16','#6366f1','#f43f5e','#60a5fa','#9ca3af'];
 var LBL={core:'核心',defense:'防御',attack:'进攻',lever:'杠杆进攻',dxbz:'DXBZ',left:'左侧',right:'右侧',both:'各半'};
-function hk(n,d){d=d||0;return (n<0?'-':'')+'HK$'+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
+/* ── 全站显示货币单位 (HKD / USD / CNY) ──────────────────────────────────
+   内部一律以 HKD 存储/计算, 只在显示层换算。hk()/nvFmt()/fireFmt() 全走这里,
+   切换单位一次性作用于净值、持仓、清仓、FIRE、图表刻度等全站金额。
+   汇率在数据加载后刷新: USD 用看板实时工作汇率, CNY 用台账 fx.cnyhkd。
+   Blockchain(HL) 与 IBKR 的账户基准同为美元计, 选 US$ 即为原生美元数字。 */
+var CCY = 'HKD';
+var GFX = { USD: 7.82, CNY: 1.17 };            // 1 USD / 1 CNY 各折多少 HKD
+try { var _ccy = localStorage.getItem('cockpit.ccy'); if (_ccy === 'USD' || _ccy === 'CNY' || _ccy === 'HKD') CCY = _ccy; } catch (e) {}
+function ccySym(){ return CCY === 'USD' ? 'US$' : (CCY === 'CNY' ? '¥' : 'HK$'); }
+function ccyRate(){ return GFX[CCY] || 1; }
+function ccyApply(){
+  try { document.querySelectorAll('#g-ccy button,#fire-ccy button').forEach(function(b){
+    b.classList.toggle('cur', b.getAttribute('data-ccy') === CCY); }); } catch (e) {}
+}
+function setCcy(c){
+  if (c !== 'HKD' && c !== 'USD' && c !== 'CNY') return;
+  CCY = c; try { localStorage.setItem('cockpit.ccy', c); } catch (e) {}
+  try { FIRE.ccy = c; } catch (e) {}
+  ccyApply();
+  if (typeof rerenderAll === 'function') rerenderAll();
+}
+if (document && document.addEventListener) document.addEventListener('click', function (e) {
+  var b = e.target && e.target.closest ? e.target.closest('#g-ccy button,#fire-ccy button') : null;
+  if (b && b.getAttribute('data-ccy')) setCcy(b.getAttribute('data-ccy'));
+});
+function hk(n,d){d=d||0;var v=(Number(n)||0)/ccyRate();return (v<0?'-':'')+ccySym()+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});}
 function sgn(n){return n>0?'+':'';}
 function cls(n){return n>0?'up':(n<0?'down':'');}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -840,7 +979,7 @@ var nvUid = 0;
 function isNum(v) { return v != null && isFinite(v); }
 function nvFmt(v) {
   if (v == null) return '—';
-  return (v < 0 ? '-' : '') + 'HK$' + Math.abs(v).toLocaleString('en-US', { maximumFractionDigits: 0 });
+  return (v < 0 ? '-' : '') + ccySym() + Math.abs(v / ccyRate()).toLocaleString('en-US', { maximumFractionDigits: 0 });
 }
 function nvFmtPct(v) {
   if (v == null) return '—';
@@ -890,7 +1029,7 @@ function nvDualChart(boxId, points, opts) {
     Mr = Math.max((rHi - rLo) / 2 * 1.35, Math.abs(McR) * 0.002, 0.02);
   } else {
     Mp = (Math.max.apply(null, pnls.map(Math.abs)) || 1) * 1.10;
-    // 右轴 %: 按【窗口基准净值】线性换算 (全部=成本基准 75万), 同一高度恒对应同一百分比。
+    // 右轴 %: 按【窗口基准净值】线性换算 (全部=成本基准 77.5万), 同一高度恒对应同一百分比。
     // 收益率序列本身 = P&L/当日投入, 分母在变, 所以右轴刻度只在期末精确, 见脚注。
     Mr = Mp / (baseNav || 1) * 100;
   }
@@ -913,7 +1052,7 @@ function nvDualChart(boxId, points, opts) {
     body += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + yz + '" y2="' + yz + '" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>';
   }
   // 轴上单位
-  body += '<text x="' + (PL - 7) + '" y="' + (PT - 8) + '" text-anchor="end" font-size="10" fill="#cbd5e1">HK$</text>' +
+  body += '<text x="' + (PL - 7) + '" y="' + (PT - 8) + '" text-anchor="end" font-size="10" fill="#cbd5e1">' + ccySym() + '</text>' +
     '<text x="' + (W - PR + 7) + '" y="' + (PT - 8) + '" font-size="10" fill="#ddd6fe">%</text>';
 
   // P&L 面积 (正绿负红) + 折线
@@ -1326,8 +1465,8 @@ function rkRenderMargin(s){
       '<div style="font-size:13px;line-height:1.9">'+
       '清算价 <b>$'+c.liq_price.toFixed(2)+'</b> ｜ 当前价 <b>$'+c.mark.toFixed(2)+'</b> ｜ 缓冲距离 <b class="down">'+c.dist_pct.toFixed(1)+'%</b>'+
       '<br>'+
-      '建议补保 <b>HK$'+Math.round(c.add_margin_low_hkd).toLocaleString('en-US')+' ~ HK$'+Math.round(c.add_margin_high_hkd).toLocaleString('en-US')+'</b>'+
-      '（或减仓名义 HK$'+Math.round(c.cut_notional_hkd).toLocaleString('en-US')+'，把杠杆压到 '+c.target_lev+'x）<br>'+
+      '建议补保 <b>'+hk(c.add_margin_low_hkd)+' ~ '+hk(c.add_margin_high_hkd)+'</b>'+
+      '（或减仓名义 '+hk(c.cut_notional_hkd)+'，把杠杆压到 '+c.target_lev+'x）<br>'+
       '<span class="dim">触发原因：'+esc(c.reason||'—')+(c.dist_prev_pct!=null?('（上次 '+c.dist_prev_pct.toFixed(1)+'%）'):'')+'</span><br>'+
       '提醒状态：'+(c.paused?('<b class="warn">已暂停</b>（至 '+esc(c.pause_until)+'）'):'<b class="up">未暂停</b>')+
       '</div>'+
@@ -1504,9 +1643,9 @@ function trInit(s){
     fourRender();
   });
 })();
-var VIEWS=['cockpit','holdings','closed','rebalance','discipline','resis','fire','trades','notes'];
+var VIEWS=['networth','cockpit','holdings','closed','rebalance','discipline','resis','fire','trades','notes'];
 function showView(v){
-  if(VIEWS.indexOf(v)<0) v='cockpit';
+  if(VIEWS.indexOf(v)<0) v='networth';
   VIEWS.forEach(function(x){
     var s=document.getElementById('v-'+x); if(s) s.className='view'+(x===v?' on':'');
   });
@@ -1514,6 +1653,9 @@ function showView(v){
     a.className=(a.getAttribute('data-v')===v?'on':(a.className.indexOf('todo')>=0?'todo':''));
   });
   try{ localStorage.setItem('cockpit.view',v); }catch(e){}
+  if(v==='holdings') acctBarsRender();      // 视图刚显示, 此时才能量到容器宽度
+  if(v==='networth') nwhRender();           // 同理: 净资产曲线按容器宽度重画
+
   if(location.hash.slice(1)!==v) location.hash=v;
   window.scrollTo(0,0);
 }
@@ -1590,6 +1732,7 @@ function holdRender() {
   var s = SNAP;
   if (!s || !document.getElementById('hold')) return;
   accRender(s);
+  acctBarsRender();
   var allPos = s.positions.filter(function (p) { return HSRC === 'all' || p.source === HSRC; });
   var rows = genericSort(allPos, HSORT, hsVal).map(function (p) {
     var liq = (p.liq_dist_pct == null) ? '<span class="dim">—</span>' :
@@ -1643,6 +1786,88 @@ function holdRender() {
 
 /* ── 账户 (CSCI / HL / DXBZ): 三个净值框 + 持仓/清仓的来源筛选 ── */
 var HSRC = 'all', CSRC = 'all';
+
+/* ── 账户市值 vs 基准 (Holdings 顶部, 用户 2026-10-13 v2) ────────────────
+   版式 (用户点名): 每账户只画【一根柱】—— 空心柱 = 基准(投入成本), 实心柱 = 当前市值,
+   两者同宽同基座叠在一起: 实心比空心高 = 高于基准, 短一截 = 低于基准。
+   合计不占柱位, 单独放在图上方做【横向对比条】(用户: "放一个横的在前面")。
+   金额一律走 hk() → 跟随全站显示货币。 */
+function hkShort(v) {                    // 窄屏柱状图小字: HK$1.25M / HK$548k
+  var a = Math.abs(v), s = ccySym();
+  if (a >= 1e6) return s + (v / 1e6).toFixed(2) + 'M';
+  if (a >= 1e3) return s + Math.round(v / 1e3) + 'k';
+  return s + Math.round(v);
+}
+function acctBarsRender() {
+  var box = document.getElementById('acct-bars');
+  if (!box || !SNAP) return;
+  var list = (SNAP.accounts_detail || []).filter(function (a) { return (a.nav_hkd || 0) > 0 || (a.cost_hkd || 0) > 0; });
+  if (!list.length) { box.innerHTML = '<div class="dim">暂无账户数据</div>'; return; }
+  var tNav = 0, tCost = 0;
+  list.forEach(function (a) { tNav += (a.nav_hkd || 0); tCost += (a.cost_hkd || 0); });
+  var groups = list.map(function (a) { return { label: a.label || a.key, nav: a.nav_hkd || 0, cost: a.cost_hkd || 0 }; });
+
+  var W = Math.max(300, (box.clientWidth || 820) - 2), H = 268;
+  var narrow = W < 560;
+  var PL = narrow ? 52 : 62, PR = 12, PT = narrow ? 46 : 38, PB = narrow ? 66 : 48;
+  var iw = W - PL - PR, ih = H - PT - PB;
+  var maxV = 1; groups.forEach(function (g) { maxV = Math.max(maxV, g.nav, g.cost); });
+  var pow = Math.pow(10, Math.floor(Math.log(maxV) / Math.LN10)), step = pow;
+  [1, 2, 2.5, 5, 10].some(function (m) { if (maxV / (pow * m) <= 5) { step = pow * m; return true; } return false; });
+  var top = Math.ceil(maxV / step) * step;
+  var Y = function (v) { return PT + ih - (v / top) * ih; };
+  var gw = iw / groups.length, bw = Math.max(22, Math.min(52, gw * 0.52));
+  var CUP = '#10b981', CDN = '#f43f5e', CBASE = '#cbd5e1';
+
+  var svg = ['<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '">'];
+  for (var v = 0; v <= top + 1e-6; v += step) {
+    var y = Y(v);
+    svg.push('<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + y + '" y2="' + y + '" stroke="' + (v === 0 ? '#cbd5e1' : '#f1f5f9') + '" stroke-dasharray="' + (v === 0 ? '' : '3 3') + '"/>' +
+      '<text x="' + (PL - 7) + '" y="' + (y + 3.5) + '" text-anchor="end" font-size="10" fill="#94a3b8">' + hk(v) + '</text>');
+  }
+  groups.forEach(function (g, i) {
+    var cx = PL + gw * (i + 0.5), x = cx - bw / 2;
+    var yN = Y(g.nav), yC = Y(g.cost), gain = g.nav - g.cost;
+    var col = gain >= 0 ? CUP : CDN, pct = g.cost > 0 ? gain / g.cost * 100 : null;
+    // 空心 = 基准
+    svg.push('<rect x="' + x + '" y="' + yC + '" width="' + bw + '" height="' + Math.max(1, PT + ih - yC) + '" rx="3" fill="#ffffff" stroke="' + CBASE + '" stroke-width="1.5"><title>基准 ' + esc(g.label) + ' ' + hk(g.cost) + '</title></rect>');
+    // 实心 = 当前市值 (同宽同基座, 叠在上面)
+    var hN = Math.max(2, PT + ih - yN);
+    svg.push('<rect x="' + (x + 1) + '" y="' + yN + '" width="' + Math.max(1, bw - 2) + '" height="' + hN + '" rx="2" fill="' + col + '" fill-opacity="0.88"><title>市值 ' + esc(g.label) + ' ' + hk(g.nav) + '</title></rect>');
+    var yTop = Math.min(yN, yC);
+    if (narrow) {   // 窄屏: 差额与百分比分两行, 免得相邻两组的文字打架
+      svg.push('<text x="' + cx + '" y="' + (yTop - 18) + '" text-anchor="middle" font-size="10" font-weight="600" fill="' + col + '">' + sgn(gain) + hk(gain) + '</text>');
+      svg.push('<text x="' + cx + '" y="' + (yTop - 7) + '" text-anchor="middle" font-size="9.5" fill="' + col + '">' + (pct == null ? '' : (pct > 0 ? '+' : '') + pct.toFixed(1) + '%') + '</text>');
+    } else {
+      svg.push('<text x="' + cx + '" y="' + (yTop - 8) + '" text-anchor="middle" font-size="11" font-weight="600" fill="' + col + '">' + sgn(gain) + hk(gain) + (pct == null ? '' : ' (' + (pct > 0 ? '+' : '') + pct.toFixed(1) + '%)') + '</text>');
+    }
+    svg.push('<text x="' + cx + '" y="' + (PT + ih + 16) + '" text-anchor="middle" font-size="' + (narrow ? 10.5 : 11.5) + '" font-weight="500" fill="#475569">' + esc(g.label) + '</text>');
+    if (narrow) {   // 窄屏: 数字太宽会跨组重叠 → 拆两行 + 用 k/M 缩写
+      svg.push('<text x="' + cx + '" y="' + (PT + ih + 30) + '" text-anchor="middle" font-size="9" fill="#94a3b8">市值 ' + hkShort(g.nav) + '</text>');
+      svg.push('<text x="' + cx + '" y="' + (PT + ih + 42) + '" text-anchor="middle" font-size="9" fill="#94a3b8">基准 ' + hkShort(g.cost) + '</text>');
+    } else {
+      svg.push('<text x="' + cx + '" y="' + (PT + ih + 30) + '" text-anchor="middle" font-size="9.5" fill="#94a3b8">' + hk(g.nav) + ' / ' + hk(g.cost) + '</text>');
+    }
+  });
+  svg.push('<rect x="' + PL + '" y="10" width="10" height="10" rx="2" fill="' + CUP + '" fill-opacity="0.88"/><text x="' + (PL + 15) + '" y="19" font-size="10.5" fill="#64748b">实心 = 当前市值</text>' +
+    '<rect x="' + (PL + 118) + '" y="10" width="10" height="10" rx="2" fill="#ffffff" stroke="' + CBASE + '" stroke-width="1.5"/><text x="' + (PL + 133) + '" y="19" font-size="10.5" fill="#64748b">空心 = 基准（投入成本）</text>');
+  svg.push('</svg>');
+
+  // 合计: 横向对比条 (不占柱位)
+  var tPnl = tNav - tCost, tpct = tCost > 0 ? tPnl / tCost * 100 : null;
+  var span = Math.max(tNav, tCost) || 1;
+  var pctW = Math.max(0, Math.min(100, tNav / span * 100));
+  var markPct = Math.max(0, Math.min(100, tCost / span * 100));
+  var tcol = tPnl >= 0 ? CUP : CDN;
+  var total = '<div class="acct-total">' +
+    '<div class="at-head"><b>合计</b><span class="dim">市值 <b style="color:#475569">' + hk(tNav) + '</b> ｜ 基准 <b style="color:#475569">' + hk(tCost) + '</b> ｜ 相对投入 <b style="color:' + tcol + '">' + sgn(tPnl) + hk(tPnl) + '</b>' + (tpct == null ? '' : '（' + (tpct > 0 ? '+' : '') + tpct.toFixed(1) + '%）') + '</span></div>' +
+    '<div class="at-track"><div class="at-fill" style="width:' + pctW.toFixed(2) + '%;background:' + tcol + '"></div>' +
+    '<div class="at-mark" style="left:' + markPct.toFixed(2) + '%"></div></div>' +
+    '<div class="at-scale dim">0' + '<span style="float:right">' + hk(span) + '</span></div></div>';
+
+  box.innerHTML = '<div class="ttl">账户市值 vs 基准 <span>· 合计市值 ' + hk(tNav) + '</span></div>' + total + svg.join('') +
+    '<div class="nwsub" style="margin-top:6px">每账户一根柱：<b>实心 = 当前市值</b>，<b>空心 = 基准（投入成本）</b>；实心比空心高就是高于基准，短一截就是低于基准（虚线 = 基准位置）。Blockchain(HL) 与 IBKR 的基准为美元计，切到 US$ 即为原生美元数字。</div>';
+}
 
 function accRender(s) {
   var box = document.getElementById('acc-kpis');
@@ -1808,6 +2033,8 @@ function render(s){
   document.getElementById('gen').textContent=s.generated_at.replace('T',' ')+' 更新';
   var g2=document.getElementById('gen2'); if(g2) g2.textContent=s.generated_at.replace('T',' ')+' 更新';
   document.getElementById('fx').textContent=s.fx_usdhkd;
+  if(s.fx_usdhkd) GFX.USD=Number(s.fx_usdhkd)||GFX.USD;
+  ccyApply();
   document.getElementById('c-hold').textContent=s.positions.length;
   document.getElementById('c-disc').textContent=s.discipline.filter(function(c){return !c.ok;}).length+' RED';
 
@@ -1816,11 +2043,13 @@ function render(s){
   var cashPct=cashTot/s.nav_hkd*100;
   var levLimTxt = ((s.thresholds || []).filter(function (x) { return /总敞口上限/.test(x.k); })[0] || { v: '≤ 2.00x NAV' }).v;
   var levLim = parseFloat(String(levLimTxt).replace(/[^0-9.]/g, '')) || 2;
+  var extf=(s.daily_ext_flow_hkd||0);
+  var extNote=extf?('<span class="sub2">已剔除'+(extf<0?'出金':'入金')+' '+hk(Math.abs(extf))+'</span>'):'';
   var cards=[
     {k:'净资产 NAV',v:hk(s.nav_hkd),d:'<span class="sub2">'+(s.prev_date?('vs '+s.prev_date):'成本基准 '+hk(s.cost_basis_hkd))+'</span>'},
     {k:'总敞口',v:hk(s.exposure_hkd),d:'<span class="badge '+(s.leverage>levLim?'rose':(s.leverage>1?'amber':'gray'))+
       '"><span class="dot"></span>杠杆 '+s.leverage.toFixed(2)+'x</span><span class="sub2">上限 '+levLimTxt+'</span>'},
-    {k:'今日盈亏',v:(dp==null?'—':sgn(dp)+hk(dp)),d:(dpp==null?'<span class="sub2">history 自 09-18 起累积</span>':delta(dpp,sgn(dpp)+dpp.toFixed(2)+'%')+'<span class="sub2">0 点基准 '+hk(s.prev_nav_hkd)+' ('+(s.prev_date||'')+')</span>')},
+    {k:'今日盈亏',v:(dp==null?'—':sgn(dp)+hk(dp)),d:(dpp==null?'<span class="sub2">history 自 09-18 起累积</span>':delta(dpp,sgn(dpp)+dpp.toFixed(2)+'%')+'<span class="sub2">0 点基准 '+hk(s.prev_nav_hkd)+' ('+(s.prev_date||'')+')</span>'+extNote)},
     {k:'现金',v:hk(cashTot),d:delta(cashPct-3,cashPct.toFixed(1)+'% NAV')+ '<span class="sub2">含 Blockchain 侧 '+hk(cashTot-s.cash_hkd)+' ｜ 底线 3%</span>'},
     {k:'总回报',v:sgn(ret)+ret.toFixed(2)+'%',d:'<span class="sub2">含 HL/DXBZ ｜ 成本 '+hk(s.cost_basis_hkd)+'</span>'}
   ];
@@ -1894,12 +2123,9 @@ var FIRE={p:0,m:0,r:10,w:4,s:0,age:27,ready:false,linknav:true,ccy:'HKD'};
 var FIRE_DEFAULTS={m:20000,s:360000};           // 月投 / 目标年开支 的默认参考(用户可改, 非写死)
 /* 币种换算 (工作口径): HKD 存内部, 显示时换。USD=HKD/7.82, CNY=HKD×(1/1.08) */
 var FIRE_FX={USD:7.82, CNY:1.08};               // 每 1 USD=7.82HKD, 1 CNY=1.08HKD
-function fireSym(){ return FIRE.ccy==='USD'?'US$':(FIRE.ccy==='CNY'?'¥':'HK$'); }
-function fireConv(hkd){                         // HKD(内部) -> 当前币种
-  if(FIRE.ccy==='HKD') return hkd;
-  if(FIRE.ccy==='USD') return hkd/FIRE_FX.USD;
-  return hkd/FIRE_FX.CNY;
-}
+function fireSym(){ return ccySym(); }                       // 跟随全站单位
+function fireConv(hkd){ return (Number(hkd)||0)/ccyRate(); }   // HKD(内部) -> 当前币种
+function fireToHkd(v){ return (Number(v)||0)*ccyRate(); }      // 当前币种 -> HKD(内部)
 function fireFmt(n,d){ d=(d===undefined?0:d); n=fireConv(n);
   return (n<0?'-':'')+fireSym()+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
 }
@@ -1924,24 +2150,29 @@ function fireInit(s){
   fireRenderInputs(); fireRender(); FIRE.ready=true;
 }
 function fireRenderInputs(){
-  var p=document.getElementById('fire-p');
-  if(p) p.value=Math.round(FIRE.p);
-  var m=document.getElementById('fire-m'); if(m) m.value=Math.round(FIRE.m);
+  // 输入框显示【当前币种】值 (内部存 HKD)
+  var p=document.getElementById('fire-p'); if(p) p.value=Math.round(fireConv(FIRE.p));
+  var m=document.getElementById('fire-m'); if(m) m.value=Math.round(fireConv(FIRE.m));
   var r=document.getElementById('fire-r'); if(r) r.value=FIRE.r;
   var rv=document.getElementById('fire-r-v'); if(rv) rv.textContent=FIRE.r.toFixed(1)+'%';
   var w=document.getElementById('fire-w'); if(w) w.value=FIRE.w;
   var wv=document.getElementById('fire-w-v'); if(wv) wv.textContent=FIRE.w.toFixed(1)+'%';
-  var s=document.getElementById('fire-s'); if(s) s.value=Math.round(FIRE.s);
+  var s=document.getElementById('fire-s'); if(s) s.value=Math.round(fireConv(FIRE.s));
+  // 币种标签 + 里程碑表头单位
+  var sym=fireSym();
+  ['P','M','S'].forEach(function(k){
+    var l=document.getElementById('fire-lbl'+k); if(l) l.textContent='（'+sym+'）';
+  });
 }
 function fireCards(){
   var T=fireTgt(), y=fireYear(), now=new Date().getFullYear();
   var hit=(T>0 && FIRE.p>=T);
   var cards=[
-    {k:'目标资产', v:hk(T), d:'<span class="sub2">= 年开支 '+hk(FIRE.s)+' ÷ '+FIRE.w.toFixed(0)+'%'+(FIRE.w!==4?'':'（×25）')+'</span>', bad:''},
+    {k:'目标资产', v:fireFmt(T), d:'<span class="sub2">= 年开支 '+fireFmt(FIRE.s)+' ÷ '+FIRE.w.toFixed(0)+'%'+(FIRE.w!==4?'':'（×25）')+'</span>', bad:''},
     {k:'预计达成', v:(hit?'现在':'约 '+ (now+y)+' 年'), d:'<span class="sub2">'+(hit?'当前已 ≥ 目标 🎉':'还需 '+y+' 年 · '+(FIRE.age+y)+' 岁')+'</span>',
       theClass:(hit?'up':'')},
-    {k:'名义年化', v:FIRE.r.toFixed(1)+'%', d:'<span class="sub2">定投 '+(FIRE.m>0?hk(FIRE.m)+'/月':'—')+' ｜ '+(FIRE.r/100>0?('翻倍 ≈ '+(72/FIRE.r).toFixed(1)+' 年'):'—')+'</span>'},
-    {k:'当前进度', v:(T>0?(FIRE.p/T*100).toFixed(0)+'%':'—'), d:'<span class="sub2">起点 '+(FIRE.p?hk(FIRE.p):'—')+' / '+hk(T)+'</span>', theClass:cls(FIRE.p-T)}
+    {k:'名义年化', v:FIRE.r.toFixed(1)+'%', d:'<span class="sub2">定投 '+(FIRE.m>0?fireFmt(FIRE.m)+'/月':'—')+' ｜ '+(FIRE.r/100>0?('翻倍 ≈ '+(72/FIRE.r).toFixed(1)+' 年'):'—')+'</span>'},
+    {k:'当前进度', v:(T>0?(FIRE.p/T*100).toFixed(0)+'%':'—'), d:'<span class="sub2">起点 '+(FIRE.p?fireFmt(FIRE.p):'—')+' / '+fireFmt(T)+'</span>', theClass:cls(FIRE.p-T)}
   ];
   return cards.map(function(c){return '<div class="card kpi"><div class="k">'+esc(c.k)+'</div>'+
     '<div class="v '+(c.theClass||'')+'">'+esc(String(c.v))+'</div><div class="d">'+c.d+'</div></div>';}).join('');
@@ -1957,8 +2188,8 @@ function fireMilestones(){
     var A=fireAmt(yy), reached=(T>0 && A>=T);
     return '<tr'+(reached?' style="background:var(--emf)"':'')+'><td>'+(now+yy)+'</td>'+
       '<td>'+(FIRE.age+yy)+'</td>'+
-      '<td class="'+(reached?'up':'')+'">'+(reached?'<span class="badge em" style="margin-right:6px;display:inline-flex"><span class="dot"></span>达成</span>':'')+hk(Math.round(A))+'</td>'+
-      '<td class="dim">'+(T>0?(reached?'✓':'距目标 '+hk(Math.round(Math.max(0,T-A)))):'—')+'</td></tr>';
+      '<td class="'+(reached?'up':'')+'">'+(reached?'<span class="badge em" style="margin-right:6px;display:inline-flex"><span class="dot"></span>达成</span>':'')+fireFmt(Math.round(A))+'</td>'+
+      '<td class="dim">'+(T>0?(reached?'✓':'距目标 '+fireFmt(Math.round(Math.max(0,T-A)))):'—')+'</td></tr>';
   }).join('');
   return rows;
 }
@@ -1976,7 +2207,7 @@ function fireRender(){
   // 联动模式下: 起点恒等于当前快照净资产(合并 NAV), 每次 render(含本地刷新)自动取最新
   if(FIRE.linknav && SNAP && SNAP.nav_hkd){
     FIRE.p=Math.round(SNAP.nav_hkd||0);
-    var pEl=document.getElementById('fire-p'); if(pEl && document.activeElement!==pEl) pEl.value=Math.round(FIRE.p);
+    var pEl=document.getElementById('fire-p'); if(pEl && document.activeElement!==pEl) pEl.value=Math.round(fireConv(FIRE.p));
   }
   var T=fireTgt(), y=fireYear(), now=new Date().getFullYear();
   var kpi=document.getElementById('fire-kpis');
@@ -1987,7 +2218,7 @@ function fireRender(){
   }
   var sum=document.getElementById('fire-sum');
   if(sum){
-    sum.innerHTML='目标 <b>'+hk(T)+'</b>'+' ｜ '+((T>0&&FIRE.p>=T)?'✅ 已达成 (起点 ≥ 目标)':('预估 '+(y>=0?(''+(now+y)+' 年 ('+(FIRE.age+y)+' 岁)'):'—')+' 达成 ｜ 累计需投约 <b>'+hk(Math.round(FIRE.p+FIRE.m*12*Math.max(0,y)))+'</b>'))+
+    sum.innerHTML='目标 <b>'+fireFmt(T)+'</b>'+' ｜ '+((T>0&&FIRE.p>=T)?'✅ 已达成 (起点 ≥ 目标)':('预估 '+(y>=0?(''+(now+y)+' 年 ('+(FIRE.age+y)+' 岁)'):'—')+' 达成 ｜ 累计需投约 <b>'+fireFmt(Math.round(FIRE.p+FIRE.m*12*Math.max(0,y)))+'</b>'))+
       (FIRE.r>=10?' ｜ <span class="dim">10%+ 为标普长期名义均值偏乐观，建议按 8–9% 保守复核</span>':'');
   }
   var hint=document.getElementById('fire-hint');
@@ -2010,10 +2241,18 @@ function fireNoDom(){ return !document.getElementById('fire-milestones'); }
   ids.forEach(function(id){
     var el=document.getElementById(id); if(!el) return;
     el.addEventListener('input',function(){
-      FIRE[id==='fire-p'?'p':(id==='fire-m'?'m':'s')]=Number(this.value)||0;
+      var v=Number(this.value)||0;
+      FIRE[id==='fire-p'?'p':(id==='fire-m'?'m':'s')]=fireToHkd(v);   // 输入=当前币种, 内部存HKD
       if(id==='fire-p'){ FIRE.linknav=false; var ln=document.getElementById('fire-linknav'); if(ln) ln.checked=false; }
       fireRender();
     });
+  });
+  /* 币种切换 */
+  var grp=document.getElementById('fire-ccy');
+  if(grp) grp.addEventListener('click',function(e){
+    var b=e.target && e.target.closest?e.target.closest('button'):null;
+    if(!b || !b.dataset || !b.dataset.ccy) return;
+    setCcy(b.dataset.ccy);        // 全站统一货币单位
   });
   var ln=document.getElementById('fire-linknav');
   if(ln) ln.addEventListener('change',function(){
@@ -2178,7 +2417,401 @@ function tjRender(list){
       '<div style="margin-top:8px;font-size:12.5px;line-height:1.8;color:var(--fg2)">'+n.body+'</div></div>';
   }).join('');
 }
+/* ── 净资产（全部资产口径）────────────────────────────── */
+var NW = null;
+var NWC = { rmb: '#f59e0b', hkd: '#3b82f6', usd: '#8b5cf6' };
+function nwDelta(x, prefix) {
+  var d = x.delta_hkd || 0;
+  if (d >= 0) return '<span class="nwover">' + (prefix ? prefix + ' · ' : '') + '超出 ' + hk(d) + '</span>';
+  return '<span class="nwunder">' + (prefix ? prefix + ' · ' : '') + '距目标还差 ' + hk(-d) + '</span>';
+}
+var NWD = { mode: 'actual' };
+function nwDrawDonut(d) {
+  var box = document.getElementById('nw-donut'); if (!box) return;
+  var bs = ['rmb', 'hkd', 'usd'].map(function (k) {
+    var x = (d.buckets || []).filter(function (y) { return y.key === k; })[0] || {};
+    return { key: k, label: x.label || k, color: NWC[k],
+      pct: (NWD.mode === 'target' ? x.target_pct : x.pct) || 0, tgt: x.target_pct || 0,
+      real: x.pct || 0, value_hkd: x.value_hkd || 0 };
+  });
+  var R = 78, SW = 20, C = 2 * Math.PI * R, cx = 100, cy = 100, acc = 0;
+  var segs = bs.map(function (b) {
+    var len = Math.max(0, b.pct) / 100 * C;
+    var s = '<circle class="dseg" data-k="' + b.key + '" cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="' +
+      b.color + '" stroke-width="' + SW + '" stroke-dasharray="' + len.toFixed(2) + ' ' + (C - len).toFixed(2) +
+      '" stroke-dashoffset="' + (-acc * C + C / 4).toFixed(2) + '" style="cursor:pointer"></circle>';
+    acc += Math.max(0, b.pct) / 100;
+    return s;
+  }).join('');
+  var tacc = 0, ticks = bs.map(function (b) {
+    tacc += Math.max(0, b.tgt) / 100;
+    var a = (tacc * 360 - 90) * Math.PI / 180;
+    return '<line x1="' + (cx + Math.cos(a) * (R - SW / 2 - 3)).toFixed(1) + '" y1="' + (cy + Math.sin(a) * (R - SW / 2 - 3)).toFixed(1) +
+      '" x2="' + (cx + Math.cos(a) * (R + SW / 2 + 3)).toFixed(1) + '" y2="' + (cy + Math.sin(a) * (R + SW / 2 + 3)).toFixed(1) +
+      '" stroke="#0f172a" stroke-width="2" opacity=".5"></line>';
+  }).join('');
+  box.innerHTML = '<svg class="donut" width="200" height="200" viewBox="0 0 200 200">' +
+    '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#f1f5f9" stroke-width="' + SW + '"></circle>' +
+    segs + ticks +
+    '<text id="donut-t" x="100" y="92" text-anchor="middle" font-size="11.5" fill="#6b7280">' +
+    (NWD.mode === 'target' ? '目标配置' : '全部净资产') + '</text>' +
+    '<text id="donut-v" x="100" y="118" text-anchor="middle" font-size="19" font-weight="600" fill="#111827">' +
+    (NWD.mode === 'target' ? '5 / 15 / 80' : hk(d.net_worth_hkd)) + '</text>' +
+    '<text id="donut-s" x="100" y="137" text-anchor="middle" font-size="10.5" fill="#9ca3af">' +
+    (NWD.mode === 'target' ? '人民币 · 港币 · 美元 %' : '') + '</text></svg>';
+  var svg = box.querySelector('svg');
+  [].forEach.call(svg.querySelectorAll('.dseg'), function (el) {
+    el.addEventListener('mouseenter', function () {
+      svg.classList.add('dim'); el.classList.add('hot');
+      var b = bs.filter(function (x) { return x.key === el.getAttribute('data-k'); })[0]; if (!b) return;
+      var t = svg.querySelector('#donut-t'), v = svg.querySelector('#donut-v'), s = svg.querySelector('#donut-s');
+      if (t) t.textContent = b.label;
+      if (v) v.textContent = b.real.toFixed(1) + '%';
+      if (s) s.textContent = '目标 ' + b.tgt + '% · ' + hk(b.value_hkd);
+    });
+    el.addEventListener('mouseleave', function () { nwDrawDonut(NW); });
+  });
+}
+function nwGauge(frac, color, ticks) {
+  var cx = 120, cy = 116, R = 88, SW = 15, L = Math.PI * R;
+  var d = 'M ' + (cx - R) + ' ' + cy + ' A ' + R + ' ' + R + ' 0 0 1 ' + (cx + R) + ' ' + cy;
+  var f = Math.max(0, Math.min(1, frac));
+  var t = (ticks || []).filter(function (tk) { return tk && isFinite(tk.at); }).map(function (tk) {
+    var fr = Math.max(0, Math.min(1, tk.at)), a = Math.PI + fr * Math.PI;
+    return '<line x1="' + (cx + Math.cos(a) * (R - SW / 2 - 3)).toFixed(1) + '" y1="' + (cy + Math.sin(a) * (R - SW / 2 - 3)).toFixed(1) +
+      '" x2="' + (cx + Math.cos(a) * (R + SW / 2 + 3)).toFixed(1) + '" y2="' + (cy + Math.sin(a) * (R + SW / 2 + 3)).toFixed(1) +
+      '" stroke="' + (tk.color || '#0f172a') + '" stroke-width="2" opacity=".5"></line>' +
+      '<text x="' + (cx + Math.cos(a) * (R + SW / 2 + 16)).toFixed(1) + '" y="' + (cy + Math.sin(a) * (R + SW / 2 + 16) + 4).toFixed(1) +
+      '" text-anchor="middle" font-size="10" fill="#9ca3af">' + esc(tk.text) + '</text>';
+  }).join('');
+  return '<svg width="240" height="150" viewBox="0 0 240 150">' +
+    '<path d="' + d + '" fill="none" stroke="#f1f5f9" stroke-width="' + SW + '" stroke-linecap="round"></path>' +
+    '<path d="' + d + '" fill="none" stroke="' + color + '" stroke-width="' + SW + '" stroke-linecap="round" stroke-dasharray="' +
+    (f * L).toFixed(1) + ' ' + L.toFixed(1) + '"></path>' + t + '</svg>';
+}
+function nwTrack(pct, target, color) {
+  var w = Math.max(1.5, Math.min(100, pct || 0));
+  var t = Math.min(100, Math.max(0, target || 0));
+  return '<div class="track nwt"><div class="fill" style="width:' + w.toFixed(1) + '%;background:' + color + '"></div>' +
+    '<span class="tmark" style="left:' + t.toFixed(1) + '%"></span></div>';
+}
+function nwRender() {
+  if (!NW) return;
+  if (NW.fx && NW.fx.cnyhkd) GFX.CNY = Number(NW.fx.cnyhkd) || GFX.CNY;
+  var d = NW, gen = document.getElementById('nwgen');
+  if (gen) gen.textContent = (d.as_of ? ('台账 ' + d.as_of + ' · ') : '') + (d.generated_at || '').replace('T', ' ') + ' 重算';
+  var b = {}; (d.buckets || []).forEach(function (x) { b[x.key] = x; });
+  var cash = d.cash || {}, sp = d.surplus || { plan: [] };
+  var ACCS = d.accounts || [];
+  function sumBy(f) { return ACCS.filter(f).reduce(function (s, a) { return s + a.value_hkd; }, 0); }
+  var bankParts = ACCS.filter(function (a) { return a.cash && !a.mpf && a.key !== 'sec_cash'; });
+  var bankCash = bankParts.reduce(function (s, a) { return s + a.value_hkd; }, 0);
+  var secCash = sumBy(function (a) { return a.key === 'sec_cash'; });
+  var liabParts = ACCS.filter(function (a) { return a.liability; });
+  var alipay = sumBy(function (a) { return a.group === 'rmb' && !a.liability; });
+  var liab = -sumBy(function (a) { return a.liability; });
+  var mpf = sumBy(function (a) { return a.mpf; });
+  function parts(list, max) {
+    var s = list.slice().sort(function (a, c) { return Math.abs(c.value_hkd) - Math.abs(a.value_hkd); });
+    var head = max ? s.slice(0, max) : s;
+    var txt = head.map(function (a) {
+      // 括号内的「港币」保留（如 信用卡欠款（港币））；只压缩作为独立限定词的「 港币 」（如 HSBC One 港币活期）。
+      var lbl = a.label.replace(/（港币）|\(港币\)/g, '\u0001')
+                       .replace(/\s*港币\s*/g, ' ')
+                       .replace(/\u0001/g, '（港币）')
+                       .replace(/\s{2,}/g, ' ').trim();
+      return esc(lbl) + ' ' + hk(a.value_hkd);
+    }).join(' ＋ ');
+    if (max && s.length > max) txt += ' 等 ' + s.length + ' 笔';
+    return txt || '—';
+  }
+
+  var cards = [
+    { k: '全部净资产', v: hk(d.net_worth_hkd), d: '<span class="sub2">可配置 ' + hk(d.alloc_base_hkd) + (mpf ? (' ＋ 強積金 ' + hk(mpf) + '（不计入配置）') : '') + '</span>' },
+    { k: '信用卡负债（待还）', v: hk(liab), d: '<span class="sub2">' + parts(liabParts, 3) + '</span>' },
+    { k: '银行现金', v: hk(bankCash + secCash), d: '<span class="sub2">' + (parts(bankParts, 3) + ' ＋ 券商现金 ' + hk(secCash)) + '</span>' },
+    { k: '強積金 MPF', v: hk(mpf), d: '<span class="sub2">' + (parts(ACCS.filter(function (a) { return a.mpf; }), 2)) + ' · 计入净资产，不计入配置比例</span>' },
+    { k: '人民币资产', v: hk(b.rmb.value_hkd) + ' · ' + b.rmb.pct.toFixed(1) + '%', d: nwDelta(b.rmb, '目标 ' + b.rmb.target_pct + '%') },
+    { k: '港币资产', v: hk(b.hkd.value_hkd) + ' · ' + b.hkd.pct.toFixed(1) + '%', d: nwDelta(b.hkd, '目标 ' + b.hkd.target_pct + '%') },
+    { k: '美元资产', v: hk(b.usd.value_hkd) + ' · ' + b.usd.pct.toFixed(1) + '%', d: nwDelta(b.usd, '目标 ' + b.usd.target_pct + '%') }
+  ];
+  document.getElementById('nw-kpis').innerHTML = cards.map(function (c) {
+    return '<div class="card kpi"><div class="k">' + esc(c.k) + '</div><div class="v">' + esc(c.v) + '</div><div class="d">' + c.d + '</div></div>';
+  }).join('');
+
+  document.getElementById('nw-buckets').innerHTML = ['rmb', 'hkd', 'usd'].map(function (k) {
+    var x = b[k], col = NWC[k];
+    return '<div class="bl"><div class="top"><span class="nm">' + esc(x.label) + '</span>' +
+      '<span class="pc">' + hk(x.value_hkd) + ' · ' + x.pct.toFixed(1) + '%</span></div>' +
+      nwTrack(x.pct, x.target_pct, col) +
+      '<div class="nwsub">目标 ' + x.target_pct + '% （' + hk(x.target_hkd) + '）· ' + nwDelta(x, '') + '</div></div>';
+  }).join('');
+
+  nwDrawDonut(d);
+  var mb = document.getElementById('nw-mode');
+  if (mb && !mb.__bound) {
+    mb.__bound = true;
+    mb.addEventListener('click', function (e) {
+      var t = e.target, b = (t && t.closest) ? t.closest('button') : null; if (!b) return;
+      NWD.mode = b.getAttribute('data-m') || 'actual';
+      [].forEach.call(mb.querySelectorAll('button'), function (x) {
+        x.className = 'btn' + (x.getAttribute('data-m') === NWD.mode ? ' primary' : '');
+      });
+      nwDrawDonut(NW);
+    });
+  }
+
+  // ── 再配置前的两步: ① 还信用卡 ② 留够现金储备 → 剩下的(旧钱+新钱)才可以配置
+  var po = d.payoff;
+  if (po) {
+    var cardRows = (po.cards || []).map(function (c) {
+      var lb = c.label.replace(/\s*欠款/g, '').replace(/^中银香港/, '中银')
+        .replace(/（港币）/, '·港').replace(/（人民币）/, '·¥');
+      return esc(lb) + ' ' + hk(c.value_hkd) +
+        (c.due ? '<span style="color:#9ca3af">（' + esc(c.due.slice(5)) + '）</span>' : '');
+    }).join(' · ');
+    var step1 = '<div class="pfstep ' + (po.card_total_hkd > 0 ? 'warn' : 'done') + '"><span class="pfno">1</span><div class="pfb">' +
+      '<div class="pft"><span>先还信用卡</span><span class="pc nwneg">' + hk(po.card_total_hkd) + '</span></div>' +
+      '<div class="nwsub">' + cardRows + '</div>' +
+      '<div class="pfrow"><span>现金池 ' + hk(po.cash_pool_hkd) + ' − 还卡 ' + hk(po.card_total_hkd) + '</span><b>= ' + hk(po.after_pay_hkd) + '</b></div>' +
+      (po.next_due ? '<div class="pfrow"><span>最近到期</span><b>' + esc(po.next_due) + '</b></div>' : '') +
+      '</div></div>';
+    var step2 = '<div class="pfstep ' + (po.reserve_ok ? 'done' : 'warn') + '"><span class="pfno">2</span><div class="pfb">' +
+      '<div class="pft"><span>留够现金储备</span><span class="' + (po.reserve_ok ? 'nwunder' : 'nwover') + '">' +
+      (po.reserve_ok ? '已满足 ✓' : ('不足 ' + hk(po.reserve_short_hkd))) + '</span></div>' +
+      '<div class="pfrow"><span>下限 ' + ((d.targets || {}).cash_pct) + '% × 全部净资产</span><b>' + hk(po.reserve_min_hkd) + '</b></div>' +
+      '<div class="pfrow"><span>上限（硬顶）</span><b>' + hk(po.reserve_cap_hkd) + '</b></div>' +
+      '<div class="pfrow"><span>还卡后现金 ' + hk(po.after_pay_hkd) + '，按规则保留</span><b>' + hk(po.keep_cash_hkd) + '</b></div>' +
+      '</div></div>';
+    var step3 = '<div class="pfstep done"><span class="pfno">3</span><div class="pfb">' +
+      '<div class="pft"><span>剩下全部可投入配置</span><span class="pc">' + hk(po.available_hkd) + '</span></div>' +
+      '<div class="pfrow"><span>原有（还卡 + 留现金后剩）</span><b>' + hk(po.free_old_hkd) + '</b></div>' +
+      '<div class="pfrow"><span>本月新进（工资结余）</span><b>' + hk(po.new_money_hkd) + '</b></div>' +
+      '<div class="pfrow"><span>配置分母（剔除 MPF）</span><b>' + hk(po.post_alloc_base_hkd) + '</b></div>' +
+      '<div class="nwsub" style="margin-top:8px">' + (po.gaps || []).map(function (g) {
+        return esc(g.label) + ' ' + (g.gap_hkd > 0.5 ? ('缺 ' + hk(g.gap_hkd)) : '已达标');
+      }).join(' · ') + '</div></div></div>';
+    var staleBox = (po.stale_labels && po.stale_labels.length)
+      ? '<div class="callout amber" style="margin-top:12px"><span class="bar"></span><div>余额待更新（' +
+        esc(po.stale_labels.join(' / ')) + '）：' + esc(po.stale_note || '') + '</div></div>'
+      : '';
+    document.getElementById('nw-payoff').innerHTML = step1 + step2 + step3 + staleBox;
+  }
+
+  // 账户分解: 用户口径 = IBKR / CSCI / Hyperliquid·加密 / 支付宝 / DX (+ 银行 / 负债 / MPF)
+  var grps = (d.account_groups || []).filter(function (a) { return Math.abs(a.value_hkd) > 0.5; })
+    .slice().sort(function (a, c) { return Math.abs(c.value_hkd) - Math.abs(a.value_hkd); });
+  var mx = Math.max.apply(null, grps.map(function (a) { return Math.abs(a.value_hkd); }).concat([1]));
+  document.getElementById('nw-accts').innerHTML = grps.map(function (a) {
+    var neg = a.value_hkd < 0, sub = (a.items || []);
+    var subs = (sub.length > 1 || (sub[0] && sub[0].value_hkd !== a.value_hkd))
+      ? sub.map(function (it) {
+        return esc(it.label) + ' ' + (it.recorded === false ? '<span class="nwover">待录入</span>' : hk(it.value_hkd));
+      }).join(' · ') : '';
+    return '<div class="bl"><div class="top"><span class="nm">' + esc(a.label) + '</span>' +
+      '<span class="pc ' + (neg ? 'nwneg' : '') + '">' + hk(a.value_hkd) + '</span></div>' +
+      '<div class="track"><div class="fill" style="width:' + Math.max(1.5, Math.abs(a.value_hkd) / mx * 100).toFixed(1) +
+      '%;background:' + (neg ? '#f43f5e' : (NWC[a.group] || '#94a3b8')) + '"></div></div>' +
+      (subs ? '<div class="nwsub">' + subs + '</div>' : '') + '</div>';
+  }).join('') || '<div class="dim">—</div>';
+
+  var over = cash.over_cap;
+  var scaleMax = Math.max(30, Math.ceil((cash.pct || 0) / 5) * 5);
+  var capPct = d.alloc_base_hkd ? (cash.cap_hkd / d.alloc_base_hkd * 100) : 0;
+  document.getElementById('nw-cash').innerHTML =
+    '<div class="ttl">现金储备 <span>· 目标 ' + cash.target_pct + '% 且 ≤ ' + hk(cash.cap_hkd) + '</span></div>' +
+    '<div class="nw-gauge">' + nwGauge(cash.pct / scaleMax, over ? '#f43f5e' : '#10b981',
+      [{ at: cash.target_pct / scaleMax, text: '目标 ' + cash.target_pct + '%' },
+       { at: capPct / scaleMax, text: '上限 ' + hk(cash.cap_hkd).replace(ccySym(), '') }]) + '</div>' +
+    '<div style="text-align:center"><span class="nwbig">' + hk(cash.value_hkd) + '</span> <span class="sub2" style="font-size:13px">= 净资产的 ' + cash.pct.toFixed(1) + '%</span></div>' +
+    '<div class="nwsub" style="text-align:center;margin-top:10px">目标 ' + cash.target_pct + '% ＝ ' + hk(cash.target_hkd) +
+    '　｜　上限 ' + hk(cash.cap_hkd) + '　｜　<span class="' + (over ? 'nwover' : 'nwunder') + '">' +
+    (over ? ('超出上限 ' + hk(cash.value_hkd - cash.cap_hkd)) : ('还可放 ' + hk(cash.cap_hkd - cash.value_hkd))) + '</span></div>' +
+    '<div class="nwsub" style="margin-top:12px">' + ((cash.parts || []).filter(function (p) { return Math.abs(p.value_hkd) > 0.5; }).map(function (p) {
+      return esc(p.label) + ' ' + hk(p.value_hkd);
+    }).join(' ＋ ') || '—') + (d.sec_cash_adjust_hkd ? '（券商现金已扣 2026-10-12 转出 ' + hk(-d.sec_cash_adjust_hkd) + '）' : '') + '</div>' +
+    ((d.missing && d.missing.length) ? '<div class="callout amber" style="margin-top:12px"><span class="bar"></span><div>尚未录入：<b>' +
+      esc(d.missing.join('、')) + '</b>（每月 20 日截图更新，当前按 0 计入）</div></div>' : '');
+
+  var rows = (sp.plan || []);
+  document.getElementById('nw-plan').innerHTML =
+    '<div class="ttl">本月结余分配建议 <span>· 结余 ' + hk(sp.monthly_hkd) + '</span></div>' +
+    '<div class="nwsub" style="margin-bottom:12px">金额按<b>目的地货币</b>给并取整到 100：美股 → <b>US$</b>、港股 → <b>HK$</b>、支付宝 → <b>¥</b>。先补低于目标的桶，其余归默认桶；人民币现金超上限（¥10,000）时提示转黄金。执行完成后在该条后打勾（IBKR 美元余额增加对应金额即视为完成）。<b>MPF 供款 HK$5,000/月为银行自动扣款（无需手动操作）</b>，美股/IBKR 每月投入上限 <b>US$2,500</b>。仅为数字口径，非投资建议。</div>' +
+    (rows.length ? '<table><thead><tr><th>方向</th><th>金额</th><th style="text-align:left">说明</th></tr></thead><tbody>' +
+      rows.map(function (p) {
+        var main = p.amount_ccy_str || hk(p.amount_hkd);
+        return '<tr><td>' + esc(p.label) + (p.done ? ' <span style="color:#22c55e;font-weight:700">✓ 已完成' + (p.done_at ? '（' + esc(p.done_at) + '）' : '') + '</span>' : '') +
+          '</td><td style="font-weight:600">' + esc(main) + '<div class="dim" style="font-weight:400">' + hk(p.amount_hkd) + '</div></td>' +
+          '<td class="dim" style="text-align:left">' + esc(p.note) + '</td></tr>';
+      }).join('') + '</tbody></table>'
+      : '<div class="dim">—</div>');
+
+  var cl2 = d.checklist;
+  if (cl2) {
+    var pg = document.getElementById('nw-cl-prog');
+    if (pg) pg.textContent = cl2.done + ' / ' + cl2.total + (cl2.due ? (' · ' + cl2.due + ' 前完成') : '');
+    var box = document.getElementById('nw-checklist');
+    if (box) box.innerHTML =
+      '<div class="nwsub" style="margin-bottom:12px">' + esc(cl2.note || '') +
+      '　每发来一个银行/户口，我就识别入库并在这里勾一个。</div>' +
+      '<div class="clchips">' + (cl2.items || []).map(function (it) {
+        return '<span class="clchip ' + (it.done ? 'ok' : 'todo') + '">' + (it.done ? '✓' : '○') + ' ' + esc(it.label) +
+          (it.done && it.as_of ? '<b>' + esc(String(it.as_of).slice(5)) + '</b>' : '') + '</span>';
+      }).join('') + '</div>';
+  }
+
+  var fn = document.getElementById('nw-fxnote');
+  if (fn && d.fx) fn.innerHTML = '当前换算：USD/HKD ' + d.fx.usdhkd + ' · USD/CNY ' + d.fx.usdcny + '（¥1 = HK$' + d.fx.cnyhkd + '）'
+    + (d.xau && d.xau.usd_per_toz ? (' · XAU/USD ' + d.xau.usd_per_toz.toLocaleString('en-US') + '/toz') : '');
+  var xn = document.getElementById('nw-xaunote');
+  if (xn && d.xau) xn.textContent = d.xau.toz_total + ' toz × US$' + d.xau.usd_per_toz.toLocaleString('en-US') + '/toz';
+}
+
+/* ── 净资产月度折线图 (2026-10-13 新增) ──
+   数据 = networth_history.json：每个月一个点（键 YYYY-MM），每月 30 号由 networth_snapshot.py 落点，
+   首点 = 开始记录的那个月。只有 1 个点也照画（单点 + 虚线基准），不显示「数据不足」。 */
+var NWH = null, _nwhUid = 0;
+function nwhTick(v) {
+  var a = Math.abs(Number(v) || 0) / ccyRate(), s = (Number(v) < 0) ? '-' : '';
+  if (a >= 1e6) return s + (a / 1e6).toFixed(2) + 'M';
+  if (a >= 1000) return s + (a / 1000).toFixed(0) + 'k';
+  return s + a.toFixed(0);
+}
+function nwhFmt(v, d) {
+  var x = Number(v) || 0;
+  return (x < 0 ? '-' : '') + ccySym() + Math.abs(x / ccyRate()).toLocaleString('en-US', { maximumFractionDigits: (d === undefined ? 0 : d) });
+}
+function nwhRender() {
+  var box = document.getElementById('nw-hist'); if (!box) return;
+  var pts = (NWH && NWH.points) || [];
+  if (!pts.length) {
+    box.innerHTML = '<div class="dim" style="padding:22px;text-align:center;font-size:12.5px">' +
+      '还没有净资产记录点 —— 每月 30 号自动记一个点（从现在开始累计）。</div>';
+    return;
+  }
+  var vs = pts.map(function (p) { return Number(p.net_worth_hkd) || 0; });
+  var first = vs[0], last = vs[vs.length - 1], chg = last - first;
+  var pct = first ? (chg / first * 100) : 0, up = chg >= 0, col = up ? '#10b981' : '#f43f5e';
+  var W = Math.max(300, Math.round(box.clientWidth || 860)), narrow = W < 560;
+  var H = Math.max(180, Math.round(Math.min(272, W * 0.30)));
+  var PL = narrow ? 46 : 56, PR = narrow ? 44 : 56, PT = 24, PB = narrow ? 24 : 28;
+  var lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs);
+  var pad = Math.max((hi - lo) * 0.18, Math.abs(last) * 0.004, 1);
+  var y0v = lo - pad, y1v = hi + pad, span = y1v - y0v || 1;
+  var X = function (i) { return pts.length < 2 ? (PL + (W - PL - PR) / 2) : PL + (W - PL - PR) * (i / (pts.length - 1)); };
+  var Y = function (v) { return PT + (H - PT - PB) * (1 - ((Number(v) || 0) - y0v) / span); };
+  var uid = 'nh' + (_nwhUid++), defs = '', body = '', mth = [];
+
+  [1, 0.5, 0, -0.5, -1].forEach(function (f) {
+    var v = (y0v + y1v) / 2 + span / 2 * f, y = Y(v).toFixed(1);
+    body += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + y + '" y2="' + y + '" stroke="#f1f5f9" stroke-width="1"/>' +
+      '<text x="' + (PL - 7) + '" y="' + (Number(y) + 3.5) + '" text-anchor="end" font-size="10" fill="#94a3b8">' + esc(nwhTick(v)) + '</text>';
+  });
+  body += '<text x="' + (PL - 7) + '" y="' + (PT - 8) + '" text-anchor="end" font-size="10" fill="#cbd5e1">' + ccySym() + '</text>';
+  // 虚线基准 = 首个记录点
+  var yF = Y(first).toFixed(1);
+  body += '<line x1="' + PL + '" x2="' + (W - PR) + '" y1="' + yF + '" y2="' + yF + '" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 3"/>' +
+    '<text x="' + (W - PR + 6) + '" y="' + (Number(yF) + 3.5) + '" font-size="10" fill="#94a3b8">基准</text>';
+
+  // 折线 + 面积 (正绿负红, 相对首点)
+  var d = '', n = 0;
+  pts.forEach(function (p, i) {
+    d += (n ? ' L' : ' M') + X(i).toFixed(1) + ' ' + Y(p.net_worth_hkd).toFixed(1); n++;
+  });
+  if (pts.length >= 2) {
+    defs += '<clipPath id="' + uid + '-up"><rect x="0" y="0" width="' + W + '" height="' + yF + '"/></clipPath>' +
+      '<clipPath id="' + uid + '-dn"><rect x="0" y="' + yF + '" width="' + W + '" height="' + (H - yF) + '"/></clipPath>';
+    var area = d.trim() + ' L' + X(pts.length - 1).toFixed(1) + ' ' + yF + ' L' + X(0).toFixed(1) + ' ' + yF + ' Z';
+    body += '<path d="' + area + '" fill="#10b981" fill-opacity="0.14" clip-path="url(#' + uid + '-up)"/>' +
+      '<path d="' + area + '" fill="#f43f5e" fill-opacity="0.14" clip-path="url(#' + uid + '-dn)"/>';
+  }
+  body += '<path d="' + d.trim() + '" fill="none" stroke="' + col + '" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>';
+  pts.forEach(function (p, i) {
+    body += '<circle cx="' + X(i).toFixed(1) + '" cy="' + Y(p.net_worth_hkd).toFixed(1) + '" r="3.2" fill="#fff" stroke="' + col + '" stroke-width="1.8"/>';
+  });
+  // 光标
+  body += '<g id="' + uid + '-cross" style="display:none">' +
+    '<line x1="0" x2="0" y1="' + PT + '" y2="' + (H - PB) + '" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>' +
+    '<circle r="3.6" fill="' + col + '" stroke="#fff" stroke-width="1.4"/></g>';
+  // X 轴: 首/末两个月份 + 中间均匀取样(点少时全给)
+  var lab = pts.length <= 6 ? pts.map(function (p, i) { return i; }) : [0, Math.round((pts.length - 1) / 2), pts.length - 1];
+  lab.forEach(function (i, k) {
+    var anchor = (k === 0 && lab.length > 1) ? 'start' : (i === pts.length - 1 ? 'end' : 'middle');
+    body += '<text x="' + X(i).toFixed(1) + '" y="' + (H - 7) + '" text-anchor="' + anchor + '" font-size="10" fill="#94a3b8">' + esc(pts[i].month) + '</text>';
+  });
+
+  var badge = document.getElementById('nw-hist-badge');
+  if (badge) badge.textContent = pts.length + ' 个点 · 每月 30 号记录';
+  var legend = '<span class="badge gray" style="box-shadow:inset 0 0 0 1px ' + col + '55"><span class="dot" style="background:' + col + '"></span>' +
+    '全部净资产 <b style="margin-left:2px">' + esc(nwhFmt(last)) + '</b></span>' +
+    (pts.length >= 2
+      ? '<span class="dim" style="font-size:11.5px">较首点（' + esc(pts[0].month) + '）<b style="color:' + (up ? '#047857' : '#be123c') + '">' +
+        sgn(chg) + esc(nwhFmt(chg)) + ' · ' + sgn(pct) + pct.toFixed(2) + '%</b></span>'
+      : '<span class="dim" style="font-size:11.5px">开始记录的第 1 个月 · 每月 30 号追加一个点，下个月起就有曲线</span>') +
+    '<span class="dim" style="font-size:11.5px">' + esc(pts[pts.length - 1].month) + ' 记录 · ' + esc(pts[pts.length - 1].date || '') + '</span>';
+
+  box.innerHTML = '<div id="' + uid + '-wrap" style="position:relative">' +
+    '<div style="margin-bottom:6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center">' + legend + '</div>' +
+    '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" style="display:block;cursor:crosshair">' + defs + body + '</svg>' +
+    '<div id="' + uid + '-tip" style="position:absolute;display:none;pointer-events:none;background:#0f172a;color:#f8fafc;' +
+    'border-radius:7px;padding:6px 9px;font-size:11.5px;line-height:1.6;white-space:nowrap;z-index:5;box-shadow:0 6px 18px rgba(15,23,42,.18)"></div></div>';
+
+  var wrap = document.getElementById(uid + '-wrap'), svg = wrap.querySelector('svg');
+  var cross = document.getElementById(uid + '-cross'), tip = document.getElementById(uid + '-tip');
+  function show(i, px, py, rw) {
+    var p = pts[i], x = X(i);
+    cross.style.display = '';
+    var ln = cross.querySelector('line'), cs = cross.querySelectorAll('circle');
+    ln.setAttribute('x1', x); ln.setAttribute('x2', x);
+    cs[0].setAttribute('cx', x); cs[0].setAttribute('cy', Y(p.net_worth_hkd));
+    var dv = (Number(p.net_worth_hkd) || 0) - first, dp = first ? dv / first * 100 : 0;
+    tip.style.display = '';
+    tip.innerHTML = '<b>' + esc(p.month) + '</b> <span style="color:#94a3b8">(' + esc(p.date || '') + ')</span><br>' +
+      '<span style="color:#94a3b8">全部净资产</span> <b>' + esc(nwhFmt(p.net_worth_hkd)) + '</b><br>' +
+      '<span style="color:#94a3b8">较首点</span> <b style="color:' + (dv >= 0 ? '#34d399' : '#fb7185') + '">' + sgn(dv) + esc(nwhFmt(dv)) + ' · ' + sgn(dp) + dp.toFixed(2) + '%</b><br>' +
+      '<span style="color:#94a3b8">可配置净资产</span> ' + esc(nwhFmt(p.alloc_base_hkd)) + '<br>' +
+      '<span style="color:#94a3b8">強積金 MPF</span> ' + esc(nwhFmt(p.mpf_hkd)) + '<br>' +
+      '<span style="color:#94a3b8">现金</span> ' + esc(nwhFmt(p.cash_hkd)) + '　<span style="color:#94a3b8">负债</span> ' + esc(nwhFmt(p.liabilities_hkd));
+    var tw = tip.offsetWidth, th = tip.offsetHeight, left = px + 12, top = py - th - 8;
+    if (left + tw > rw - 2) left = px - tw - 12;
+    if (top < 0) top = py + 12;
+    tip.style.left = Math.max(2, left) + 'px'; tip.style.top = Math.max(2, top) + 'px';
+  }
+  function hide() { cross.style.display = 'none'; tip.style.display = 'none'; }
+  function at(clientX, clientY) {
+    var r = svg.getBoundingClientRect();
+    var vx = (clientX - r.left) * (W / r.width);
+    var step = pts.length < 2 ? 1 : (W - PL - PR) / (pts.length - 1);
+    var i = Math.max(0, Math.min(pts.length - 1, Math.round((vx - PL) / step)));
+    show(i, clientX - r.left, clientY - r.top, r.width);
+  }
+  svg.addEventListener('mousemove', function (e) { at(e.clientX, e.clientY); });
+  svg.addEventListener('mouseleave', hide);
+  svg.addEventListener('touchstart', function (e) { if (e.touches[0]) { at(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  svg.addEventListener('touchmove', function (e) { if (e.touches[0]) { at(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  svg.addEventListener('touchend', hide);
+}
+
+// 仅按当前数据重渲染 (切换显示货币时用, 不重新 fetch)
+function rerenderAll(){
+  try { if (SNAP) render(SNAP); } catch (e) {}
+  try { if (NW) nwRender(); } catch (e) {}
+  try { if (NWH) nwhRender(); } catch (e) {}
+  try { if (RESIS && RESIS.length) resRender(); } catch (e) {}
+  try { if (NOTES && NOTES.length) ntRender(); } catch (e) {}
+  try { if (NVS.series && NVS.series.length) nvInit(); } catch (e) {}
+  try { fireRenderInputs(); fireRender(); } catch (e) {}
+}
+
 function loadAll(){
+  // 净资产 / 配置目标 (封面, 独立文件)
+  fetch('networth.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    NW = d; nwRender();
+  }).catch(function () { });
+  // 净资产月度曲线 (每月 30 号一个点, 首点 2026-10)
+  fetch('networth_history.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    NWH = (d && d.points) ? d : null; nwhRender();
+  }).catch(function () { });
   // 阻力位/支撑位分析 (决策 tab 独立文件)
   fetch('resistance.json?t='+Date.now()).then(function(r){return r.json();}).then(function(d){
     RESIS=d.items||[]; resRender();
@@ -2193,7 +2826,7 @@ function loadAll(){
   fetch('snapshot.json?t='+Date.now()).then(function(r){return r.json();}).then(function(s){
     render(s);
     var v=location.hash.slice(1); if(!v){ try{ v=localStorage.getItem('cockpit.view'); }catch(e){} }
-    showView(v||'cockpit');
+    showView(v||'networth');
   }).catch(function(e){document.getElementById('gen').textContent='数据加载失败: '+e;});
 
   // 逐仓缓冲距离序列 (Risk 已下线, 不再加载)
@@ -2217,6 +2850,8 @@ window.addEventListener('resize', function () {
   if (_rzT) clearTimeout(_rzT);
   _rzT = setTimeout(function () {
     if (NVS.series && NVS.series.length) nvInit();
+    acctBarsRender();
+    if (NWH) nwhRender();
     if (HDS.series && HDS.series.length) rkChart();
   }, 180);
 });
@@ -2240,6 +2875,7 @@ function bootRefresh(){
     if(b && !_refreshed){ b.className='badge gray'; b.innerHTML='<span class="dot"></span>静态模式 · 只读 (cron 每 10 分钟更新)'; }
   });
 }
+FIRE.ccy = CCY; ccyApply(); try { fireRenderInputs(); } catch (e) {}
 bootRefresh();</script>
 </body>
 </html>
